@@ -1,0 +1,50 @@
+{
+  "name": "disinterest",
+  "version": "1.0.0",
+  "description": "A Pinterest clone of the world's most uninteresting topics",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch client/src/assets/styles/input.scss:client/src/assets/styles/output.css",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "devs": "concurrently \"npm run dev\" \"npm run sass\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stkterry/disinterest.git"
+  },
+  "keywords": [
+    "pinterest",
+    "javascript",
+    "web",
+    "app",
+    "web",
+    "app",
+    "mongodb",
+    "express",
+    "React",
+    "docker",
+    "graphql",
+    "apollo"
+  ],
+  "author": "stkterry, unionky, WarnerMichaelJ",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/stkterry/disinterest/issues"
+  },
+  "homepage": "https://github.com/stkterry/disinterest#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.7",
+    "nodemon": "^1.19.1",
+    "validator": "^11.1.0"
+  }
+}

@@ -42,12 +42,12 @@ A Pinterest clone of the world's most uninteresting topics
 
 ## Work Breakdown
 ### Friday, July 26th
-* Wiki - all
-* Skeleton - all
-* Authentication - all
-  - Server models and schema for users
-  - Validations for users
-  - Auth services
+* [ ] Wiki - all
+* [x] Skeleton - all
+* [x] Authentication - all
+  * [x] Server models and schema for users
+  * [x] Validations for users
+  * [x] Auth services
 
 ### Saturday, July 27th
 * Backend Setup (bins, pins) - Steven
@@ -99,8 +99,8 @@ A Pinterest clone of the world's most uninteresting topics
 
 
 ### Thursday, August 1st
-* Profile
-* Styling - all
+* Reserve Day - All
+  - Free day to account for the unexpected
 
 ### Friday, August 2nd
 * Finish any remaining features/styling - all
