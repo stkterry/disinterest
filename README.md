@@ -47,6 +47,16 @@ A Pinterest clone of the world's most uninteresting topics
 * Authentication - all
 * Basic splash page - all
 
+### Saturday, July 27th
+* Moral Support - Charles
+* Backend Setup (bins, pins) - Steven
+* Profile, Profile CSS - Mike
+
+### Sunday, July 28th
+* Moral Support - Charles
+* Global CSS - Steven
+* Navigation - Mike
+
 ### Monday, July 29th
 * Initial seeds for bins/pins - Michael
 * Pins index page - Steven
@@ -57,12 +67,13 @@ A Pinterest clone of the world's most uninteresting topics
 * Comments - Charles
 * Styling - Michael
 
-### Wednesday, July 31th
+### Wednesday, July 31st
 * AWS image hosting - Michael
 * Seeding - Charles
 * Styling - Steven
 
 ### Thursday, August 1st
+* Profile
 * Styling - all
 
 ### Friday, August 2nd
