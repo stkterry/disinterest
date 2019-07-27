@@ -24,8 +24,18 @@ class UserProfile extends React.Component {
             <i className="fas fa-upload"></i>
           </div>
           <div className="user-profile">
-            <h2 >User Full Name</h2>
+            <h2 className="user-full-name">User Full Name</h2>
+            <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
           </div>
+          <div className="bins-pins-options-bar">
+            <div>Bins</div>
+            <div>Pins</div>
+          </div>
+        </div>
+        
+        <i id="default-profile-image" className="fas fa-user-circle"></i>
+        <div className="bin-index-standin-box">
+
         </div>
       </div>
     )
