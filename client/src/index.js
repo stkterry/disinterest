@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom';
 import './assets/styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { HashRouter } from "react-router-dom";
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
@@ -33,7 +34,9 @@ const client = new ApolloClient({
 
 const Root = () => (
   <ApolloProvider client={client}>
-    <App />
+    <HashRouter>
+     <App />
+    </HashRouter>
   </ApolloProvider>
 );
 
