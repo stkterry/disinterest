@@ -98,6 +98,7 @@ a {
   display: flex;
   margin: 8px;
   vertical-align: middle;
+  border-left: 2px solid #efefef;
 }
 
 .navbar i {

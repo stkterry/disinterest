@@ -1,0 +1,18 @@
+
+.options-and-user-profile {
+  padding-left: 22%;
+  width: 100vw;
+}
+
+.options-bar-above-profile {
+  display: flex;
+  width: 135px;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+/* .user-profile {
+  padding-left: 22%;
+  width: 200px;
+} */
