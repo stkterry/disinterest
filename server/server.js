@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const expressGraphQL = require("express-graphql");
+const cors = require("cors");
 
 const models = require("./models/index");
 const schema = require("./schema/schema");
@@ -17,6 +18,8 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
+app.use(cors());
+  
 app.use(
   "/graphql",
   expressGraphQL({
