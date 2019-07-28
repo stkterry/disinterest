@@ -2,7 +2,7 @@ import React from "react";
 // import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
 import "../../assets/styles/profile.css";
-
+import CreateBoardOrPin from "./createBoardOrPinDropdown";
 // import Queries from "../graphql/queries";
 // const { IS_LOGGED_IN } = Queries;
 
@@ -13,13 +13,15 @@ class UserProfile extends React.Component {
     this.state = {};
   }
 
+  
+
   render() {
     return (
       <div>
         <div className="options-and-user-profile">
 
           <div className="options-bar-above-profile">
-            <i className="fas fa-plus"></i>
+            <CreateBoardOrPin />
             <i className="fas fa-pencil-alt"></i>
             <i className="fas fa-upload"></i>
           </div>
@@ -30,6 +32,7 @@ class UserProfile extends React.Component {
           <div className="bins-pins-options-bar">
             <div>Bins</div>
             <div>Pins</div>
+            <div>Topics</div>
           </div>
         </div>
         

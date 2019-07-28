@@ -72,3 +72,25 @@
   right: 22vw;
   z-index: -1;
 }
+
+.bin-or-pin-dropdown {
+  position: absolute;
+  border-radius: 4px;
+
+}
+
+.bin-or-pin-dropdown > div {
+  width: 210px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: center; 
+  border: solid lightgray 1px;
+  font-weight: bold;
+  background: white;
+  padding-left: 20px
+}
+
+.bin-or-pin-dropdown > div:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
