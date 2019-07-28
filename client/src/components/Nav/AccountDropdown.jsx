@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class AccountDropdown extends React.Component {
 
@@ -36,11 +37,15 @@ class AccountDropdown extends React.Component {
     if (this.state.open) {
       return (
         <div>
-          <i className="fas fa-ellipsis-h" onClick={this.handleClose}></i>
+          <i className="fas fa-ellipsis-h" onClick={this.handleClose} style={{color: 'black'}}></i>
           <div className="account-dropdown">
-            <div>Edit Settings</div>
-            <div>Request A Feature</div>
-            <div>Log Out</div>
+
+            <div onClick={() => this.props.history.push("/userprofile")}>User profile</div>
+            <div>Add a free busines profile</div>
+            <div>Request a feature</div>
+            <div>See terms and privacy</div>
+            <div>Add account</div>
+            <div>Log out</div>
           </div>
         </div>
       );
@@ -53,4 +58,4 @@ class AccountDropdown extends React.Component {
 
 }
 
-export default AccountDropdown;
+export default withRouter(AccountDropdown);
