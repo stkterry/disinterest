@@ -2,7 +2,7 @@ import React from "react";
 // import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
 import "../../assets/styles/profile.css";
-import CreateBoardOrPin from "./createBoardOrPinDropdown";
+import CreateBoardOrPin from "./CreateBoardOrPinDropdown";
 // import Queries from "../graphql/queries";
 // const { IS_LOGGED_IN } = Queries;
 
