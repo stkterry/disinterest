@@ -1,7 +1,8 @@
 import React from "react";
 // import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
-import "../assets/styles/navbar.css";
+import "../../assets/styles/navbar.css";
+import AccountDropdown from "./AccountDropdown";
 
 // import Queries from "../graphql/queries";
 // const { IS_LOGGED_IN } = Queries;
@@ -12,6 +13,8 @@ class NavBar extends React.Component {
 
     this.state = { };
   }
+
+
 
   render() {
 
@@ -46,9 +49,7 @@ class NavBar extends React.Component {
           <Link>
             <i className="fas fa-bell"></i>
           </Link>
-          <Link>
-            <i className="fas fa-ellipsis-h"></i>
-          </Link>
+          <AccountDropdown />
 
         </span>
       </div>

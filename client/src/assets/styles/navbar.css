@@ -99,6 +99,7 @@ a {
   margin: 8px;
   vertical-align: middle;
   border-left: 2px solid #efefef;
+  margin-right: 30px;
 }
 
 .navbar i {
@@ -119,4 +120,19 @@ a {
 .navbar-right i:hover {
   background-color: #f2f2f2;
   cursor: pointer;
+}
+
+.account-dropdown {
+  position: absolute;
+  right: 0px;
+  border-radius: 4px;
+}
+
+.account-dropdown > div {
+  width: 300px;
+  height: 40px;
+  border: solid lightgray 1px;
+  font-weight: bold;
+  background: white;
+  padding-left: 20px
 }

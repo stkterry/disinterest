@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import NavBar from "./Nav";
+import NavBar from "./Nav/Nav";
 import { Switch, Route} from "react-router-dom";
 
 import UserIndex from "./users/user_index";

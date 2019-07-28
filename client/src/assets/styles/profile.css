@@ -70,4 +70,5 @@
   top: 165px;
   font-size: 120px;
   right: 22vw;
+  z-index: -1;
 }
