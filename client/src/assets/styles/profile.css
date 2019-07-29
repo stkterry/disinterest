@@ -44,9 +44,6 @@
   text-decoration: underline;
 }
 
-
-
-
 .bin-index-standin-box {
   display: flex;
   border-style: dotted;
@@ -93,4 +90,14 @@
 .bin-or-pin-dropdown > div:hover {
   background: #f2f2f2;
   cursor: pointer;
+}
+
+#harold {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 165px;
+  right: 22vw;
+  z-index: -1;
 }

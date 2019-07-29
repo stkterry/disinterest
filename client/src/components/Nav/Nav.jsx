@@ -62,7 +62,7 @@ class NavBar extends React.Component {
           <Link>
             <i className="fas fa-bell"></i>
           </Link>
-          <AccountDropdown />
+          <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow}/>
 
         </span>
       </div>
