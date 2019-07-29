@@ -22,7 +22,7 @@ class RequestFeature extends React.Component {
 
   handleRequestFeatureShow() {
     let nav = document.getElementById("request-feature-wrapper");
-    console.log(nav.style.width);
+
     if (nav.style.width === "") {
       nav.style.width = "390px";
     }
