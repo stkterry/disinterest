@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
-import './assets/styles/index.css';
+import './assets/styles/output.css';
 import App from './components/App';
 import Mutations from "./graphql/mutations";
 

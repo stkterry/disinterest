@@ -1,11 +1,9 @@
 import React from "react";
-// import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
-import "../../assets/styles/navbar.css";
+
 import AccountDropdown from "./AccountDropdown";
 import RequestFeature from "../RequestFeature";
-// import Queries from "../graphql/queries";
-// const { IS_LOGGED_IN } = Queries;
+
 
 class NavBar extends React.Component {
   constructor(props) {

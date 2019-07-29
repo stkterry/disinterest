@@ -1,8 +1,8 @@
 import React from "react";
 // import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
-import "../../assets/styles/profile.css";
-import CreateBoardOrPin from "./CreateBoardOrPinDropdown";
+
+import CreateBoardOrPin from "./createBoardOrPinDropdown";
 // import Queries from "../graphql/queries";
 // const { IS_LOGGED_IN } = Queries;
 
@@ -17,7 +17,7 @@ class UserProfile extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="user-profile-content">
         <div className="options-and-user-profile">
 
           <div className="options-bar-above-profile">

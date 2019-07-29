@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Query } from "react-apollo";
-import NavBar from "./Nav/Nav";
+import NavBar from "./nav/Nav";
 
 import Login from "./Login";
 import Register from "./Register";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../assets/styles/requestfeature.css";
+
 
 class RequestFeature extends React.Component {
   constructor(props) {
