@@ -1,9 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import AccountDropdown from "./AccountDropdown";
 import RequestFeature from "../RequestFeature";
 
+
+import { Query, ApolloConsumer } from "react-apollo";
+import Queries from "../../graphql/queries";
+const { IS_LOGGED_IN } = Queries;
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -31,42 +35,88 @@ class NavBar extends React.Component {
   render() {
 
     return (
-      <div className="navbar">
-        <RequestFeature />
-        <span className='navbar-left'>
-          <Link to='/'><i className="fab fa-pinterest"/></Link>
-        </span>
+      <ApolloConsumer>
+        {client => (
+          <Query query={IS_LOGGED_IN}>
+            {({ data }) => {
+              if (data.isLoggedIn) {
+                return (
+                  <div className="navbar">
+                    <RequestFeature />
+                    <span className='navbar-left'>
+                      <Link to='/'><i className="fab fa-pinterest" /></Link>
+                    </span>
 
-        <span className='navbar-center'>
-          <i className="fas fa-search"></i>
-          <input type='text' placeholder='Search' className='search-bar' />
-        </span>
+                    <span className='navbar-center'>
+                      <i className="fas fa-search"></i>
+                      <input type='text' placeholder='Search' className='search-bar' />
+                    </span>
 
-        <span className='navbar-near-right'>
-          <Link to="/" className='navbar-home'>
-            <div className='navbar-home-link'>Home</div>
-          </Link>
-          <Link to="/" className='navbar-following'>
-            <div className="navbar-following-link">Following</div>
-          </Link>
-          <Link to="/userprofile" className='navbar-user' >
-            <i className="fas fa-user-circle"></i>
-            <div className='navbar-username'>first_name</div>
-          </Link>
-        </span>
+                    <span className='navbar-near-right'>
+                      <Link to="/" className='navbar-home'>
+                        <div className='navbar-home-link'>Home</div>
+                      </Link>
+                      <Link to="/" className='navbar-following'>
+                        <div className="navbar-following-link">Following</div>
+                      </Link>
+                      <Link to="/userprofile" className='navbar-user' >
+                        <i className="fas fa-user-circle"></i>
+                        <div className='navbar-username'>first_name</div>
+                      </Link>
+                    </span>
 
-        <span className='navbar-right'>
-          <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
-          <Link>
-            <i className="fas fa-bell"></i>
-          </Link>
-          <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow}/>
+                    <span className='navbar-right'>
+                      <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
+                      <Link>
+                        <i className="fas fa-bell"></i>
+                      </Link>
+                      <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow} />
 
-        </span>
-      </div>
+                    </span>
+                    <button
+                      onClick={event => {
+                        event.preventDefault();
+                        localStorage.removeItem("auth-token");
+                        client.writeData({ data: { isLoggedIn: false } });
+                        this.props.history.push("/login");
+                      }}
+                    >Logout
+                </button>
+                  </div>
+                );
+              } else {
+                return (
+                  <div>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Sign Up</Link>
+                  </div>
+                );
+              }
+            }}
+          </Query>
+        )}
+      </ApolloConsumer>
     );
+
+    
   }
 
 }
 
-export default NavBar;
+export default withRouter(NavBar);
+
+
+
+// Need to add this to the account dropdown 
+// return (
+
+//   <button
+//     onClick={event => {
+//       event.preventDefault();
+//       localStorage.removeItem("auth-token");
+//       client.writeData({ data: { isLoggedIn: false } });
+//       props.history.push("/");
+// //     }}
+//   >Logout
+//                 </button>
+// );

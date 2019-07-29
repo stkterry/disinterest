@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import { ApolloConsumer } from "react-apollo";
 
 class AccountDropdown extends React.Component {
 
@@ -33,7 +33,15 @@ class AccountDropdown extends React.Component {
     );
   }
 
+  // logout(event) {
+  //   event.preventDefault();
+  //   localStorage.removeItem("auth-token");
+  //   client.writeData({ data: { isLoggedIn: false } });
+  //   props.history.push("/");
+  // }
+
   render() {
+    
     if (this.state.open) {
       return (
         <div>

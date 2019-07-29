@@ -9,9 +9,12 @@ import UserIndex from "./users/user_index";
 import AuthRoute from "../util/route_util";
 import UserProfile from "./users/UserProfile";
 
+import InitialNav from "./nav/InitialNav";
+
 const App = () => (
   <div>
     <NavBar />
+    {/* <InitialNav /> */}
     <h1>Disinterest</h1>
     <Switch>
       <AuthRoute exact path="/login" component={Login} routeType="auth" />

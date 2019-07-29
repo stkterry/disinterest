@@ -36,27 +36,34 @@ class Login extends Component {
         update={(client, data) => this.updateCache(client, data) }
       >
         {loginUser => (
-          <div>
-            <form
-              onSubmit={event => {
-                event.preventDefault();
-                loginUser({ variables: { email, password } });
-              }}
-            >
-              <input
-                value={email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-              <input
-                value={password}
-                onChange={this.update("password")}
-                type="password"
-                placeholder="Password"
-              />
-              <button type="submit">Log In</button>
-            </form>
-          </div>
+          <div className="modal-background-splash">
+            <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} />
+            <div id="login-outer-div">
+              <i className="fab fa-pinterest splash-logo" />
+              <div id="splash-login-greeting">Welcome to Disinterest</div>
+              <div id="login">
+                <form
+                  onSubmit={event => {
+                    event.preventDefault();
+                    loginUser({ variables: { email, password } });
+                  }}
+                >
+                  <input
+                    value={email}
+                    onChange={this.update("email")}
+                    placeholder="Email"
+                  />
+                  <input
+                    value={password}
+                    onChange={this.update("password")}
+                    type="password"
+                    placeholder="Password"
+                  />
+                  <button className="splash-button" type="submit">Log In</button>
+                </form>
+              </div>
+            </div>
+            </div>
         )}
       </Mutation>
     )
@@ -64,3 +71,9 @@ class Login extends Component {
 }
 
 export default Login;
+
+// <div className="modal-background">
+//   <div className="modal-child" onClick={e => e.stopPropagation()}>
+//     {component}
+//   </div>
+// </div>
