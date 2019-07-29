@@ -1,0 +1,146 @@
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  width: 100vw;
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+  position: fixed;
+  top: 0;
+  background-color: white;
+
+}
+
+.navbar-left {
+  margin: 5px;
+}
+
+
+.fas {
+  color: #8e8e8e;
+  font-size: 25px;
+}
+
+.fab.fa-pinterest {
+  color: red;
+  font-size: 35px; 
+  height: 35px;
+  width: 35px;
+}
+
+.fab.fa-pinterest:hover {
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.navbar-center {
+  display: flex;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  width: calc(100% - 400px);
+  margin: 10px;
+}
+
+.search-bar {
+  background: #f2f2f2;
+  font-weight: bold;
+  border-style: none;
+  font-size: 16px;
+  width: 100%
+}
+
+.navbar-home-link {
+  padding: 11px 15px 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  color: rgb(142, 142, 142);
+}
+
+.navbar-following-link {
+  padding: 11px 15px 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  color: rgb(142, 142, 142);
+}
+
+.navbar-home:hover {
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.navbar-following-link:hover {
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.navbar-username {
+  padding-top: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  padding-right: 8px;
+  color: rgb(142, 142, 142);
+}
+
+.navbar-near-right {
+  display: flex;
+  margin: 8px;
+  vertical-align: middle;
+}
+
+.navbar-right {
+  display: flex;
+  margin: 8px;
+  vertical-align: middle;
+  border-left: 2px solid #efefef;
+  margin-right: 30px;
+}
+
+.navbar i {
+  padding: 8px 16px 8px 16px;
+  border-radius: 25px;
+}
+
+.navbar-user {
+  display: flex;
+  border-radius: 25px;
+}
+
+.navbar-user:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.navbar-right i:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.account-dropdown {
+  position: absolute;
+  right: 0px;
+  border-radius: 4px;
+}
+
+.account-dropdown > div {
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: center; 
+  border: solid lightgray 1px;
+  font-weight: bold;
+  background: white;
+  padding-left: 20px
+}
+
+.account-dropdown > div:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
