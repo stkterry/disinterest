@@ -47,7 +47,7 @@ class RequestFeature extends React.Component {
   render() {
     let dialogue;
     let sampleDialogue = ["Damn that sounds too interesting for this site my friend", 
-    "Oh wow that's a fascinating thought--oh fuck",
+    "Oh wow that's a fascinating thought--oh wait, oh no",
     "Damn, interesting thoughts like that just have no place here at Disinterest",
     "So happy you submitted that, nice stuff. We'll get right to not doing that."]
     if (!this.state.submitted) {
