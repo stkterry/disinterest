@@ -3,7 +3,7 @@ const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLBoolean } = graphql;
 
 const UserType = new GraphQLObjectType({
-    name: "CategoryType",
+    name: "UserType",
 
     fields: () => ({
         _id: { type: GraphQLID },
