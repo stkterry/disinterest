@@ -15,7 +15,6 @@ const App = () => (
   <div>
     <NavBar />
     {/* <InitialNav /> */}
-    <h1>Disinterest</h1>
     <Switch>
       <AuthRoute exact path="/login" component={Login} routeType="auth" />
       <AuthRoute exact path="/register" component={Register} routeType="auth" />

@@ -1,14 +1,19 @@
-// #login {
-//   margin-top: 50px;
-// }
 
-.login-outer-div {
-  margin-top: 50px;
-  width: 400px;
-  height: 540px;
+
+
+
+#splash-outer-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: solid black 1px;
+  height: 540px;
+  width: 440px;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
 }
-
 
 .modal-background-splash {
   position: fixed;
@@ -42,18 +47,7 @@
 //   // z-index: ;
 // }
 
-#login-outer-div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: solid black 1px;
-  height: 540px;
-  width: 440px;
-  border-radius: 10px;
-  background: white;
-  text-align: center;
-}
+
 
 .fab.fa-pinterest.splash-logo {
   display: inline-block;
@@ -61,14 +55,14 @@
   margin-top: 30px; 
 }
 
-#splash-login-greeting {
+#splash-greeting {
   font-size: 32px;
   font-weight: bold;
   font-family: Helvetica;
   margin: 12px 0px 30px;
 }
 
-#login > form > input {
+#splash-form > form > input {
   width: 253px;
   height: 40px;
   margin-bottom: 9px;
@@ -76,7 +70,7 @@
   border-radius: 4px;
 }
 
-#login > form > input[value] {
+#splash-form > form > input[value] {
   padding-left: 15px;
 }
 
@@ -96,3 +90,22 @@
   background: rgb(230, 0, 35);
 }
 
+#splash-signup-login-button {
+  z-index: 100;
+  position: relative;
+  color: #333;
+  margin-top: 50px;
+  margin-left: 25px;
+  font-weight: 700;
+  width: 130px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: white;
+}
+
+#splash-signup-login-button:hover {
+  // background: #dadada
+  background: #ebeaea;
+}

@@ -37,11 +37,11 @@ class Login extends Component {
       >
         {loginUser => (
           <div className="modal-background-splash">
-            <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} />
-            <div id="login-outer-div">
+            <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} alt="background"/>
+            <div id="splash-outer-div">
               <i className="fab fa-pinterest splash-logo" />
-              <div id="splash-login-greeting">Welcome to Disinterest</div>
-              <div id="login">
+              <div id="splash-greeting">Welcome to Disinterest</div>
+              <div id="splash-form">
                 <form
                   onSubmit={event => {
                     event.preventDefault();
@@ -63,7 +63,8 @@ class Login extends Component {
                 </form>
               </div>
             </div>
-            </div>
+            <button id="splash-signup-login-button" onClick={() => this.props.history.push("/register")}>Sign up</button>
+          </div>
         )}
       </Mutation>
     )
