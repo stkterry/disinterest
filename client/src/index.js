@@ -6,12 +6,24 @@ import { onError } from "apollo-link-error";
 import { ApolloLink } from "apollo-link";
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from "react-router-dom";
+import * as serviceWorker from './serviceWorker';
+
 import './assets/styles/index.css';
 import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import Mutations from "./graphql/mutations";
+
+const { VERIFY_USER } = Mutations;
+const token = localStorage.getItem("auth-token");
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
+});
+
+cache.writeData({
+  data: {
+    isLoggedIn: Boolean(localStorage.getItem("auth-token"))
+  }
 });
 
 const httpLink = createHttpLink({
@@ -24,16 +36,29 @@ const errorLink = onError(({ graphQLErrors }) => {
 
 const client = new ApolloClient({
   link: ApolloLink.from([errorLink, httpLink]),
-  cache,
+  cache: cache,
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
   }
 });
 
+if (token) {
+  client
+    .mutate({ mutation: VERIFY_USER, variables: { token } })
+    .then(({ data }) => {
+      cache.writeData({
+        data: { isLoggedIn: data.verifyUser.loggedIn }
+      });
+    });
+}
+
+
 const Root = () => (
   <ApolloProvider client={client}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </ApolloProvider>
 );
 

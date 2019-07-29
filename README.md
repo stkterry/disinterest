@@ -21,7 +21,7 @@ A Pinterest clone of the world's most uninteresting topics
 * Manage, create, and delete pin collections
 
 ## Pins
-* Individual elements that link to sites of interest
+* Individual elements that link to sites of disinterest
 * Contains comments, links to related pins, total pins from other users
 
 # Technology 
