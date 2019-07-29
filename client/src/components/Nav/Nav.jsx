@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../assets/styles/navbar.css";
 import AccountDropdown from "./AccountDropdown";
-
+import RequestFeature from "../RequestFeature";
 // import Queries from "../graphql/queries";
 // const { IS_LOGGED_IN } = Queries;
 
@@ -12,14 +12,29 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = { };
+
+    this.handleRequestFeatureShow = this.handleRequestFeatureShow.bind(this);
   }
 
+
+  handleRequestFeatureShow() {
+    let nav = document.getElementById("request-feature-wrapper");
+    console.log(nav.style.width);
+    if (nav.style.width === "") {
+      nav.style.width = "390px";
+    }
+    else {
+      nav.style.width = "";
+      nav.style.bottom = "";
+    }
+  }
 
 
   render() {
 
     return (
       <div className="navbar">
+        <RequestFeature />
         <span className='navbar-left'>
           <Link to='/'><i className="fab fa-pinterest"/></Link>
         </span>
@@ -43,9 +58,7 @@ class NavBar extends React.Component {
         </span>
 
         <span className='navbar-right'>
-          <Link to="/">
-            <i className="fas fa-comment-dots"></i>
-          </Link>
+          <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
           <Link>
             <i className="fas fa-bell"></i>
           </Link>
