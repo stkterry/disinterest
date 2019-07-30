@@ -9,6 +9,7 @@ import UserIndex from "./users/user_index";
 import AuthRoute from "../util/route_util";
 import UserProfile from "./users/UserProfile";
 
+import AWSTest from "./awstest/awstest";
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
 
       <Route exact path="/users" component={UserIndex} />
       <Route exact path="/users/:userId" component={UserProfile} />
+      <Route exact path="/AWSTest" component={AWSTest} />
     </Switch>
   </div>
 )
