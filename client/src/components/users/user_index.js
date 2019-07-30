@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-
+import { Link, withRouter } from "react-router-dom";
 import Queries from "../../graphql/queries";
 const { FETCH_USERS } = Queries;
 
@@ -15,7 +15,7 @@ class UserIndex extends Component {
           if (error) return `Error! ${error.message}`;
 
           const userDat = data.users.map(user => 
-            <li key={user._id}>{user.first_name}</li>
+            <Link to={`/users/${user._id}`}><li key={user._id}>{user.first_name}</li></Link>
           )
 
           return (

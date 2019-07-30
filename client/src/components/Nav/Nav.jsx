@@ -93,19 +93,3 @@ class NavBar extends React.Component {
 }
 
 export default withRouter(NavBar);
-
-
-
-// Need to add this to the account dropdown 
-// return (
-
-//   <button
-//     onClick={event => {
-//       event.preventDefault();
-//       localStorage.removeItem("auth-token");
-//       client.writeData({ data: { isLoggedIn: false } });
-//       props.history.push("/");
-// //     }}
-//   >Logout
-//                 </button>
-// );
