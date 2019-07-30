@@ -17,17 +17,33 @@
 
 
 ## `bins`
+| column name       | data type | details                   |
+|:------------------|:---------:|:--------------------------|
+| `id`              | hash      | not null, primary key     |
+| `title`           | string    |                           |
+| `description`     | string    |                           |
+| `tags`            | array     |                           |
+| `cover_url`       | string    |                           |
+| `pin_ids`         | array     |                           |
+| `date`            | Date      | not null, default Now     |
 
 ## `pins`
 | column name       | data type | details                   |
 |:------------------|:---------:|:--------------------------|
 | `id`              | hash      | not null, primary key     |
-| `link_url`        | string    | not null                  |
+| `url_id`          | ObjectId  | not null                  |
 | `cover_url`       | string    |                           |
+| `title`           | string    | not null                  |
+| `description`     | string    | not null                  |
 | `tags`            | array     |                           |
-| `comments`        | array     |                           |
-| `title`           | string    |                           |
-| `description`     | string    |                           |
+| `comment_ids`     | array     |                           |
+| `date`            | Date      | not null, default Now     |
+
+## `urls`
+| column name       | data type | details                   |
+|:------------------|:---------:|:--------------------------|
+| `id`              | hash      | not null, primary key     |
+| `link`            | string    | not null                  |
 | `snores`          | Integer   | not null, default 1       |
 | `date`            | Date      | not null, default Now     |
 

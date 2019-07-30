@@ -37,7 +37,8 @@ const mutations = new GraphQLObjectType({
       type: UserType,
       args: { token: { type: GraphQLString } },
       resolve(_, args) { return AuthService.verifyUser(args) }
-    }
+    },
+    
   }
 });
 
