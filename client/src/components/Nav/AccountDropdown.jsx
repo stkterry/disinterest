@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { ApolloConsumer } from "react-apollo";
 
+
+
 class AccountDropdown extends React.Component {
 
   constructor(props) {
@@ -33,12 +35,10 @@ class AccountDropdown extends React.Component {
     );
   }
 
-  // logout(event) {
-  //   event.preventDefault();
-  //   localStorage.removeItem("auth-token");
-  //   client.writeData({ data: { isLoggedIn: false } });
-  //   props.history.push("/");
-  // }
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleClose)
+  }
+
 
   render() {
     
@@ -48,12 +48,22 @@ class AccountDropdown extends React.Component {
           <i className="fas fa-ellipsis-h" onClick={this.handleClose} style={{color: 'black'}}></i>
           <div className="account-dropdown">
 
-            <div onClick={() => this.props.history.push("/userprofile")} style={{'border-radius': '10px 10px 0px 0px'}}>User profile</div>
+            <div onClick={() => this.props.history.push("/userprofile")} style={{borderRadius: '10px 10px 0px 0px'}}>User profile</div>
             <div>Add a free busines profile</div>
             <div onClick={this.props.handleRequestFeatureShow}>Request a feature</div>
             <div>See terms and privacy</div>
             <div>Add account</div>
-            <div style={{ 'border-radius': '0px 0px 10px 10px' }}>Log out</div>
+            <ApolloConsumer>
+              {client => (
+                <div onClick={event => {
+                  event.preventDefault();
+                  localStorage.removeItem("auth-token");
+                  client.writeData({ data: { isLoggedIn: false } });
+
+                  this.props.history.push("/login");
+                }} style={{ borderRadius: '0px 0px 10px 10px' }}>Log out</div>
+              )}
+            </ApolloConsumer>
           </div>
         </div>
       );
@@ -67,3 +77,4 @@ class AccountDropdown extends React.Component {
 }
 
 export default withRouter(AccountDropdown);
+

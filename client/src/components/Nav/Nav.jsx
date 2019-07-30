@@ -21,7 +21,7 @@ class NavBar extends React.Component {
 
   handleRequestFeatureShow() {
     let nav = document.getElementById("request-feature-wrapper");
-    console.log(nav.style.width);
+ 
     if (nav.style.width === "") {
       nav.style.width = "390px";
     }
@@ -67,21 +67,13 @@ class NavBar extends React.Component {
 
                     <span className='navbar-right'>
                       <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
-                      <Link>
+                      <Link to="/">
                         <i className="fas fa-bell"></i>
                       </Link>
                       <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow} />
 
                     </span>
-                    <button
-                      onClick={event => {
-                        event.preventDefault();
-                        localStorage.removeItem("auth-token");
-                        client.writeData({ data: { isLoggedIn: false } });
-                        this.props.history.push("/login");
-                      }}
-                    >Logout
-                </button>
+
                   </div>
                 );
               } else {
