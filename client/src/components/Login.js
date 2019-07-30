@@ -19,8 +19,16 @@ class Login extends Component {
   }
 
   updateCache(client, {data}) {
+
     client.writeData({
-      data: { isLoggedIn: data.login.loggedIn }
+      data: { isLoggedIn: data.login.loggedIn, 
+        currentUser: { 
+          first_name: data.login.first_name, 
+          last_name: data.login.last_name, 
+          _id: data.login._id,
+          __typename: "UserType"
+          } 
+        }
     });
   }
 
@@ -30,7 +38,9 @@ class Login extends Component {
       <Mutation
         mutation={LOGIN_USER}
         onCompleted={({ login: token }) => {
-          localStorage.setItem("auth-token", token);
+
+          localStorage.setItem("current-user", JSON.stringify({ first_name: token.first_name, last_name: token.last_name, _id: token._id }));
+          localStorage.setItem("auth-token", token.token);
           this.props.history.push("/");
         }}
         update={(client, data) => this.updateCache(client, data) }

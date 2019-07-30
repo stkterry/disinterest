@@ -15,7 +15,7 @@ class UserIndex extends Component {
           if (error) return `Error! ${error.message}`;
 
           const userDat = data.users.map(user => 
-            <Link to={`/users/${user._id}`}><li key={user._id}>{user.first_name}</li></Link>
+            <li key={user._id}><Link to={`/users/${user._id}`}>{user.first_name}</Link></li>
           )
 
           return (

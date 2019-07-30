@@ -18,7 +18,15 @@ class Register extends Component {
 
   updateCache(client, { data }) {
     client.writeData({
-      data: { isLoggedIn: data.register.loggedIn }
+      data: {
+        isLoggedIn: data.register.loggedIn, 
+        currentUser: {
+          first_name: data.login.first_name,
+          last_name: data.login.last_name,
+          _id: data.login._id,
+          __typename: "UserType"
+        }  
+      }
     });
   }
 
@@ -33,6 +41,7 @@ class Register extends Component {
         mutation={REGISTER_USER}
         onCompleted={data => {
           const { token } = data.register;
+          localStorage.setItem("current-user", JSON.stringify({ first_name: token.first_name, last_name: token.last_name, _id: token._id }));
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
         }}

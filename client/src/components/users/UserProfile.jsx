@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
                 if (loading) return <p>Loading...</p>;
                 if (error) return <p>Error</p>;
 
-                console.log(data.user);
+                {/* console.log(data.user); */}
                 if (data.user) {
                   return (
                     <div className="user-profile">

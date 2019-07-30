@@ -72,7 +72,7 @@ const login = async data => {
     const isPassword = await bcrypt.compareSync(password, user.password);
     if (!isPassword) throw ERRORS.wrongPassword;
 
-    const token = jwt.sign({ id: user.id }, keys.secretOrKey);
+    const token = jwt.sign({ id: user._id }, keys.secretOrKey);
 
     return {
       token: token,
@@ -85,17 +85,20 @@ const login = async data => {
 
 const verifyUser = async data => {
   try {
-
+  
     const { token } = data;
 
     const { id } = jwt.verify(token, keys.secretOrKey);
-
-    const loggedIn = await User
+    let loggedIn; 
+    const user = await User
       .findById(id)
-      .then(user => (user ? true : false));
+      .then(user => {
+        (user ? loggedIn = true : loggedIn = false);
+        return user;
+      });
 
-    return { loggedIn };
-  } catch (err) { return { loggedIn: false } }
+    return { loggedIn, currentUser: { first_name: user.first_name, last_name: user.last_name, _id: user._id } }
+  } catch (err) { return { currentUser: null, loggedIn: false } }
 };
 
 

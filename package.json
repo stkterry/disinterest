@@ -8,7 +8,8 @@
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
     "server": "nodemon index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server:debug": "nodemon --inspect index.js",
+    "dev": "concurrently \"npm run server:debug\" \"npm run client\"",
     "devs": "concurrently \"npm run dev\" \"npm run sass\""
   },
   "repository": {
