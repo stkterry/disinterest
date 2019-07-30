@@ -176,11 +176,7 @@ a {
   display: flex;
   width: 135px;
   justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 35px; }
-
-.options-bar-above-profile * {
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 35px; }
 
 .user-full-name {
