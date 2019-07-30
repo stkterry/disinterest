@@ -69,7 +69,7 @@ class NavBar extends React.Component {
                       <Link to="/" className='navbar-following'>
                         <div className="navbar-following-link">Following</div>
                       </Link>
-                      <Link to={`/users/${currentStandInUser._id}`} className='navbar-user' >
+                      <Link to={`/users/${currentUser._id}`} className='navbar-user' >
                         <i className="fas fa-user-circle"></i>
                         <div className='navbar-username'>{currentUser.first_name}</div>
                       </Link>

@@ -49,8 +49,8 @@ if (token) {
   client
     .mutate({ mutation: VERIFY_USER, variables: { token } })
     .then(({ data }) => {
-      debugger; 
-      console.log(data.verifyUser);
+
+
       cache.writeData({
         data: { isLoggedIn: data.verifyUser.loggedIn, currentUser: Object.assign(data.verifyUser.currentUser, { __typename: "UserType" }) }
       });
