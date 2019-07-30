@@ -345,4 +345,79 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
+.masonry-img {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px; }
+
+.masonry-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 4px; }
+
+.column {
+  flex: 25%;
+  max-width: 24.3%;
+  padding: 0 4px; }
+
+.pin-count {
+  margin-top: 50px;
+  color: #8e8e8e;
+  font-size: 14px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,"\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3",Hiragino Kaku Gothic Pro,"\30E1\30A4\30EA\30AA",Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; }
+
+.create-a-pin {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #EFEFEF;
+  border-radius: 5px; }
+
+.pin-button {
+  position: absolute;
+  left: calc(50% - 12.5px);
+  top: calc(50% - 28px); }
+
+.create-a-pin-container {
+  z-index: -10;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px;
+  height: 200px;
+  width: 100%; }
+
+.masonry-div {
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px; }
+
+.masonry-div:hover {
+  background-color: blue;
+  transition-delay: .1s; }
+
+.create-a-pin-container:hover {
+  background-color: #EFEFEF;
+  transition-delay: .1s; }
+  .create-a-pin-container:hover .create-a-pin {
+    background-color: lightgray;
+    transition-delay: .1s; }
+
+.create-header {
+  color: #8e8e8e;
+  font-size: 18px;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,"\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3",Hiragino Kaku Gothic Pro,"\30E1\30A4\30EA\30AA",Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 700;
+  padding: 5px; }
+
+.fa-plus-circle {
+  color: red; }
+
 /*# sourceMappingURL=output.css.map */

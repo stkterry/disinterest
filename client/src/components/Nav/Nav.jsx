@@ -57,9 +57,9 @@ class NavBar extends React.Component {
 
         <span className='navbar-right'>
           <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
-          <Link>
-            <i className="fas fa-bell"></i>
-          </Link>
+          {/* <Link> */}
+            {/* <i className="fas fa-bell"></i> */}
+          {/* </Link> */}
           <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow}/>
 
         </span>
