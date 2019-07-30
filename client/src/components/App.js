@@ -19,7 +19,7 @@ const App = () => (
       <AuthRoute exact path="/register" component={Register} routeType="auth" />
       <Route exact path="/" component={UserIndex} />
       <Route exact path="/userindex" component={UserIndex} />
-      <Route exact path="/userprofile" component={UserProfile} />
+
       <Route exact path="/users" component={UserIndex} />
       <Route exact path="/users/:userId" component={UserProfile} />
     </Switch>

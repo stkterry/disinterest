@@ -27,18 +27,3 @@ export default {
   }`
 
 }
-
-// FETCH_PRODUCT: gql`
-//     query fetchProduct($productId: ID!) {
-//       product(_id: $productId) {
-//         _id
-//         name
-//         cost
-//         description
-//         weight
-//         category {
-//           name
-//         }
-//       }
-//     }
-//   `

@@ -33,7 +33,8 @@ class NavBar extends React.Component {
 
 
   render() {
-
+    let currentStandInUser = { _id: "5d3b720ca0444c22a4f9980e" } //This is just a stand in
+    // Need to figure out how to get the currentUser
     return (
       <ApolloConsumer>
         {client => (
@@ -59,7 +60,7 @@ class NavBar extends React.Component {
                       <Link to="/" className='navbar-following'>
                         <div className="navbar-following-link">Following</div>
                       </Link>
-                      <Link to="/userprofile" className='navbar-user' >
+                      <Link to={`/users/${currentStandInUser._id}`} className='navbar-user' >
                         <i className="fas fa-user-circle"></i>
                         <div className='navbar-username'>first_name</div>
                       </Link>

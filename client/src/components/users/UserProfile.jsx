@@ -34,15 +34,22 @@ class UserProfile extends React.Component {
                 if (loading) return <p>Loading...</p>;
                 if (error) return <p>Error</p>;
 
-                let user;
-                console.log(data);
                 console.log(data.user);
-
-                return (
-                  <div className="user-full-name">
-                    {data.user.first_name} {data.user.last_name}
-                  </div>
-                );
+                if (data.user) {
+                  return (
+                    <div className="user-profile">
+                      <h2 className="user-full-name">{data.user.first_name} {data.user.last_name}</h2>
+                      <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
+                    </div>)
+                } else {
+                  return (
+                    <div className="user-profile">
+                      <h2 className="user-full-name">First Name Last Name</h2>
+                      <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
+                    </div>
+                  );
+                }
+                
               }}
             </Query>
           </div>
@@ -64,3 +71,5 @@ class UserProfile extends React.Component {
 }
 
 export default UserProfile;
+
+
