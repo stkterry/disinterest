@@ -34,8 +34,7 @@ class NavBar extends React.Component {
 
 
   render() {
-    let currentStandInUser = { _id: "5d3b720ca0444c22a4f9980e" } //This is just a stand in
-    // Need to figure out how to get the currentUser
+
     return (
       <ApolloConsumer>
         {client => {
@@ -88,7 +87,7 @@ class NavBar extends React.Component {
                 );
               } else {
                 return (
-                  <div>Not logged in </div>
+                  null
                 );
               }
             }}
