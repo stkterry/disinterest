@@ -2,9 +2,13 @@
 var AWS = require('aws-sdk');
 var uuid = require('uuid');
 var credentials = new AWS.SharedIniFileCredentials({ profile: 'default' });
+var multer = require('multer');
+var multerS3 = require('multer-s3');
+
 AWS.config.credentials = credentials;
 // Create unique bucket name
 var bucketName = 'node-sdk-sample-' + uuid.v4();
+// var bucketName = 'disinterest-graphql-project-dev-' + uuid.v4();
 // Create name for uploaded object key
 var keyName = 'hello_world.txt';
 
@@ -26,3 +30,4 @@ bucketPromise.then(
   function(err) {
     console.error(err, err.stack);
 });
+
