@@ -18,7 +18,7 @@ class PinForm extends React.Component {
       url: "",
       title: "",
       description: "",
-      tags: ["traffic"],
+      tags: ["curling"],
       photo_url: null,
       created_by: currentUser._id
     };
@@ -49,8 +49,6 @@ class PinForm extends React.Component {
                 const image = document.getElementById("aws-photo").files[0];
                 let data = new FormData();
                 data.append('image', image);
-
-
                 addImageToAws(data);
 
                 newPin({ variables: { url, title, description, tags, created_by } })

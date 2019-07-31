@@ -10,6 +10,7 @@ const addImageToAws = (data) => {
   })
     .then((response) => {
       console.log("seems to have worked");
+      console.log(response);
     }).catch((error) => {
       console.log(error);
     });
