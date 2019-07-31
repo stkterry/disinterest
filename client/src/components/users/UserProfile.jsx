@@ -1,10 +1,10 @@
 import React from "react";
-// import { ApolloConsumer, Query } from "react-apollo";
+import { ApolloConsumer, Query } from "react-apollo";
 import { Link } from "react-router-dom";
 
 import CreateBoardOrPin from "./createBoardOrPinDropdown";
-// import Queries from "../graphql/queries";
-// const { IS_LOGGED_IN } = Queries;
+import Queries from "../../graphql/queries";
+const { FETCH_USER, FETCH_USERS } = Queries;
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -26,8 +26,32 @@ class UserProfile extends React.Component {
             <i className="fas fa-upload"></i>
           </div>
           <div className="user-profile">
-            <h2 className="user-full-name">User Full Name</h2>
-            <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
+            <Query
+              query={FETCH_USER}
+              variables={{ _id: this.props.match.params.userId }}
+            >
+              {({ loading, error, data }) => {
+                if (loading) return <p>Loading...</p>;
+                if (error) return <p>Error</p>;
+
+                {/* console.log(data.user); */}
+                if (data.user) {
+                  return (
+                    <div className="user-profile">
+                      <h2 className="user-full-name">{data.user.first_name} {data.user.last_name}</h2>
+                      <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
+                    </div>)
+                } else {
+                  return (
+                    <div className="user-profile">
+                      <h2 className="user-full-name">First Name Last Name</h2>
+                      <h3 className="number-followers-number-following"># Followers &middot; # Following</h3>
+                    </div>
+                  );
+                }
+                
+              }}
+            </Query>
           </div>
           <div className="bins-pins-options-bar">
             <div>Bins</div>
@@ -47,3 +71,5 @@ class UserProfile extends React.Component {
 }
 
 export default UserProfile;
+
+
