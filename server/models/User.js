@@ -24,6 +24,10 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "pins"
   }],
+  bins: [{
+    type: Schema.Types.ObjectId,
+    ref: "bins"
+  }],
   date: {
     type: Date,
     default: Date.now
@@ -52,6 +56,12 @@ UserSchema.statics.removePin = function (userId, pinId) {
     { new: true }
   )
 }
+
+UserSchema.statics.findBins = function (userId) {
+  return this.findById(userId)
+    .populate("bins")
+    .then(user => user.bins);
+};
 
 UserSchema.statics.addBin = function (userId, binId) {
   return this.findByIdAndUpdate(

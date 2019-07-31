@@ -29,6 +29,45 @@ const RootQueryType = new GraphQLObjectType({
         return User.findById(args._id);
       }
     },
+
+    userPins: {
+      type: new GraphQLList(PinType),
+      args: { userId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return User.findPins(args.userId);
+      }
+    },
+
+    userPin: {
+      type: PinType,
+      args: {
+        userId: {type: new GraphQLNonNull(GraphQLID) },
+        pinId: { type: new GraphQLNonNull(GraphQLID) }
+      },
+      resolve(_, args) {
+        return User.findPin(args.userId, args.pinId);
+      }
+    },
+
+    userBin: {
+      type: BinType,
+      args: {
+        userId: { type: new GraphQLNonNull(GraphQLID) },
+        binId: { type: new GraphQLNonNull(GraphQLID) }
+      },
+      resolve(_, args) {
+        return User.findPin(args.userId, args.binId);
+      }
+    },
+
+    userBins: {
+      type: new GraphQLList(BinType),
+      args: { userId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) { 
+        return User.findBins(args.userId);
+      }
+    },
+
     pins: {
       type: new GraphQLList(PinType),
       resolve() {
