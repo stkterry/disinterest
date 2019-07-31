@@ -350,8 +350,11 @@ code {
   box-sizing: border-box;
   border-radius: 5px; }
 
+.pin-page-container {
+  padding-left: 75px;
+  padding-right: 75px; }
+
 .masonry-container {
-  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -363,7 +366,7 @@ code {
   padding: 0 4px; }
 
 .pin-count {
-  margin-top: 50px;
+  padding-top: 100px;
   color: #8e8e8e;
   font-size: 14px;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,"\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3",Hiragino Kaku Gothic Pro,"\30E1\30A4\30EA\30AA",Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol; }
@@ -391,7 +394,7 @@ code {
   box-sizing: border-box;
   border-radius: 5px;
   padding: 5px;
-  height: 200px;
+  height: 300px;
   width: 100%; }
 
 .masonry-div {
@@ -418,6 +421,7 @@ code {
   padding: 5px; }
 
 .fa-plus-circle {
-  color: red; }
+  color: red;
+  font-size: 40px; }
 
 /*# sourceMappingURL=output.css.map */

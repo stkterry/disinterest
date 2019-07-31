@@ -8,7 +8,7 @@ class PinIndex extends Component {
 
     render() {
         return (
-        <div>
+        <div className="pin-page-container">
             <div className="pin-count">10 pins</div>
             <main className="masonry-container">
                 <div className="column">
