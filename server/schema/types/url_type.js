@@ -8,6 +8,7 @@ const UrlType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     link: { type: GraphQLString },
     snores: { type: GraphQLInt },
+    created_by: {type: GraphQLID }
   })
 });
 

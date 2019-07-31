@@ -10,7 +10,7 @@ const BinType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     title: { type: GraphQLString },
     description: { type: GraphQLString },
-    tags: { type: GraphQLList },
+    tags: { type: GraphQLList(GraphQLString) },
     pins: { 
       type: new GraphQLList(require("./pin_type")),
       resolve(parentValue) {

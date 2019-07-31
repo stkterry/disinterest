@@ -36,21 +36,38 @@ const RootQueryType = new GraphQLObjectType({
       }
     },
     pin: {
-
+      type: PinType,
+      args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Pin.findById(args._id)
+      }
     },
     urls: {
-
+      type: new GraphQLList(UrlType),
+      resolve() {
+        return Url.find({})
+      }
     },
     url: {
-
+      type: UrlType,
+      args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Url.findById(args._id)
+      }
     },
     bins: {
-
+      type: new GraphQLList(BinType),
+      resolve() {
+        return Bin.find({})
+      }
     },
     bin: {
-
+      type: BinType,
+      args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Bin.findById(args._id)
+      }
     }
-    
   })
 });
 

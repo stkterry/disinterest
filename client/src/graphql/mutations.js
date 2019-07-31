@@ -24,6 +24,61 @@ export default {
       token,
       loggedIn
     }
+  }`,
+
+  CREATE_PIN: gql`
+  mutation CreatePin($url: String, $title: String, $description: String, $tags: Array) {
+    newPin(url: $url, title: $tile, description: $description, tags: $tags) {
+      _id,
+      url {
+        _id,
+        link,
+        snores
+      },
+      title,
+      description,
+      tags
+    }
+  }`,
+
+  DELETE_PIN: gql`
+  mutation DeletePin($_id: String) {
+    deletePin(_id: $_id) {
+      _id
+    }
+  }`,
+
+  COPY_PIN: gql`
+  mutation CopyPin($url: String, $title: String, $description: String, $tags: Array) {
+    copyPin(url: $url, title: $tile, description: $description, tags: $tags) {
+      _id,
+      url {
+        _id,
+        link,
+        snores
+      },
+      title,
+      description,
+      tags
+    }
+  }`,
+
+  CREATE_BIN: gql`
+  mutation CreateBin($title: String, $description: String, $tags: Array, $pins: Array) {
+    newBin(title: $title, description: $description, tags: $tags, pins: $pins) {
+      _id,
+      title,
+      description,
+      tags,
+      pins
+    }
+  }`,
+
+  DELETE_BIN: gql`
+  mutation DeleteBin($_id: String) {
+    deleteBin(_id: $id) {
+      _id
+    }
   }`
 
 }

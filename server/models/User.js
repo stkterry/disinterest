@@ -20,7 +20,7 @@ const UserSchema = new Schema({
     min: 8,
     max: 32
   },
-  pin_ids: [{
+  pins: [{
     type: Schema.Types.ObjectId,
     ref: "pins"
   }],
@@ -29,5 +29,28 @@ const UserSchema = new Schema({
     default: Date.now
   },
 });
+
+UserSchema.statics.findPins = function (userId) {
+  return this.findById(userId)
+    .populate("pins")
+    .then(user => user.pins);
+};
+
+UserSchema.statics.addPin = function(userId, pinId) {
+  console.log(userId, pinId)
+  return this.findByIdAndUpdate(
+    userId,
+    { $addToSet: { pins: pinId } },
+    { new: true }
+  )
+}
+
+UserSchema.statics.removePin = function (userId, pinId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $pull: { pins: pinId } },
+    { new: true }
+  )
+}
 
 module.exports = User = mongoose.model('users', UserSchema);
