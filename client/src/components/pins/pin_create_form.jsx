@@ -3,19 +3,24 @@ import { Mutation } from "react-apollo";
 
 import { Link, withRouter } from 'react-router-dom';
 import Mutations from "../../graphql/mutations";
+import axios from "axios";
+import addImageToAws from "../../util/aws_util";
+
 const { CREATE_PIN } = Mutations;
 
 
 class PinForm extends React.Component {
   constructor(props) {
     super(props);
-
+    const currentUser = JSON.parse(localStorage.getItem("current-user"));
+    
     this.state = {
       url: "",
       title: "",
       description: "",
-      tags: "",
-      photoUrl: null
+      tags: ["traffic"],
+      photo_url: null,
+      created_by: currentUser._id
     };
   }
 
@@ -23,19 +28,61 @@ class PinForm extends React.Component {
     return event => this.setState({ [field]: event.target.value });
   }
 
+
   render() {
+    const { url, title, description, photo_url, tags, created_by } = this.state;
+    
     return (
       <Mutation
         mutation={CREATE_PIN}
         onCompleted={data => {
+          console.log("Check AWS for the image and MongoDB for the new pin");
           this.props.history.push("/")
         }}
       >
         { newPin => (
           <div className="pin-form-outer-div">
             <div className="form-div">
-              <form className="actual-form">
-                
+              <form className="actual-form"
+              onSubmit={event => {
+                event.preventDefault();
+                const image = document.getElementById("aws-photo").files[0];
+                let data = new FormData();
+                data.append('image', image);
+
+
+                addImageToAws(data);
+
+                newPin({ variables: { url, title, description, tags, created_by } })
+              }}
+              >
+                <div className="image-input-outer-div">
+                  <input id="aws-photo" 
+                    type="file"
+                    onChange={this.update("file")}
+                    className="aws-test"
+                    placeholder="Add photo"
+                  />
+                </div>
+                <input 
+                  className="title-input-pin"
+                  value={this.state.title}
+                  onChange={this.update("title")}
+                  placeholder="Add your title"
+                />
+                <input
+                  className="description-input-pin"
+                  value={this.state.description}
+                  onChange={this.update("description")}
+                  placeholder="Tell everyone what your pin is about"
+                />
+                <input
+                  className="url-input-pin"
+                  value={this.state.url}
+                  onChange={this.update("url")}
+                  placeholder="Add a destination link"
+                />
+                <button>Testing Form</button>
               </form>
             </div>
         </div>
@@ -47,56 +94,3 @@ class PinForm extends React.Component {
 }
 
 export default withRouter(PinForm);
-
-{/* <Mutation
-  mutation={REGISTER_USER}
-  onCompleted={data => {
-    const { token } = data.register;
-    localStorage.setItem("current-user", JSON.stringify({ first_name: token.first_name, last_name: token.last_name, _id: token._id }));
-    localStorage.setItem("auth-token", token);
-    this.props.history.push("/");
-  }}
-  update={(client, data) => this.updateCache(client, data)}
->
-  {register => (
-    <div className="modal-background-splash">
-      <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} alt="background" />
-      <div id="splash-outer-div">
-        <i className="fab fa-pinterest splash-logo" />
-        <div id="splash-greeting">Welcome to Disinterest</div>
-        <div id="splash-form">
-          <form
-            onSubmit={event => {
-              event.preventDefault();
-              register({ variables: { first_name, last_name, email, password } });
-            }}
-          >
-            <input
-              value={first_name}
-              onChange={this.update("first_name")}
-              placeholder="First name"
-            />
-            <input
-              value={last_name}
-              onChange={this.update("last_name")}
-              placeholder="Last name"
-            />
-            <input
-              value={email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <input
-              value={password}
-              onChange={this.update("password")}
-              type="password"
-              placeholder="Password"
-            />
-            <button className="splash-button" type="submit">Register</button>
-          </form>
-        </div>
-      </div>
-      <button id="splash-signup-login-button" onClick={() => this.props.history.push("/login")}>Log in</button>
-    </div>
-  )}
-</Mutation> */}
