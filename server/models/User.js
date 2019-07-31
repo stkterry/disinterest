@@ -53,4 +53,20 @@ UserSchema.statics.removePin = function (userId, pinId) {
   )
 }
 
+UserSchema.statics.addBin = function (userId, binId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $addToSet: { bins: binId } },
+    {new: true}
+  )
+}
+
+UserSchema.statics.removeBin = function (userId, binId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $pull: { bins: binId } },
+    { new: true }
+  )
+}
+
 module.exports = User = mongoose.model('users', UserSchema);

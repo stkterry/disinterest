@@ -12,20 +12,6 @@ const AuthService = require("../services/auth");
 
 const UrlInput = require("../schema/inputs/url_input");
 
-
-const inputs = new GraphQLInputObjectType({
-  name: "Input",
-  fields: {
-    input: UrlInput,
-    args: {
-      _id: { type: GraphQLID },
-      link: { type: GraphQLString },
-      snores: { type: GraphQLInt },
-      created_by: { type: GraphQLID }  
-    }
-  }
-});
-
 const mutations = new GraphQLObjectType({
   name: "Mutation",
   fields: {
@@ -105,24 +91,20 @@ const mutations = new GraphQLObjectType({
         tags: { type: GraphQLList(GraphQLString) }
       },
       resolve(_, { _id, url, title, description, tags }) {
-        return Pin.findByIdAndUpdate(
-          _id,
-          {title, description, tags},
-          {new: true}
-        )
-        .then(pin => {
-          Url.findById(url._id)
-            .then(urlObj => {
-              if (!isEqual(urlObj, url)) {
-                Url.findByIdAndUpdate(
-                  url._id,
-                  url,
-                  {new: true}
-                )
-              }
-            }).exec();
-          return pin;
-        })
+        return Url.findById(url._id)
+          .then(urlObj => {
+            if (urlObj.link !== url.link) {
+              urlObj.link = url.link;
+              urlObj.save();
+            }
+          })
+          .then(_ => 
+            Pin.findByIdAndUpdate(
+              _id,
+              {title, description, tags},
+              {new: true}
+            )
+          )
       }
     },
     
@@ -168,20 +150,31 @@ const mutations = new GraphQLObjectType({
         title: { type: GraphQLString },
         description: { type: GraphQLString },
         tags: { type: GraphQLList(GraphQLString) },
-        pins: { type: GraphQLList(GraphQLID) }
+        pins: { type: GraphQLList(GraphQLID) },
+        userId: { type: GraphQLID }
       },
-      resolve(_, { title, description, tags, pins }) {
-        return new Bin({ title, description, tags, pins }).save();
+      resolve(_, { title, description, tags, pins, userId }) {
+        return new Bin({ title, description, tags, pins })
+          .save()
+          .then(bin => {
+            User.addBin(userId, bin._id).exec();
+            return bin;
+          });
       }
     },
 
     deleteBin: {
       type: BinType,
-      args: { _id: { type: GraphQLID } },
-      resolve(_, { _id }) {
+      args: { 
+        _id: { type: GraphQLID },
+        userId: { type: GraphQLID }
+      },
+      resolve(_, { _id, userId }) {
         return Bin.findByIdAndDelete(_id)
-          .then(bin => Url.lessBoring(bin._id))
-          .then(bin => bin)
+          .then(bin => {
+            User.removeBin(userId, bin._id).exec();
+            return bin;
+          });
       }
     }
 
