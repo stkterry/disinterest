@@ -84,11 +84,11 @@ const login = async data => {
 };
 
 const verifyUser = async data => {
+  debugger;
   try {
   
     const { token } = data;
-
-    const { id } = jwt.verify(token, keys.secretOrKey);
+    const { id } = await jwt.verify(token, keys.secretOrKey);
     let loggedIn; 
     const user = await User
       .findById(id)
@@ -97,7 +97,7 @@ const verifyUser = async data => {
         return user;
       });
 
-    return { loggedIn, currentUser: { first_name: user.first_name, last_name: user.last_name, _id: user._id } }
+    return { loggedIn, currentUser: { __typename: UserType, first_name: user.first_name, last_name: user.last_name, _id: user._id } }
   } catch (err) { return { currentUser: null, loggedIn: false } }
 };
 

@@ -1,16 +1,15 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLID, GraphQLList, GraphQLInputObjectType } = graphql;
-const isEqual = require("lodash/isEqual");
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 // const mongoose = require("mongoose");
 // const Url = mongoose.model("urls") 
 
-const UrlType = require("../schema/types/url_type");
-const PinType = require("../schema/types/pin_type");
-const BinType = require("../schema/types/bin_type");
-const UserType = require("../schema/types/user_type");
+const UrlType = require("./types/url_type");
+const PinType = require("./types/pin_type");
+const BinType = require("./types/bin_type");
+const UserType = require("./types/user_type");
 const AuthService = require("../services/auth");
 
-const UrlInput = require("../schema/inputs/url_input");
+const UrlInput = require("./inputs/url_input");
 
 const mutations = new GraphQLObjectType({
   name: "Mutation",
@@ -46,7 +45,7 @@ const mutations = new GraphQLObjectType({
     verifyUser: {
       type: UserType,
       args: { token: { type: GraphQLString } },
-      resolve(_, args) { return AuthService.verifyUser(args) }
+      resolve(_, args) { returnconsole.log("i am here in verifyuser"); return AuthService.verifyUser(args) }
     },
 
     newUrl: {

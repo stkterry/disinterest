@@ -13,8 +13,6 @@ class UserProfile extends React.Component {
     this.state = {};
   }
 
-  
-
   render() {
     return (
       <div id="user-profile-content">
@@ -28,7 +26,7 @@ class UserProfile extends React.Component {
           <div className="user-profile">
             <Query
               query={FETCH_USER}
-              variables={{ _id: this.props.match.params.userId }}
+              variables={{ userId: this.props.match.params.userId }}
             >
               {({ loading, error, data }) => {
                 if (loading) return <p>Loading...</p>;

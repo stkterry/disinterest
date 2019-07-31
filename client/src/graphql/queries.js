@@ -139,27 +139,6 @@ export default {
     }
   }`,
 
-  FETCH_USER_BINS: gql`
-  query fetchBins {
-    bins {
-      _id,
-      title,
-      description,
-        pins {
-        _id,
-        url {
-          link,
-          snores,
-          created_by
-        },
-        title,
-        description,
-        tags
-      },
-      tags
-    }
-  }`,
-
   IS_LOGGED_IN: gql`
   query IsUserLoggedIn {
     isLoggedIn @client

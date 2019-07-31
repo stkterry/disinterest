@@ -24,7 +24,7 @@ const cache = new InMemoryCache({
 cache.writeData({
   data: {
     isLoggedIn: Boolean(token),
-    currentUser: currentUser
+    currentUser: Object.assign(currentUser, { __typename: "UserType" })
   }
 });
 
@@ -42,15 +42,14 @@ const client = new ApolloClient({
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
-  }
+  },
+  resolvers: {}
 });
 
 if (token) {
   client
     .mutate({ mutation: VERIFY_USER, variables: { token } })
     .then(({ data }) => {
-
-
       cache.writeData({
         data: { isLoggedIn: data.verifyUser.loggedIn, currentUser: Object.assign(data.verifyUser.currentUser, { __typename: "UserType" }) }
       });
