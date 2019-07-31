@@ -11,6 +11,7 @@ import UserProfile from "./users/UserProfile";
 import PinIndex from "./pins/pin_index";
 
 import AWSTest from "./awstest/awstest";
+import PinCreateForm from "./pins/pin_create_form";
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
       <Route exact path="/users" component={UserIndex} />
       <Route exact path="/users/:userId" component={UserProfile} />
       <Route exact path="/AWSTest" component={AWSTest} />
+      <Route exact path="/pin-builder" component={PinCreateForm} />
     </Switch>
   </div>
 )

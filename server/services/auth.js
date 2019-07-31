@@ -84,7 +84,7 @@ const login = async data => {
 };
 
 const verifyUser = async data => {
-  debugger;
+
   try {
   
     const { token } = data;

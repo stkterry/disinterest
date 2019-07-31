@@ -55,7 +55,8 @@ a {
   padding: 3px;
   position: fixed;
   top: 0;
-  background-color: white; }
+  background-color: white;
+  z-index: 100; }
 
 .navbar-left {
   margin: 5px; }
@@ -515,5 +516,13 @@ code {
 
 .aws-test-button {
   margin-top: 30px; }
+
+.pin-form-outer-div {
+  position: absolute;
+  margin-top: 110px;
+  margin-bottom: 50px;
+  width: 882px;
+  height: 634px;
+  border: solid black 1px; }
 
 /*# sourceMappingURL=output.css.map */
