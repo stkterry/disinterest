@@ -9,7 +9,7 @@ const schema = require("./schema/schema");
 const db = require("../config/keys").MONGO_URI;
 const app = express();
 
-const uploadFile = require("../upload_file");
+const uploadFile = require("./upload_file");
 // console.log(uploadFile);
 
 if (!db) {
