@@ -17,21 +17,11 @@ class AWSTest extends Component {
     return event => this.setState({ [field]: event.target.value });
   }
 
-  handleImage(e) {
-    const image = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ addToAWS: image, photoUrl: fileReader.result });
-    };
-    if (image) {
-      fileReader.readAsDataURL(image);
-    }
-  }
 
   render() {
     return (
       <div className="AWS-test-outer-div">
-        <form className="splash-outer-div">
+        <form>
           <input type="file"
             value={this.state.addToAWS}
             onChange={this.update("addToAWS")}

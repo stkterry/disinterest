@@ -424,7 +424,8 @@ code {
 #splash-signup-login-button:hover {
   background: #ebeaea; }
 
-.aws-test {
+.AWS-test-outer-div {
+  position: absolute;
   width: 253px;
   height: 40px;
   margin-bottom: 9px;
@@ -432,5 +433,8 @@ code {
   border-radius: 4px;
   top: 50%;
   left: 50%; }
+
+.aws-test-button {
+  margin-top: 30px; }
 
 /*# sourceMappingURL=output.css.map */
