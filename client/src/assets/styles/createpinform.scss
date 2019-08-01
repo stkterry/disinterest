@@ -139,7 +139,9 @@
   border-bottom: solid #dadada 1px;
 }
 
-
+.url-input-pin:focus {
+  outline: none;
+}
 
 .AWS-test-outer-div {
   position: absolute;
