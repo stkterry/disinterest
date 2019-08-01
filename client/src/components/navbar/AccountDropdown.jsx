@@ -41,14 +41,14 @@ class AccountDropdown extends React.Component {
 
 
   render() {
-    
+    const currentUser = JSON.parse(localStorage.getItem("current-user"));
     if (this.state.open) {
       return (
         <div>
           <i className="fas fa-ellipsis-h" onClick={this.handleClose} style={{color: 'black'}}></i>
           <div className="account-dropdown">
 
-            <div onClick={() => this.props.history.push("/userprofile")} style={{borderRadius: '10px 10px 0px 0px'}}>User profile</div>
+            <div onClick={() => this.props.history.push(`/users/${currentUser._id}`)} style={{borderRadius: '10px 10px 0px 0px'}}>User profile</div>
             <div>Add a free busines profile</div>
             <div onClick={this.props.handleRequestFeatureShow}>Request a feature</div>
             <div>See terms and privacy</div>

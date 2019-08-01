@@ -11,6 +11,7 @@ const app = express();
 
 const uploadFile = require("./upload_file");
 // console.log(uploadFile);
+const singleUpload = uploadFile.single('image');
 
 if (!db) {
   throw new Error("You must provide a string to connect to MongoDB Atlas");
@@ -31,15 +32,29 @@ app.use(
   })
 );
 
-app.post(
-  "/upload",
-  uploadFile.array("image", 1),
-  (req, res) => {
-    // console.log(req);
-    console.log(res);
-    res.send("image properly uploaded");
-  }
-);
+// app.post(
+//   "/upload",
+//   uploadFile.array("image", 1),
+//   (req, res) => {
+//     // console.log(req);
+//     // console.log(res);
+//     // res.send("image properly uploaded");
+//     return res.json({'imageUrl': req.file.location});
+//   }
+// );
+
+app.post('/image-upload', function (req, res) {
+
+  singleUpload(req, res, function (err) {
+
+    if (err) {
+      return res.status(422).send({ errors: [{ title: 'File Upload Error', detail: err.message }] });
+    }
+
+    return res.json({ 'imageUrl': req.file.location });
+  });
+});
+
 
 app.use(bodyParser.json());
 
