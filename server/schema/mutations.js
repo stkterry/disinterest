@@ -68,11 +68,11 @@ const mutations = new GraphQLObjectType({
         image_url: { type: GraphQLString },
         created_by: { type: GraphQLID }
       },
-      async resolve(_, { url, title, description, tags, created_by }) {
+      async resolve(_, { url, title, description, tags, image_url, created_by }) {
         return new Url({ link: url, created_by: created_by })
           .save()
           .then(URL => {
-            return new Pin({ url: URL._id, title, description, tags }).save()
+            return new Pin({ image_url, url: URL._id, title, description, tags }).save()
               .then(pin => {
                 User.addPin(created_by, pin._id).exec();
                 return pin;
