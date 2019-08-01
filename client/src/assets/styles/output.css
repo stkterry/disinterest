@@ -525,7 +525,7 @@ code {
 .actual-form {
   margin-left: 40px;
   margin-right: 40px;
-  max-height: 630px;
+  max-height: 610px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column wrap; }
@@ -558,27 +558,73 @@ code {
   cursor: pointer;
   background-color: #dadada; }
 
+.made-flex-row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 210px;
+  margin-top: 20px; }
+
+#pin-save-button {
+  width: 65px;
+  background-color: #e60023;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  height: 40px;
+  outline: 0px;
+  padding: 0px 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px; }
+
 .title-input-pin {
+  margin-top: 60px;
+  margin-left: 40px;
   width: 420px;
   height: 43px;
   font-size: 36px;
   font-weight: bold;
-  color: #dadada; }
+  border-bottom: solid #dadada 1px;
+  padding-bottom: 7px; }
+
+.title-input-pin:focus {
+  outline: none; }
+
+#current-user-pin-create-flex-container {
+  margin-left: 40px;
+  margin-top: 37px;
+  display: flex;
+  flex-direction: row; }
+
+#current-user-pin-create-div {
+  margin-left: 10px; }
+
+.current-user-pin-create {
+  font-size: 16px;
+  color: #333;
+  font-weight: 700; }
 
 .description-input-pin {
-  margin-top: 25px;
+  margin-top: 30px;
   width: 420px;
   height: 21px;
-  font-size: 18px; }
+  font-size: 18px;
+  margin-left: 40px;
+  border-bottom: solid #dadada 1px;
+  padding-bottom: 7px; }
+
+.description-input-pin {
+  outline: none; }
 
 .url-input-pin {
-  margin-top: 250px;
+  margin-top: 240px;
+  margin-left: 40px;
   width: 420px;
   height: 21px;
-  font-size: 18px; }
-
-#test-form-button {
-  width: 150px; }
+  font-size: 18px;
+  padding-bottom: 7px;
+  border-bottom: solid #dadada 1px; }
 
 .AWS-test-outer-div {
   position: absolute;

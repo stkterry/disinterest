@@ -40,7 +40,7 @@ class CreateBoardOrPin extends React.Component {
           <i className="fas fa-plus" onClick={this.handleClose}></i>
           <div className="bin-or-pin-dropdown">
             <div style={{ borderRadius: '10px 10px 0px 0px' }}>Create board</div>
-            <div style={{ borderRadius: '0px 0px 10px 10px' }}>Create Pin</div>
+            <div onClick={() => this.props.history.push("/pin-builder")} style={{ borderRadius: '0px 0px 10px 10px' }}>Create Pin</div>
           </div>
         </div>
       );

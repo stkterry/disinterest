@@ -31,7 +31,7 @@ class PinForm extends React.Component {
 
   render() {
     const { url, title, description, photo_url, tags, created_by } = this.state;
-    
+    const currentUser = JSON.parse(localStorage.getItem("current-user"));
     return (
       <Mutation
         mutation={CREATE_PIN}
@@ -63,14 +63,28 @@ class PinForm extends React.Component {
                   />
                 </div>
                 <input className="save-from-site" value="Save from site" />
-                <select value="select" className="tag-options">
-                </select>
+                <div className="made-flex-row">
+                  <select value="select" className="tag-options">
+                    <option>Will likely change this later</option>
+                    <option>Should be able to select</option>
+                    <option>Bins within</option>
+                    <option>A dropdown here somehow</option>
+                  </select>
+                  <button id="pin-save-button">Save</button>
+                </div>
                 <input 
                   className="title-input-pin"
                   value={this.state.title}
                   onChange={this.update("title")}
                   placeholder="Add your title"
                 />
+                <div id="current-user-pin-create-flex-container">
+                  <i className="fas fa-user-circle" style={{fontSize: '40px'}}></i>
+                  <div id="current-user-pin-create-div">
+                    <div className="current-user-pin-create">{currentUser.first_name} {currentUser.last_name}</div>
+                    <div># followers</div>
+                  </div>
+                </div>
                 <input
                   className="description-input-pin"
                   value={this.state.description}
@@ -83,7 +97,7 @@ class PinForm extends React.Component {
                   onChange={this.update("url")}
                   placeholder="Add a destination link"
                 />
-                <button id="test-form-button">Testing Form</button>
+                
               </form>
             </div>
         </div>
