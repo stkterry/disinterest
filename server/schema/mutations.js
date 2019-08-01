@@ -65,6 +65,7 @@ const mutations = new GraphQLObjectType({
         title: { type: GraphQLString },
         description: { type: GraphQLString},
         tags: { type: GraphQLList(GraphQLString) },
+        image_url: { type: GraphQLString },
         created_by: { type: GraphQLID }
       },
       async resolve(_, { url, title, description, tags, created_by }) {

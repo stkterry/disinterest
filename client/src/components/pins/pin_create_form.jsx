@@ -19,7 +19,7 @@ class PinForm extends React.Component {
       title: "",
       description: "",
       tags: ["curling"],
-      photo_url: null,
+      aws_image_url: null,
       created_by: currentUser._id
     };
   }
@@ -30,8 +30,9 @@ class PinForm extends React.Component {
 
 
   render() {
-    const { url, title, description, photo_url, tags, created_by } = this.state;
+    const { url, title, description, aws_image_url, tags, created_by } = this.state;
     const currentUser = JSON.parse(localStorage.getItem("current-user"));
+    let image_url; 
     return (
       <Mutation
         mutation={CREATE_PIN}
@@ -49,9 +50,20 @@ class PinForm extends React.Component {
                 const image = document.getElementById("aws-photo").files[0];
                 let data = new FormData();
                 data.append('image', image);
-                addImageToAws(data);
+                addImageToAws(data).then((response) => {
+                  console.log("seems to have worked");
+                  // console.log(response);
+                  // console.log(response.data.imageUrl);
+                  // this.setState({ image_url: response.data.imageUrl})
+                  image_url = response.data.imageUrl;
+                  console.log(image_url);
+                  // newPin({ variables: { url, title, description, tags, image_url, created_by } })
+                }).catch((error) => {
+                  console.log(error);
+                });
 
-                newPin({ variables: { url, title, description, tags, created_by } })
+                console.log(image_url);
+                newPin({ variables: { url, title, description, tags, image_url, created_by } })
               }}
               >
                 <div className="image-input-outer-div">

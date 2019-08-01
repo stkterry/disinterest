@@ -45,8 +45,8 @@ export default {
   }`,
 
   CREATE_PIN: gql`
-  mutation CreatePin($url: String, $title: String, $description: String, $tags: [String], $created_by: ID!) {
-    newPin(url: $url, title: $title, description: $description, tags: $tags, created_by: $created_by) {
+  mutation CreatePin($url: String, $title: String, $description: String, $tags: [String], $image_url: String, $created_by: ID!) {
+    newPin(url: $url, title: $title, description: $description, tags: $tags, image_url: $image_url, created_by: $created_by) {
       _id,
       url {
         _id,
@@ -56,7 +56,8 @@ export default {
       },
       title,
       description,
-      tags
+      tags,
+      image_url
     }
   }`,
 
