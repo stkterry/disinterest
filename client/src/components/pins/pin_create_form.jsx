@@ -51,9 +51,9 @@ class PinForm extends React.Component {
                 let data = new FormData();
                 data.append('image', image);
                 addImageToAws(data).then((response) => {
-                  console.log("seems to have worked");
+                  console.log("Image addition to AWS seems to have worked");
                   // console.log(response);
-                  console.log(response.data.imageUrl);
+                  // console.log(response.data.imageUrl);
                   // this.setState({ image_url: response.data.imageUrl})
                   const image_url = response.data.imageUrl;
                   console.log(image_url);
