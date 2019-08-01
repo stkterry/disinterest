@@ -62,6 +62,9 @@ class PinForm extends React.Component {
                     placeholder="Add photo"
                   />
                 </div>
+                <input className="save-from-site" value="Save from site" />
+                <select value="select" className="tag-options">
+                </select>
                 <input 
                   className="title-input-pin"
                   value={this.state.title}
@@ -80,7 +83,7 @@ class PinForm extends React.Component {
                   onChange={this.update("url")}
                   placeholder="Add a destination link"
                 />
-                <button>Testing Form</button>
+                <button id="test-form-button">Testing Form</button>
               </form>
             </div>
         </div>

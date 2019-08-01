@@ -35,6 +35,8 @@ app.post(
   "/upload",
   uploadFile.array("image", 1),
   (req, res) => {
+    // console.log(req);
+    console.log(res);
     res.send("image properly uploaded");
   }
 );

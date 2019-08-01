@@ -1,5 +1,90 @@
 
+.pin-form-outer-div {
+  position: absolute; 
+  margin-bottom: 50px;
+  background: #efefef;
+  width: 100vw;
+  height: 120%;
+  box-sizing: border-box;
+}
 
+.form-div {
+  position: absolute; 
+  margin-top: 120px;
+  margin-bottom: 50px;
+  background: white;
+  width: 882px;
+  height: 634px;
+  margin-left: 20%;
+  border-radius: 15px;
+}
+
+.actual-form {
+  margin-left: 40px;
+  margin-right: 40px;
+  max-height: 630px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column wrap
+}
+
+.image-input-outer-div {
+  margin-top: 80px;
+  height: 455px;
+  width: 340px;
+  border-radius: 10px;
+  background: #efefef;
+}
+
+#aws-photo {
+  border: 2px dashed #dadada;
+  height: 90%;
+  width: 90%;
+  margin: 15px;
+}
+
+.save-from-site {
+  margin-top: 10px;
+  width: 340px;
+  height: 50px;
+  background: #efefef;
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.save-from-site:hover {
+  cursor: pointer;
+  background-color: #dadada;
+}
+
+.title-input-pin {
+  width: 420px;
+  height: 43px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #dadada;
+}
+
+.description-input-pin {
+  margin-top: 25px;
+  width: 420px;
+  height: 21px;
+  font-size: 18px;
+}
+
+.url-input-pin {
+  margin-top: 250px;
+  width: 420px;
+  height: 21px;
+  font-size: 18px;
+}
+
+#test-form-button {
+  width: 150px;
+}
 
 .AWS-test-outer-div {
   position: absolute;
@@ -15,33 +100,3 @@
 .aws-test-button {
   margin-top: 30px;
 }
-
-.pin-form-outer-div {
-  position: absolute; 
-  margin-top: 110px;
-  margin-bottom: 50px;
-
-  width: 882px;
-  height: 634px;
-  border: solid black 1px;
-  
-}
-
-.form-div {
-  
-}
-
-.actual-form {
-  
-}
-
-// .pin-form-outer-div {
-//   position: absolute; 
-//   margin-top: 110px;
-//   margin-bottom: 50px;
-
-//   width: 882px;
-//   height: 634px;
-//   border: solid black 1px;
-  
-// }
