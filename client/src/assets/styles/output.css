@@ -427,6 +427,12 @@ code {
   color: red;
   font-size: 40px; }
 
+.auth-logo {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-top: 30px; }
+
 #splash-outer-div {
   position: absolute;
   top: 50%;

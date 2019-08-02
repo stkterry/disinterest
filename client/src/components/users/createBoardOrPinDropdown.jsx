@@ -33,6 +33,10 @@ class CreateBoardOrPin extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleClose)
+  }
+
   render() {
     if (this.state.open) {
       return (
