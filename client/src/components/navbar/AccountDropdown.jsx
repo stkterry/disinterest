@@ -45,7 +45,7 @@ class AccountDropdown extends React.Component {
     if (this.state.open) {
       return (
         <div>
-          <i className="fas fa-ellipsis-h" onClick={this.handleClose} style={{color: 'black'}}></i>
+          <i className="fas fa-ellipsis-h" onClick={this.handleClose} style={{color: 'black'}} />
           <div className="account-dropdown">
 
             <div onClick={() => this.props.history.push(`/users/${currentUser._id}`)} style={{borderRadius: '10px 10px 0px 0px'}}>User profile</div>

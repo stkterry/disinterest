@@ -4,9 +4,7 @@ let uuid = require('uuid');
 let multer = require('multer');
 let multerS3 = require('multer-s3');
 
-let credentials = new AWS.SharedIniFileCredentials({ profile: 'default' });
-
-AWS.config.credentials = credentials;
+AWS.config.loadFromPath("/home/szczepan/dev_projects/AA/GraphQL/disinterest/config/aws_credentials.json");
 
 const s3 = new AWS.S3();
 

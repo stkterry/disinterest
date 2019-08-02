@@ -12,7 +12,7 @@ const { CREATE_PIN } = Mutations;
 class PinForm extends React.Component {
   constructor(props) {
     super(props);
-    const currentUser = JSON.parse(localStorage.getItem("current-user"));
+    this.currentUser = JSON.parse(localStorage.getItem("current-user"));
     
     this.state = {
       url: "",
@@ -20,7 +20,7 @@ class PinForm extends React.Component {
       description: "",
       tags: ["curling"],
       aws_image_url: null,
-      created_by: currentUser._id
+      created_by: this.currentUser._id
     };
   }
 
@@ -28,10 +28,10 @@ class PinForm extends React.Component {
     return event => this.setState({ [field]: event.target.value });
   }
 
-
   render() {
     const { url, title, description, aws_image_url, tags, created_by } = this.state;
-    const currentUser = JSON.parse(localStorage.getItem("current-user"));
+    const { first_name, last_name } = this.currentUser;
+    // const currentUser = JSON.parse(localStorage.getItem("current-user"));
     // let image_url; 
     return (
       <Mutation
@@ -51,29 +51,20 @@ class PinForm extends React.Component {
                 let data = new FormData();
                 data.append('image', image);
                 addImageToAws(data).then((response) => {
-                  console.log("Image addition to AWS seems to have worked");
-                  // console.log(response);
-                  // console.log(response.data.imageUrl);
-                  // this.setState({ image_url: response.data.imageUrl})
                   const image_url = response.data.imageUrl;
-                  console.log(image_url);
                   newPin({ variables: { url, title, description, tags, image_url, created_by } })
                 }).catch((error) => {
-                  console.log(error);
                 });
-
-                // console.log(image_url);
-                // newPin({ variables: { url, title, description, tags, image_url, created_by } })
               }}
               >
-                <div className="image-input-outer-div">
-                  <input id="aws-photo" 
-                    type="file"
-                    onChange={this.update("file")}
-                    className="aws-test"
-                    placeholder="Add photo"
-                  />
-                </div>
+              <div className="image-input-outer-div">
+                <input id="aws-photo" 
+                  type="file"
+                  onChange={this.update("file")}
+                  className="aws-test"
+                  placeholder="Add photo"
+                />
+              </div>
                 <input className="save-from-site" value="Save from site" />
                 <div className="made-flex-row">
                   <select value="select" className="tag-options">
@@ -86,26 +77,26 @@ class PinForm extends React.Component {
                 </div>
                 <input 
                   className="title-input-pin"
-                  value={this.state.title}
+                  value={title}
                   onChange={this.update("title")}
                   placeholder="Add your title"
                 />
                 <div id="current-user-pin-create-flex-container">
                   <i className="fas fa-user-circle" style={{fontSize: '40px'}}></i>
                   <div id="current-user-pin-create-div">
-                    <div className="current-user-pin-create">{currentUser.first_name} {currentUser.last_name}</div>
+                    <div className="current-user-pin-create">{first_name} {last_name}</div>
                     <div># followers</div>
                   </div>
                 </div>
                 <input
                   className="description-input-pin"
-                  value={this.state.description}
+                  value={description}
                   onChange={this.update("description")}
                   placeholder="Tell everyone what your pin is about"
                 />
                 <input
                   className="url-input-pin"
-                  value={this.state.url}
+                  value={url}
                   onChange={this.update("url")}
                   placeholder="Add a destination link"
                 />
