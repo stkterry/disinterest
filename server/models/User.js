@@ -41,7 +41,6 @@ UserSchema.statics.findPins = function (userId) {
 };
 
 UserSchema.statics.addPin = function(userId, pinId) {
-  console.log(userId, pinId)
   return this.findByIdAndUpdate(
     userId,
     { $addToSet: { pins: pinId } },
