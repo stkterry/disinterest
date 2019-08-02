@@ -61,7 +61,7 @@ const mutations = new GraphQLObjectType({
     newPin: {
       type: PinType,
       args: {
-        url: { type: GraphQLID },
+        url: { type: GraphQLString },
         title: { type: GraphQLString },
         description: { type: GraphQLString},
         tags: { type: GraphQLList(GraphQLString) },
