@@ -24,9 +24,9 @@ class Register extends Component {
       data: {
         isLoggedIn: data.register.loggedIn, 
         currentUser: {
-          first_name: data.login.first_name,
-          last_name: data.login.last_name,
-          _id: data.login._id,
+          first_name: data.register.first_name,
+          last_name: data.register.last_name,
+          _id: data.register._id,
           __typename: "UserType"
         }  
       }
