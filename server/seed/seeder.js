@@ -34,18 +34,23 @@ const registerUser = async data => {
 };
 
 const seedUsers = async (amount) => {
+  let tuser;
   // Generate static users
   for (let user of STATIC_USERS) {
-    await registerUser(user);
+    tuser = await registerUser(user)
+      .catch(err => `Couldn't add user because ${err}`);
+    console.log(`Successfully added user ${tuser._id}`)
   }
   // Generate random users
   for (let i = 0; i < amount; i++) {
-    await registerUser({
+    tuser = await registerUser({
       first_name: chance.first(),
       last_name: chance.last(),
       email: chance.email(),
       password: "password"
     })
+    .catch(err => `Couldn't add user because ${err}`);
+    console.log(`Added user ${tuser._id}`)
   }
   console.log(`Added ${STATIC_USERS.length} static and ${amount} random users`);
 }
@@ -62,21 +67,20 @@ const seedPins = async (amount) => {
         })
         .catch(err => console.log(`Url could not be saved because ${err}`));
 
-        console.log(`Success ${url} was created`);
-
         const pinObj = await Pin.create(Object.assign(pin, { url: url._id }))
           .catch(err => console.log(`Pin could not be saved because ${err}`));
 
         await User.addPin(user._id, pinObj._id)
           .catch(err => console.log(`User could not be saved because ${err}`));
+        
+        console.log(`Added pin ${pinObj._id} and attached to user ${user._id}`)
       }
     }
   console.log(`Added ${amount * users.length} pins to ${users.length} users (${amount} pins per user)`);
-  
-  return;
 }
 
 const crossSeedPins = async (min, max) => {
+  let totalCrossSeeds = 0;
   
   let urls = await Url.find();
   let pins = await Pin.find();
@@ -103,15 +107,18 @@ const crossSeedPins = async (min, max) => {
       .catch(err => console.log(`Couldn't save pin because ${err}`));
       await User.addPin(user._id, pin._id)
         .catch(err => console.log(`Couldn't add pin to user because ${err}`))
+      console.log(`Cross-seeded pin ${pinObj._id}`)
     }
+    totalCrossSeeds += selection.length
   }
 
+  console.log(`Cross-seeded ${totalCrossSeeds} pins, avg ${totalCrossSeeds/users.length} per user`)
 }
 
 const seedBins = async (binmin, binmax) => {
+  let totalBins = 0;
   const pins = await Pin.find();
   const users = await User.find();
-
 
   for (let user of users) {
     let userPins = pins.filter(pin => user.pins.includes(pin._id));
@@ -119,31 +126,33 @@ const seedBins = async (binmin, binmax) => {
     for (let pin of userPins) {
       let tag = pin.tags.find(tag => TAGS.includes(tag));
       if (userTopics[tag]) {
-        userTopics[tag][1].push(pin);
-        userTopics[tag][2] += 1;
+        userTopics[tag].pins.push(pin);
+        userTopics[tag].count += 1;
       }
-      else userTopics[tag] = [tag, [pin], 1];
+      else userTopics[tag] = {tag: tag, pins: [pin], count: 1}
     }
-    userTopics = Object.values(userTopics).sort(function(a, b) { return a[2] - b[2] });
+    userTopics = Object.values(userTopics).sort(function(a, b) { return a.count - b.count });
 
     let nBins = randFromInterval(binmin, (binmax < userTopics.length) ? binmax : userTopics.length);
     for (let i = 0; i < nBins; i++) {
+      totalBins += 1;
       let topic = userTopics.pop();
-      const tbin = TOPICS[topic[0]];
+      const tbin = TOPICS[topic.tag];
       const bin = await Bin.create({
         title: randFromArray(tbin.titles),
         description: chance.paragraph(),
-        tags: [topic[0], randFromArray(FREETAGS)],
-        pins: topic[1].map(pin => pin._id)
+        tags: [topic.tag, randFromArray(FREETAGS)],
+        pins: topic.pins.map(pin => pin._id)
       })
       .catch(err => `Could not create bin because ${err}`);
       await User.addBin(user._id, bin._id)
         .catch(err => `Couldn't add bin because ${err}`);
+      
+      console.log(`Created bin ${bin._id} for user ${user._id}`);
     }
   }
-  console.log(`Added bins`);
+  console.log(`Added ${totalBins} bins`);
 }
-
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -158,5 +167,7 @@ mongoose
       .catch(err => console.log("Couldn't cross-seed pins"));
     await seedBins(2, 4)
       .catch(err => console.log("Couldn't create user bins"));
-    console.log("Done");
+    console.log("Done seeding, exiting");
+
+    db.connection.close();
   })

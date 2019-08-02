@@ -152,6 +152,236 @@ const TOPICS = {
       "https://www.buzzfeed.com/emofly/37-hacks-to-make-dish-washing-easier"
 
     ]
+  },
+  takingouttrash: {
+    titles: [
+      "This Stinks",
+      "Lord of Hordes",
+      "Garbage Guys",
+      "Taking Out the Trash",
+      "Trash Talk",
+      "Throw it Out",
+      "Throwing Things Away",
+      "The Art of Trash",
+      "Trash Monsters",
+      "All About Trash",
+      "Trash Tips"
+    ],
+    urls: [
+      "https://www.wikihow.com/Take-out-the-Trash",
+      "https://tiphero.com/trash-tricks",
+      "https://giphy.com/explore/taking-out-the-trash",
+      "https://www.aljazeera.com/ajimpact/trash-space-190716213037055.html",
+      "https://www.imdb.com/title/tt1921149/",
+      "http://robgreenfield.tv/trashme/",
+      "https://www.fastcompany.com/90382101/this-startup-just-raised-33-million-to-vaporize-trash",
+      "https://www.wsj.com/articles/we-are-swamped-how-a-global-trash-glut-hurt-a-25-billion-industry-11564343534",
+      "https://bgr.com/2019/07/29/iss-garbage-disposal-space-station/"
+    ]
+  },
+  dmv: {
+    titles: [
+      "DMV Hell",
+      "I'd Rather Be Dead",
+      "DMV Hours",
+      "DMV Deloreans",
+      "Politics of the DMV",
+      "Dept of Motor Vehicles",
+      "DMV Tricks"
+    ],
+    urls: [
+      "https://jalopnik.com/here-are-the-some-of-the-most-bizarre-dmv-horror-storie-1711970247",
+      "https://www.governing.com/topics/transportation-infrastructure/Whos-Afraid-of-The-DMV.html",
+      "https://www.latimes.com/travel/la-tr-travel-real-id-fix-from-dmv-20190522-story.html",
+      "https://www.rd.com/advice/how-to-avoid-the-dmv-line/",
+      "https://grownandflown.com/hate-dmv-instructor-failed-daughter/"
+
+    ]
+  },
+  monopoly: {
+    titles: [
+      "Family Night Monopoly",
+      "Best Way to End Relationships", 
+      "The Game Everyone Hates",
+      "Monopoly Money",
+      "Monopoly Board",
+      "Top 10 Unusual Gift Ideas for Monopoly Fans",
+      "Rich Kids Monopoly",
+      "Go to Jail!"
+    ], 
+    urls: [
+      "https://exviver.com/product/monopoly-wall-art-monopoly-art-monopoly-print-monopoly-artwork-canvas-wall-art-hustle-art-monopoly-gift-monopoly-card/",
+      "https://diygamer.maxi.pw/diy-gamer/ultimate-monopoly/",
+      "https://www.fun.com/monopoly-scooby-doo-board-game.html",
+      "https://theverybesttop10.com/gift-ideas-for-monopoly-fans/",
+      "https://www.shopdisney.com/disney-theme-park-edition-iii-monopoly-game-1277089",
+      "http://clipart-library.com/monopoly-cliparts.html",
+    ]
+  },
+  knitting: {
+    titles: [
+      "How to Knit Herringbone",
+      "Chunky Knit Blankets",
+      "How to knit a bunny rabbit",
+      "Socks",
+      "The Downtown Cardigan",
+      "Knitting Bathmats",
+      "How to Knit the Seed Stich Pattern",
+      "Crochet Patterns",
+      "Knit a Hat"
+    ],
+    urls: [
+      "https://www.mamainastitch.com/how-to-knit-the-horizontal-herringbone-stitch/",
+      "https://www.frombritainwithlove.com/how-to-knit-an-easter-bunny-free-pattern-and-step-by-step-tutorial/",
+      "http://www.apronbasket.com/archives/2761/38",
+      "https://www.allaboutami.com/the-downtown-cardigan/",
+      "http://craftevangelist.ca/blog/2019/03/10/spring-patterns/?utm_medium=social&utm_source=pinterest&utm_campaign=tailwind_tribes&utm_content=tribes&utm_term=642521212_24592098_248493",
+      "https://startknitting.org/bag-purse/market-bag-free-knitting-pattern/",
+      "https://www.littleyellowwheelbarrow.com/make-chunky-knit-pillow/",
+      "https://www.etsy.com/uk/listing/678843679/knitting-pattern-little-duckling?ref=shop_home_active_5&crt=1",
+      "https://www.studioknitsf.com/diagonal-basket-weave-knit-stitch-pattern-with-braided-woven-cable-design/",
+      "https://patterncenter.com/point-of-flowers-knitting-free/"
+    ]
+  },
+  gardening: {
+    title: [
+      "Put these 8 Things In Your Tomato Planting Hole",
+      "Solar Gardens",
+      "Vegetables in the Shade",
+      "How to Grow Blueberries",
+      "25 Fruits",
+      "Free Planters",
+      "Vegetable Schedule",
+      "White Vinegar in ur Gardens",
+      "Grow Stuff",
+      "Yay Plants",
+      "Veggie Luver",
+      "Gardeners Rule!"
+    ],
+    urls: [
+      "https://plantinstructions.com/vegetables/how-to-grow-vanilla-beans-vanilla-bean-plant-info/",
+      "https://www.naturallivingideas.com/cut-and-come-again-veggies/",
+      "https://homehacks.co/40-diy-cinder-block-projects/",
+      "https://homehacks.co/uses-for-white-vinegar-in-the-garden/?utm_source=divas&utm_medium=pinterest&utm_campaign=gardening",
+      "https://audreyslittlefarm.com/vegetable-garden-planting-schedule/",
+      "https://www.onehundreddollarsamonth.com/8-places-find-free-gardening-containers/",
+      "https://oldworldgardenfarms.com/2017/06/15/prune-tomatoes-peppers/",
+      "https://urbansurvivalsite.com/fruits-and-veggies-you-can-grow-in-buckets/",
+      "http://gardenng.com/how-to-grow-blueberries/",
+      "https://www.healthygreensavvy.com/vegetables-that-grow-in-shade/",
+      "https://homegardenist.com/put-these-8-things-in-your-tomato-planting-hole/"
+    ]
+  },
+  minecraft: {
+    titles: [
+      "Made A Thing",
+      "How to make Minecraft Things",
+      "Oh look more blocky crap",
+      "Blocky Bridge",
+      "Retro Garbage Graphics - Minecraft",
+      "Do YoU pLaY mInEcRaFt?!?!",
+      "Oh Look Minecraft",
+      "Minecraft Art",
+      "Chisels and Bits",
+      "Minecraft is Kewl",
+      "Yet another thing",
+      "Minecraft thing",
+      "Thing Thing Thing - Minecraft"
+    ], 
+    urls: [
+      "https://dekoration2019.tudoaqui2019.com/dekoration/minecraft-fare-un-ponte-3/",
+      "http://gaming.superfleek.com/wookieelocks/",
+      "https://www.youtube.com/watch?v=oqb59XNk0Wg",
+      "https://homemydesign.com/2018/25-most-adorable-room-ideas-with-video-game-theme/",
+      "https://www.grabcraft.com/minecraft/adacia-greenhouse/farm-buildings#general",
+      "https://diygamer.maxi.pw/diy-gamer/image-result-for-minecraft-survival-houses/",
+      "https://www.planetminecraft.com/",
+      "https://gifteee.com/products/trends-international-wall-poster-minecraft-world-22-375-x-34",
+      "https://www.reddit.com/r/Minecraft/comments/9zvab6/the_chickenator_9000_a_selfreloading_aesthetic/?st=JOVR5R4T&sh=f9113f7d",
+      "https://imgur.com/a/0ITF60c",
+
+    ]
+  },
+  golf: {
+    titles: [
+      "Hitting Balls",
+      "Smacking ur balls - Golf",
+      "Cleaning Balls",
+      "Golf Tees",
+      "6 Ways to Improve Your Golf Game",
+      "Keeping Your Balls Clean",
+      "Polishing Your Balls to Improve Your Game",
+      "How to Swing",
+      "Watching Grass Grow",
+      "The Device will up your Golf Skills"
+    ],
+    urls: [
+      "https://nickfoygolf.com/driving-range-practice-routine-golf-swing-drills/",
+      "https://golfersauthority.com/how-to-clean-golf-clubs/",
+      "https://practical-golf.com/golf-drills/",
+      "https://www.wayfair.com/Suncast--Suncast-Golf-Organizer-in-Black-GO3216D-L3255-K~XA1451.html?refid=PINTO49-XA1451",
+      "https://www.beginnergolfswingtips.com/how-to-stop-topping-your-iron-shots/",
+      "https://www.underpargoals.com/golf-club-names-and-uses/",
+      "https://www.golfdigest.com/story/the-unlikely-flotation-device-that-will-fix-your-swing-plane?mbid=social_facebook",
+      "http://www.golfwrx.com/391696/learning-golf-from-the-best-instructors-on-twitter/#21331",
+      "https://golfersauthority.com/how-to-hit-a-draw/"
+    ]
+  },
+  cricket: {
+    titles: [
+      "Some Cricket Guy",
+      "Some Other Cricket Guy",
+      "Oh Lookaway, it's a Cricket Match",
+      "Even Cricket Fans Admit Cricket Is Boring",
+      "Cricket World News",
+      "A Game of Cricket",
+      "Even Our Game's Name Puts people to sleep",
+      "Shouldn't have named a sport after a bug",
+      "Cricket Bats",
+      "Cricket Balls"
+    ],
+    urls: [
+      "http://www.zimbio.com/photos/Jos+Buttler/England+Pakistan+Net+Sessions/uoE6LqSLrYL",
+      "https://www.theguardian.com/sport/gallery/2009/nov/16/sachin-tendulkar-career-highlights#img-1",
+      "https://www.buzzfeed.com/shayanroy/the-gentlemans-game",
+      "https://www.cricketworld.com/highest-paid-cricketers-and-history-of-the-cricket-bat/39134.htm",,
+      "http://www.freepdfbook.com/ab-the-autobiography/",
+      "https://www.facebook.com/MyCricketTrolls/photos/a.581597615308366.1073741828.581587018642759/1210162119118576/?type=3",      
+      "https://www.sprinklr.com/",
+      "https://fineartamerica.com/featured/vintage-cricket-ryan-jorgensen.html?product=art-print",
+      "https://www.behance.net/gallery/15932135/Rules-of-Cricket",
+      "https://www.buzzfeed.com/gavon/24-awesome-photos-of-maasai-warriors-playing-crick?utm_term=.se04x8QLA#.pbVmPpxQe",
+      "https://www.msn.com/en-za/sport/cricket/cricket-world-cup-2015-players-to-watch/ss-AA9iuI3"
+    ]
+  },
+  curling: {
+    titles: [
+      "Do You Even Curl Bro?",
+      "Curling Bros",
+      "The Science Of Curling",
+      "A Country So Bored that Slide Stones On Ice",
+      "Oh Look, Curling",
+      "Why is this A Sport?",
+      "Curling Legends",
+      "13 Reasons Why Curling Will Make You Sleepy",
+      "Will you sweep with me?",
+      "History of Curling"
+    ],
+    urls: [
+      "https://www.csmonitor.com/Commentary/Opinion/2010/0225/The-perfect-Winter-Olympics-sport-curling-really",
+      "http://teamjenniferjones.com/",
+      "https://www.zazzle.com/mens_curling_winter_sports_stickman_and_house_coffee_mug-168634613239926723",
+      "http://www.worldcurling.org/history-of-curling",
+      "https://www.turbosquid.com/3d-models/curling-broom-stone-3d-1236453?referral=3d_molier-International",
+      "http://www.irish-curling.org/about-curling/",
+      "https://imgur.com/IaolLPt",
+      "https://www.zazzle.com/will_you_sweep_with_me_sport_of_curling_coffee_mug-168783401665228073",
+      "https://designbundles.net/tarareeddesigns/161147-curling-legend-curling-sport-svg-files-for-crafter/rel=aWYBuA",
+      "http://www.aveleyman.com/TVEpisode.aspx?FilmID=696&Episode=20100214",
+      "http://teamhoman.com/photo-gallery/#itemId=543f3ecce4b09468ab222999",
+      "https://ftw.usatoday.com/2014/02/curling-sochi-olympics-why-is-curling-a-sport",
+      "https://adventuremomblog.com/13-reasons-need-try-curling-now/"
+    ]
   }
 }
 
