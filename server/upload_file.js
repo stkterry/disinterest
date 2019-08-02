@@ -1,10 +1,10 @@
 // File imported into server.js
-var AWS = require('aws-sdk');
-var uuid = require('uuid');
-var multer = require('multer');
-var multerS3 = require('multer-s3');
+let AWS = require('aws-sdk');
+let uuid = require('uuid');
+let multer = require('multer');
+let multerS3 = require('multer-s3');
 
-var credentials = new AWS.SharedIniFileCredentials({ profile: 'default' });
+let credentials = new AWS.SharedIniFileCredentials({ profile: 'default' });
 
 AWS.config.credentials = credentials;
 
