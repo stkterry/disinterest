@@ -12,7 +12,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      message: null
     };
   }
 
@@ -45,6 +46,7 @@ class Login extends Component {
           localStorage.setItem("auth-token", token.token);
           this.props.history.push("/");
         }}
+        onError={err => this.setState({ message: "Incorrect username or password" })}
         update={(client, data) => this.updateCache(client, data) }
       >
         {loginUser => (
@@ -71,7 +73,9 @@ class Login extends Component {
                     type="password"
                     placeholder="Password"
                   />
+                  <p className="splash-errors">{this.state.message}</p>
                   <button className="splash-button" type="submit">Log In</button>
+                  
                 </form>
               </div>
             </div>

@@ -14,7 +14,8 @@ class Register extends Component {
       email: "",
       password: "",
       first_name: "",
-      last_name: ""
+      last_name: "",
+      message: null
     };
   }
 
@@ -48,6 +49,7 @@ class Register extends Component {
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
         }}
+        onError={err => this.setState({ message: "Please enter all fields correctly" })}
         update={(client, data) => this.updateCache(client, data)}
       >
         {register => (
@@ -84,6 +86,7 @@ class Register extends Component {
                     type="password"
                     placeholder="Password"
                   />
+                  <p className="splash-errors">{this.state.message}</p>
                   <button className="splash-button" type="submit">Register</button>
                 </form>
               </div>

@@ -516,6 +516,10 @@ code {
 #splash-signup-login-button:hover {
   background: #ebeaea; }
 
+.splash-errors {
+  color: red;
+  font-size: 14px; }
+
 .pin-form-outer-div {
   position: relative;
   padding-top: 120px;
