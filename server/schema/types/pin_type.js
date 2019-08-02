@@ -16,7 +16,8 @@ const PinType = new GraphQLObjectType({
     },
     title: { type: GraphQLString },
     description: { type: GraphQLString },
-    tags: { type: GraphQLList(GraphQLString) }
+    tags: { type: GraphQLList(GraphQLString) },
+    image_url: { type: GraphQLString }
   })
 });
 

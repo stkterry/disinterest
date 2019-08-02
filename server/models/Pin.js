@@ -19,6 +19,9 @@ const PinSchema = new Schema({
     type: Array,
     default: []
   },
+  image_url: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now
