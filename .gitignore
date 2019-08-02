@@ -1,5 +1,6 @@
 /node_modules
 /.sass-cache
 /config/keys.js
+/config/aws_credentials.json
 /client/node_modules
 /client/src/assets/styles/output.css.map

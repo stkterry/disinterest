@@ -48,19 +48,17 @@ a {
   text-decoration: none; }
 
 .navbar {
+  position: fixed;
+  top: 0;
   width: 100%;
   border-bottom: 1px solid #cccccc;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: fixed;
-  top: 0;
   background-color: white;
-<<<<<<< HEAD
-  z-index: 100; }
-=======
-  align-content: center; }
->>>>>>> master
+  align-content: center;
+  margin: 0 0;
+  z-index: 10; }
 
 .navbar-left {
   margin-left: 8px;
@@ -98,6 +96,7 @@ a {
   background: #f2f2f2;
   font-weight: bold;
   border-style: none;
+  border-radius: 24px;
   font-size: 16px;
   width: 100%; }
 
@@ -133,8 +132,9 @@ a {
 
 .navbar-right {
   display: flex;
-  margin: 8px 30px 8px 0px;
-  vertical-align: middle; }
+  margin: 8px 20px 8px 0px;
+  vertical-align: middle;
+  align-items: center; }
 
 .divider {
   height: 100%;
@@ -157,18 +157,25 @@ a {
 
 .account-dropdown {
   position: absolute;
-  right: 0px;
-  border-radius: 4px; }
+  background: white;
+  top: 72px;
+  right: 4px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
 
 .account-dropdown > div {
   width: 300px;
   height: 40px;
   line-height: 40px;
   vertical-align: center;
-  border: solid lightgray 1px;
+  border-bottom: 1px solid lightgray;
   font-weight: bold;
   background: white;
   padding-left: 20px; }
+
+.account-dropdown > div:last-child {
+  border: none; }
 
 .account-dropdown > div:hover {
   background: #f2f2f2;
@@ -268,60 +275,50 @@ a {
   width: 0px;
   position: absolute;
   right: 0px;
-  border: solid gray 1px;
-  top: 67px;
+  top: 69px;
   color: #333;
   /* display: none; */
   background: white;
-  transition: 0.1s;
-  overflow: hidden; }
+  transition: 0.2s;
+  overflow: hidden;
+  box-shadow: -8px 0 8px -1px #c9c9c9; }
 
 .feature-header-text {
+  width: var(--request-feature-width);
+  white-space: nowrap;
   font-size: 20px;
   font-family: Helvetica;
   font-weight: bold; }
 
 #xzibit {
-  width: 92.4%;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 15px; }
+  width: var(--request-feature-width);
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px; }
 
 .request-feature-header {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-bottom: 15px; }
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 16px; }
 
 .request-dialogue {
   font-family: Helvetica;
   font-weight: bold;
   font-size: 30px;
-  margin-left: 30px;
-  margin-bottom: 20px;
-  margin-right: 20px; }
+  width: var(--request-feature-width);
+  margin: 0 0 20px 16px; }
 
 .new-feature-button {
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 15px 12px;
-  border-radius: 12px;
-  background: red;
-  color: white;
   margin-top: 20px;
-  margin-left: 40px; }
+  margin-left: 16px; }
 
 #new-feature-pencil {
   font-size: 15px;
   margin-right: 20px;
   cursor: pointer;
   /* margin-top: 15px; */ }
-
-.new-feature-button:hover {
-  background: #a3081a;
-  cursor: pointer; }
 
 .feature-header-cancel {
   font-size: 20px;
@@ -335,11 +332,12 @@ a {
   cursor: pointer; }
 
 .feature-input {
-  margin: 0px 15px;
+  resize: none;
+  margin: 0px 16px;
   height: 100px;
-  width: 350px;
+  width: calc(var(--request-feature-width) - 8px);
   font-family: Helvetica;
-  font-size: 20px; }
+  font-size: 18px; }
 
 body {
   margin: 0;
@@ -513,21 +511,19 @@ code {
   background: #ebeaea; }
 
 .pin-form-outer-div {
-  position: absolute;
-  margin-bottom: 50px;
-  background: #efefef;
-  width: 100vw;
-  height: 120%;
+  position: relative;
+  padding-top: 120px;
+  background-color: #efefef;
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
   box-sizing: border-box; }
 
 .form-div {
-  position: absolute;
-  margin-top: 120px;
-  margin-bottom: 50px;
   background: white;
   width: 882px;
   height: 634px;
-  margin-left: 20%;
+  margin: 0 auto;
   border-radius: 15px; }
 
 .actual-form {
@@ -650,12 +646,32 @@ code {
 .aws-test-button {
   margin-top: 30px; }
 
+:root {
+  --request-feature-width: 350px;
+  --pin-red: rgb(230, 0, 35);
+  --pin-red-selected: rgb(200, 0, 15);
+  --shadow: rgba(0, 0, 0, 0.1); }
+
 .cir-icon-16 {
   padding: 8px;
   border-radius: 50%; }
 
 .cir-icon-16:hover {
   background-color: #f2f2f2;
+  cursor: pointer; }
+
+.red-button {
+  border: none;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 12px;
+  border-radius: 12px;
+  background: var(--pin-red);
+  color: white; }
+
+.red-button:hover {
+  background: var(--pin-red-selected);
   cursor: pointer; }
 
 /*# sourceMappingURL=output.css.map */
