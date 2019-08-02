@@ -643,6 +643,11 @@ code {
 .url-input-pin:focus {
   outline: none; }
 
+.pin-errors {
+  color: red;
+  margin-left: 40px;
+  max-width: 250px; }
+
 .AWS-test-outer-div {
   position: absolute;
   width: 253px;
