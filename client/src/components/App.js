@@ -9,6 +9,7 @@ import UserIndex from "./users/user_index";
 import AuthRoute from "../util/route_util";
 import UserProfile from "./users/UserProfile";
 import PinIndex from "./pins/pin_index";
+import PinIndexQuery from "./pins/pin_index_query";
 
 import AWSTest from "./awstest/awstest";
 import PinCreateForm from "./pins/pin_create_form";
@@ -20,7 +21,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={Login} routeType="auth" />
       <AuthRoute exact path="/register" component={Register} routeType="auth" />
-      <Route exact path="/pinindex" component={PinIndex} />
+      <Route exact path="/" component={PinIndexQuery} />
       <Route exact path="/users" component={UserIndex} />
       <Route exact path="/users/:userId" component={UserProfile} />
       <Route exact path="/AWSTest" component={AWSTest} />

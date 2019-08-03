@@ -22,14 +22,14 @@ const splitArray = (arr, n) => {
   let split = {}
   for (let i = 0; i < n; i++) split[i] = [];
   for (let i = 0, len = arr.length; i < len; i++) {
-    split[i%n].push(arr[i])
+    split[i % n].push(arr[i])
   }
   return split;
 }
 
 class PinIndex extends Component {
 
-  handleScroll ({ currentTarget }, onLoadMore) {
+  handleScroll({ currentTarget }, onLoadMore) {
     if (
       currentTarget.scrollTop + currentTarget.clientHeight >=
       currentTarget.scrollHeight

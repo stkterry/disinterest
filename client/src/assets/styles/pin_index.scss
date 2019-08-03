@@ -5,12 +5,10 @@
 }
 
 .pin-page-container {
-    padding-left: 75px;
-    padding-right: 75px;
+    margin: 80px 75px;
 }
 
 .masonry-container {
-    // margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -60,22 +58,31 @@
 }
 
 .masonry-div {
+    position: relative;
     box-sizing: border-box;
     border-radius: 5px;
     padding: 5px;
 }
-
 .masonry-div:hover {
     background-color: blue;
     transition-delay: .1s;
+}
+.temp-title {
+    background: rgba(128, 128, 128, 0.5);
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8px;
+    margin: 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
 .create-a-pin-container:hover {
     .create-a-pin {
         background-color: lightgray;
         transition-delay: .1s;
-    
-        
     }
     background-color: #EFEFEF;
     transition-delay: .1s;
@@ -92,4 +99,11 @@
 .fa-plus-circle {
     color: red;
     font-size: 40px;
+}
+
+.tempScroller {
+  margin-top: 15px;
+  max-height: 100px;
+  width: 500px;
+  overflow: auto;
 }

@@ -58,7 +58,8 @@ a {
   background-color: white;
   align-content: center;
   margin: 0 0;
-  z-index: 10; }
+  z-index: 10;
+  box-shadow: 0px 10px 8px var(--shadow-white); }
 
 .navbar-left {
   margin-left: 8px;
@@ -354,8 +355,7 @@ code {
   border-radius: 5px; }
 
 .pin-page-container {
-  padding-left: 75px;
-  padding-right: 75px; }
+  margin: 80px 75px; }
 
 .masonry-container {
   display: flex;
@@ -401,6 +401,7 @@ code {
   width: 100%; }
 
 .masonry-div {
+  position: relative;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 5px; }
@@ -408,6 +409,17 @@ code {
 .masonry-div:hover {
   background-color: blue;
   transition-delay: .1s; }
+
+.temp-title {
+  background: rgba(128, 128, 128, 0.5);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 8px;
+  margin: 8px;
+  box-sizing: border-box;
+  border-radius: 8px; }
 
 .create-a-pin-container:hover {
   background-color: #EFEFEF;
@@ -426,6 +438,12 @@ code {
 .fa-plus-circle {
   color: red;
   font-size: 40px; }
+
+.tempScroller {
+  margin-top: 15px;
+  max-height: 100px;
+  width: 500px;
+  overflow: auto; }
 
 #splash-outer-div {
   position: absolute;
@@ -650,7 +668,8 @@ code {
   --request-feature-width: 350px;
   --pin-red: rgb(230, 0, 35);
   --pin-red-selected: rgb(200, 0, 15);
-  --shadow: rgba(0, 0, 0, 0.1); }
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-white: rgba(255, 255, 255, 1); }
 
 .cir-icon-16 {
   padding: 8px;

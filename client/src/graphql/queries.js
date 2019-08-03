@@ -103,6 +103,21 @@ export default {
       }
   }`,
 
+  FETCH_SOME_PINS: gql`
+  query fetchSomePins($offset: Int) {
+    somePins(limit: 10, offset: $offset) {
+        _id,
+        url {
+          link,
+          snores,
+          created_by
+        },
+        title,
+        description,
+        tags
+      }
+  }`,
+
   FETCH_PIN: gql`
   query fetchPin($pinId: ID!) {
     pin(_id: $pinId) {
