@@ -10,7 +10,8 @@
     "server": "nodemon index.js",
     "server:debug": "nodemon --inspect index.js",
     "dev": "concurrently \"npm run server:debug\" \"npm run client\"",
-    "devs": "concurrently \"npm run dev\" \"npm run sass\""
+    "devs": "concurrently \"npm run dev\" \"npm run sass\"",
+    "seed": "node ./server/seed/seeder.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "graphql": "^14.4.2",
     "imagesloaded": "^4.1.4",
     "jsonwebtoken": "^8.5.1",
+    "lodash.debounce": "^4.0.8",
     "mongoose": "^5.6.7",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",

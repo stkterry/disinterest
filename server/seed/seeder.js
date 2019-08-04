@@ -59,7 +59,7 @@ const seedPins = async (amount) => {
   const users = await User.find();
     for (let user of users) {
       for (let i = 0; i < amount; i++) {
-        const pin = randomPin();
+        const pin = await randomPin();
         const url = await Url.create({
           link: pin.url,
           snores: 1,
@@ -67,7 +67,7 @@ const seedPins = async (amount) => {
         })
         .catch(err => console.log(`Url could not be saved because ${err}`));
 
-        const pinObj = await Pin.create(Object.assign(pin, { url: url._id }))
+        const pinObj = await Pin.create(Object.assign(pin, { url: url._id, author: user._id }))
           .catch(err => console.log(`Pin could not be saved because ${err}`));
 
         await User.addPin(user._id, pinObj._id)
@@ -102,14 +102,16 @@ const crossSeedPins = async (min, max) => {
         title: pinObj.title,
         description: pinObj.description,
         tags: pinObj.tags,
-        url: pinObj.url._id
+        url: pinObj.url._id,
+        image_url: pinObj.image_url,
+        author: user._id
       })
       .catch(err => console.log(`Couldn't save pin because ${err}`));
       await User.addPin(user._id, pin._id)
         .catch(err => console.log(`Couldn't add pin to user because ${err}`))
       console.log(`Cross-seeded pin ${pinObj._id}`)
     }
-    totalCrossSeeds += selection.length
+    totalCrossSeeds += selection.length;
   }
 
   console.log(`Cross-seeded ${totalCrossSeeds} pins, avg ${totalCrossSeeds/users.length} per user`)
@@ -162,7 +164,7 @@ mongoose
     await seedUsers(10)
       .catch(err => console.log("Users could not be seeded"));
     await seedPins(5)
-      .catch(err => console.log("Pins could not be seeded"));
+      .catch(err => console.log("Pins could not be seeded", err));
     await crossSeedPins(2, 4)
       .catch(err => console.log("Couldn't cross-seed pins"));
     await seedBins(2, 4)

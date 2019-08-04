@@ -72,7 +72,7 @@ const mutations = new GraphQLObjectType({
         return new Url({ link: url, created_by: created_by })
           .save()
           .then(URL => {
-            return new Pin({ image_url, url: URL._id, title, description, tags }).save()
+            return new Pin({ image_url, url: URL._id, title, description, tags, author: created_by }).save()
               .then(pin => {
                 User.addPin(created_by, pin._id).exec();
                 return pin;
@@ -134,7 +134,7 @@ const mutations = new GraphQLObjectType({
         userId: { type: GraphQLID }
       },
       resolve(_, { url, title, description, tags, userId }) {
-        return new Pin({ url, title, description, tags })
+        return new Pin({ url, title, description, tags, author: userId })
           .save()
           .then(pin => {
             Url.moreBoring(pin.url).exec();
@@ -176,7 +176,27 @@ const mutations = new GraphQLObjectType({
             return bin;
           });
       }
-    }
+    },
+
+    updateBin: {
+      type: PinType,
+      args: {
+        _id: { type: GraphQLID },
+        title: { type: GraphQLString },
+        description: { type: GraphQLString },
+        tags: { type: GraphQLList(GraphQLString) },
+        pins: { type: GraphQLList(GraphQLID) },
+        image_url: { type: GraphQLString }
+      },
+      resolve(_, { _id, title, description, tags, pins, image_url }) {
+
+        return Bin.findByIdAndUpdate(
+          _id,
+          { title, description, tags, pins, image_url },
+          { new: true }
+        )
+      }
+    },
 
   }
 });

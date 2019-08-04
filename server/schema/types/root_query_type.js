@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
+const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull, GraphQLInt } = graphql;
 
 const UserType = require("./user_type");
 const PinType = require("./pin_type");
@@ -56,7 +56,7 @@ const RootQueryType = new GraphQLObjectType({
         binId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(_, args) {
-        return User.findPin(args.userId, args.binId);
+        return User.findBin(args.userId, args.binId);
       }
     },
 
@@ -74,6 +74,22 @@ const RootQueryType = new GraphQLObjectType({
         return Pin.find({})
       }
     },
+
+    somePins: {
+      type: new GraphQLList(PinType),
+      args: {
+        limit: { type: GraphQLInt },
+        offset: { type: GraphQLInt }
+      },
+      resolve(_, args) {
+        let { offset, limit } = args;
+        offset = offset || 0;
+        limit = limit || 12;
+        return Pin.find({})
+          .then(pins => pins.slice(offset, offset+limit))
+      }
+    },
+
     pin: {
       type: PinType,
       args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
