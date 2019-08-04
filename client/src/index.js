@@ -15,6 +15,7 @@ import Mutations from "./graphql/mutations";
 
 const { VERIFY_USER } = Mutations;
 const token = localStorage.getItem("auth-token");
+const currentUser = JSON.parse(localStorage.getItem("current-user"));
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
@@ -22,7 +23,8 @@ const cache = new InMemoryCache({
 
 cache.writeData({
   data: {
-    isLoggedIn: Boolean(localStorage.getItem("auth-token"))
+    isLoggedIn: Boolean(token),
+    currentUser: Object.assign(currentUser, { __typename: "UserType" })
   }
 });
 
@@ -40,7 +42,8 @@ const client = new ApolloClient({
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
-  }
+  },
+  resolvers: {}
 });
 
 if (token) {
@@ -48,7 +51,7 @@ if (token) {
     .mutate({ mutation: VERIFY_USER, variables: { token } })
     .then(({ data }) => {
       cache.writeData({
-        data: { isLoggedIn: data.verifyUser.loggedIn }
+        data: { isLoggedIn: data.verifyUser.loggedIn, currentUser: Object.assign(data.verifyUser.currentUser, { __typename: "UserType" }) }
       });
     });
 }

@@ -65,7 +65,7 @@ class RequestFeature extends React.Component {
           </nav>
           <img id="xzibit" src="https://memegenerator.net/img/images/108785.jpg" alt="=D"/>
           <div className="request-dialogue">Want to suggest new features for this site?</div>
-          <button onClick={this.handleClickNewFeature} className="new-feature-button">New Feature</button>
+          <button onClick={this.handleClickNewFeature} className="red-button new-feature-button">New Feature</button>
         </div>
       )
     } else if (this.state.renderInput) {
@@ -78,7 +78,7 @@ class RequestFeature extends React.Component {
           <img id="xzibit" src="https://memegenerator.net/img/images/108785.jpg" alt="=D" />
           <div className="request-dialogue">{dialogue}</div>
           <textarea className="feature-input"/>
-          <button onClick={this.handleNewFeatureSubmit} className="new-feature-button">Submit</button>
+          <button onClick={this.handleNewFeatureSubmit} className="red-button new-feature-button">Submit</button>
         </div>
       )
     } 

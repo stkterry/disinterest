@@ -19,7 +19,63 @@ const UserSchema = new Schema({
     required: true,
     min: 8,
     max: 32
-  }
+  },
+  pins: [{
+    type: Schema.Types.ObjectId,
+    ref: "pins"
+  }],
+  bins: [{
+    type: Schema.Types.ObjectId,
+    ref: "bins"
+  }],
+  date: {
+    type: Date,
+    default: Date.now
+  },
 });
+
+UserSchema.statics.findPins = function (userId) {
+  return this.findById(userId)
+    .populate("pins")
+    .then(user => user.pins);
+};
+
+UserSchema.statics.addPin = function(userId, pinId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $addToSet: { pins: pinId } },
+    { new: true }
+  )
+}
+
+UserSchema.statics.removePin = function (userId, pinId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $pull: { pins: pinId } },
+    { new: true }
+  )
+}
+
+UserSchema.statics.findBins = function (userId) {
+  return this.findById(userId)
+    .populate("bins")
+    .then(user => user.bins);
+};
+
+UserSchema.statics.addBin = function (userId, binId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $addToSet: { bins: binId } },
+    {new: true}
+  )
+}
+
+UserSchema.statics.removeBin = function (userId, binId) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $pull: { bins: binId } },
+    { new: true }
+  )
+}
 
 module.exports = User = mongoose.model('users', UserSchema);
