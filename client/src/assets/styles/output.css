@@ -345,4 +345,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
+.bin-index-container {
+  padding-top: 80px;
+  padding-left: 50px;
+  padding-right: 50px; }
+
 /*# sourceMappingURL=output.css.map */
