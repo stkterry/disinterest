@@ -20,7 +20,8 @@ class PinForm extends React.Component {
       description: "",
       tags: ["curling"],
       aws_image_url: null,
-      created_by: this.currentUser._id
+      created_by: this.currentUser._id,
+      message: null
     };
   }
 
@@ -40,6 +41,7 @@ class PinForm extends React.Component {
           console.log("Check AWS for the image and MongoDB for the new pin");
           this.props.history.push("/")
         }}
+        onError={err => this.setState({ message: "Pin must have a title, description, and a proper url" })}
       >
         { newPin => (
           <div className="pin-form-outer-div">
@@ -48,13 +50,19 @@ class PinForm extends React.Component {
               onSubmit={event => {
                 event.preventDefault();
                 const image = document.getElementById("aws-photo").files[0];
-                let data = new FormData();
-                data.append('image', image);
-                addImageToAws(data).then((response) => {
-                  const image_url = response.data.imageUrl;
-                  newPin({ variables: { url, title, description, tags, image_url, created_by } })
-                }).catch((error) => {
-                });
+
+                if (image && title && description && url) {
+                  let data = new FormData();
+                  data.append('image', image);
+                  addImageToAws(data).then((response) => {
+                    const image_url = response.data.imageUrl;
+                    newPin({ variables: { url, title, description, tags, image_url, created_by } })
+                  }).catch((error) => {
+                  });
+                } else {
+                  newPin({ variables: { url, title, description, tags, created_by } })
+                }
+                
               }}
               >
               <div className="image-input-outer-div">
@@ -87,6 +95,7 @@ class PinForm extends React.Component {
                     <div className="current-user-pin-create">{first_name} {last_name}</div>
                     <div># followers</div>
                   </div>
+                  <p className="pin-errors"> {this.state.message}</p>
                 </div>
                 <input
                   className="description-input-pin"

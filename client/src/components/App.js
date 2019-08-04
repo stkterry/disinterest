@@ -26,6 +26,7 @@ const App = () => (
       <Route exact path="/users/:userId" component={UserProfile} />
       <Route exact path="/AWSTest" component={AWSTest} />
       <Route exact path="/pin-builder" component={PinCreateForm} />
+      <Route exact path="/" component={PinIndex} />
     </Switch>
   </div>
 )

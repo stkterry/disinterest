@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 
 import Mutations from "../graphql/mutations";
+import logo from "../assets/public/images/disinterest-logo-128.png"
+
 const { REGISTER_USER } = Mutations;
 
 class Register extends Component {
@@ -12,7 +14,8 @@ class Register extends Component {
       email: "",
       password: "",
       first_name: "",
-      last_name: ""
+      last_name: "",
+      message: null
     };
   }
 
@@ -21,9 +24,9 @@ class Register extends Component {
       data: {
         isLoggedIn: data.register.loggedIn, 
         currentUser: {
-          first_name: data.login.first_name,
-          last_name: data.login.last_name,
-          _id: data.login._id,
+          first_name: data.register.first_name,
+          last_name: data.register.last_name,
+          _id: data.register._id,
           __typename: "UserType"
         }  
       }
@@ -46,13 +49,14 @@ class Register extends Component {
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
         }}
+        onError={err => this.setState({ message: "Please enter all fields correctly" })}
         update={(client, data) => this.updateCache(client, data)}
       >
         {register => (
           <div className="modal-background-splash">
             <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} alt="background" />
             <div id="splash-outer-div">
-              <i className="fab fa-pinterest splash-logo" />
+              <img src={logo} className="auth-logo" />
               <div id="splash-greeting">Welcome to Disinterest</div>
               <div id="splash-form">
                 <form
@@ -82,6 +86,7 @@ class Register extends Component {
                     type="password"
                     placeholder="Password"
                   />
+                  <p className="splash-errors">{this.state.message}</p>
                   <button className="splash-button" type="submit">Register</button>
                 </form>
               </div>

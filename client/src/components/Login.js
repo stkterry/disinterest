@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 
 import Mutations from "../graphql/mutations";
+import logo from "../assets/public/images/disinterest-logo-128.png"
+
 const { LOGIN_USER } = Mutations;
 
 class Login extends Component {
@@ -10,7 +12,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      message: null
     };
   }
 
@@ -43,13 +46,14 @@ class Login extends Component {
           localStorage.setItem("auth-token", token.token);
           this.props.history.push("/");
         }}
+        onError={err => this.setState({ message: "Incorrect username or password" })}
         update={(client, data) => this.updateCache(client, data) }
       >
         {loginUser => (
           <div className="modal-background-splash">
             <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} alt="background"/>
             <div id="splash-outer-div">
-              <i className="fab fa-pinterest splash-logo" />
+              <img src={logo} className="auth-logo" />
               <div id="splash-greeting">Welcome to Disinterest</div>
               <div id="splash-form">
                 <form
@@ -69,7 +73,9 @@ class Login extends Component {
                     type="password"
                     placeholder="Password"
                   />
+                  <p className="splash-errors">{this.state.message}</p>
                   <button className="splash-button" type="submit">Log In</button>
+                  
                 </form>
               </div>
             </div>
@@ -80,6 +86,8 @@ class Login extends Component {
     )
   }
 }
+
+
 
 export default Login;
 

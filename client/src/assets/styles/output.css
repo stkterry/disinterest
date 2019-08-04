@@ -435,6 +435,7 @@ code {
   color: red;
   font-size: 40px; }
 
+<<<<<<< HEAD
 .pin-hud {
   position: absolute;
   left: var(--pin-overview-offset);
@@ -531,6 +532,13 @@ code {
 .index-pin-author {
   letter-spacing: -0.4px;
   font-weight: 400; }
+=======
+.auth-logo {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-top: 30px; }
+>>>>>>> master
 
 #splash-outer-div {
   position: absolute;
@@ -614,6 +622,10 @@ code {
 
 #splash-signup-login-button:hover {
   background: #ebeaea; }
+
+.splash-errors {
+  color: red;
+  font-size: 14px; }
 
 .pin-form-outer-div {
   position: relative;
@@ -737,6 +749,11 @@ code {
 
 .url-input-pin:focus {
   outline: none; }
+
+.pin-errors {
+  color: red;
+  margin-left: 40px;
+  max-width: 250px; }
 
 .AWS-test-outer-div {
   position: absolute;
