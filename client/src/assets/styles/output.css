@@ -362,6 +362,9 @@ code {
 .actual-bin-container:hover {
   background-color: #EFEFEF;
   transition-delay: .1s; }
+  .actual-bin-container:hover .bin-contents {
+    background-color: lightgray;
+    transition-delay: .1s; }
 
 .bin-contents {
   box-sizing: border-box;
@@ -369,7 +372,8 @@ code {
   height: 80%;
   border-radius: 5px;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  background-color: #EFEFEF; }
 
 .bin-name {
   padding-top: 10px;

@@ -15,6 +15,10 @@
 }
 
 .actual-bin-container:hover {
+    .bin-contents {
+        background-color: lightgray;
+        transition-delay: .1s;
+    }
     background-color: #EFEFEF;
     transition-delay: .1s;
 }
@@ -26,6 +30,7 @@
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
+    background-color: #EFEFEF;
 }
 
 .bin-name {
