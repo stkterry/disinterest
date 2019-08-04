@@ -348,6 +348,12 @@ code {
 .bin-index-container {
   padding-top: 80px;
   padding-left: 50px;
-  padding-right: 50px; }
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap; }
+
+.actual-bin {
+  box-sizing: border-box;
+  border: 1px solid black; }
 
 /*# sourceMappingURL=output.css.map */

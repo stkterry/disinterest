@@ -9,20 +9,30 @@ class BinIndex extends Component {
     render() {
         return ( 
             <div className="bin-index-container">
-                <div className="actual-bin">
-                    bin1
+                <div className="actual-bin-container">
+                    <div className="bin-contents">bin1</div>
+                    <div>bin name</div>
+                    <div># of pins</div>
                 </div>
-                <div className="actual-bin">
-                    bin2
+                <div className="actual-bin-container">
+                    <div className="bin-contents">bin2</div>
+                    <div>bin name</div>
+                    <div># of pins</div>
                 </div>
-                <div className="actual-bin">
-                    bin3
+                <div className="actual-bin-container">
+                    <div className="bin-contents">bin3</div>
+                    <div>bin name</div>
+                    <div># of pins</div>
                 </div>
-                <div className="actual-bin">
-                    bin4
+                <div className="actual-bin-container">
+                    <div className="bin-contents">bin4</div>
+                    <div>bin name</div>
+                    <div># of pins</div>
                 </div>
-                <div className="actual-bin">
-                    bin5
+                <div className="actual-bin-container">
+                    <div className="bin-contents">bin5</div>
+                    <div>bin name</div>
+                    <div># of pins</div>
                 </div>
             </div>
         );
