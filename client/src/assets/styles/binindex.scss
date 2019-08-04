@@ -14,10 +14,16 @@
     padding: 20px;
 }
 
+.actual-bin-container:hover {
+    background-color: #EFEFEF;
+    transition-delay: .1s;
+}
+
 .bin-contents {
     box-sizing: border-box;
     border: 1px solid black;
     height: 80%;
+    border-radius: 5px;
 }
 
 .bin-name {
@@ -33,4 +39,8 @@
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
+}
+
+.layout-1 {
+    
 }

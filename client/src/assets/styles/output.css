@@ -359,10 +359,15 @@ code {
   height: 250px;
   padding: 20px; }
 
+.actual-bin-container:hover {
+  background-color: #EFEFEF;
+  transition-delay: .1s; }
+
 .bin-contents {
   box-sizing: border-box;
   border: 1px solid black;
-  height: 80%; }
+  height: 80%;
+  border-radius: 5px; }
 
 .bin-name {
   padding-top: 10px;
