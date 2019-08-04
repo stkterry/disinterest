@@ -57,7 +57,8 @@ export default {
       title,
       description,
       tags,
-      image_url
+      image_url,
+      author
     }
   }`,
 
@@ -96,7 +97,8 @@ export default {
       },
       title,
       description,
-      tags
+      tags,
+      author
     }
   }`,
 
@@ -116,6 +118,24 @@ export default {
     deleteBin(_id: $id, userId: $userId) {
       _id
     }
-  }`
+  }`,
+  UPDATE_BIN: gql`
+  mutation UpdateBin($_id: String, $title: String, $description: String, $tags: Array, $pins: Array, $image_url: String) {
+    updatePin(_id: $_id, title: $title, description: $description, tags: $tags, pins: $pins, image_url: $image_url) {
+      _id,
+      title,
+      description,
+      tags,
+      image_url,
+      pins {
+        _id,
+        title,
+        description,
+        tags,
+        author,
+        image_url
+      }
+    }
+  }`,
 
 }

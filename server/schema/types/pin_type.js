@@ -17,7 +17,13 @@ const PinType = new GraphQLObjectType({
     title: { type: GraphQLString },
     description: { type: GraphQLString },
     tags: { type: GraphQLList(GraphQLString) },
-    image_url: { type: GraphQLString }
+    image_url: { type: GraphQLString },
+    author: { 
+      type: require("./user_type"),
+      resolve(parentValue) {
+        return Pin.getAuthor(parentValue._id)
+      }
+     }
   })
 });
 

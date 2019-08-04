@@ -38,7 +38,7 @@ export default {
 
   FETCH_USER_BINS: gql`
   query fetchUserBins($userId: ID!) {
-    userBins(_id: $userId) {
+    userBins(userId: $userId) {
       _id,
       title,
       description,
@@ -99,22 +99,34 @@ export default {
         },
         title,
         description,
-        tags
+        tags,
+        image_url,
+        author {
+          first_name,
+          last_name,
+          email
+        }
       }
   }`,
 
   FETCH_SOME_PINS: gql`
   query fetchSomePins($offset: Int) {
-    somePins(limit: 10, offset: $offset) {
+    somePins(limit: 19, offset: $offset) {
         _id,
         url {
           link,
           snores,
           created_by
         },
+        author {
+          first_name,
+          last_name,
+          email
+        },
         title,
         description,
-        tags
+        tags,
+        image_url
       }
   }`,
 

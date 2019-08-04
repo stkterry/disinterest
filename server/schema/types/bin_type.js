@@ -16,7 +16,8 @@ const BinType = new GraphQLObjectType({
       resolve(parentValue) {
         return Bin.findPins(parentValue._id)
       }
-    }
+    },
+    image_url: { type: GraphQLString },
   })
 });
 

@@ -19,6 +19,9 @@ const BinSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "pins"
   }],
+  image_url: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now

@@ -2,7 +2,6 @@ import React from 'react';
 import { Query } from 'react-apollo';
 
 import PinIndex from "./pin_index";
-
 import Queries from "../../graphql/queries";
 const { FETCH_SOME_PINS } = Queries;
 

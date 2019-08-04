@@ -56,7 +56,7 @@ const RootQueryType = new GraphQLObjectType({
         binId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(_, args) {
-        return User.findPin(args.userId, args.binId);
+        return User.findBin(args.userId, args.binId);
       }
     },
 
@@ -84,7 +84,7 @@ const RootQueryType = new GraphQLObjectType({
       resolve(_, args) {
         let { offset, limit } = args;
         offset = offset || 0;
-        limit = limit || 10;
+        limit = limit || 12;
         return Pin.find({})
           .then(pins => pins.slice(offset, offset+limit))
       }

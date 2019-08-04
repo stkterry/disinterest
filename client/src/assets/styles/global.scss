@@ -1,5 +1,6 @@
 :root {
   --request-feature-width: 350px;
+  --pin-overview-offset: 24px;
 
   --pin-red: rgb(230, 0, 35);
   --pin-red-selected: rgb(200, 0, 15);
@@ -30,3 +31,4 @@
   background: var(--pin-red-selected);
   cursor: pointer; 
 }
+

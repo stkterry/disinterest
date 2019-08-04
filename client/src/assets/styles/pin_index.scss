@@ -1,109 +1,220 @@
-.masonry-img {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
+
 
 .pin-page-container {
-    margin: 80px 75px;
+  margin: 69px 0 0 0;
+  max-height: calc(80vh + 94px);
+  overflow: hidden;
 }
 
 .masonry-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 4px;
+  box-sizing: border-box;
+  padding: 20px 75px 0px 75px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+  max-height: calc(100vh - 89px);
 }
 
 .column {
-    flex: 25%;
-    max-width: 24.3%;
-    padding: 0 4px;
-}
-
-.pin-count {
-    padding-top: 100px;
-    color: #8e8e8e;
-    font-size: 14px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,"\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3",Hiragino Kaku Gothic Pro,"\30E1\30A4\30EA\30AA",Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  min-width: 150px;
+  max-width: calc(100vw / 5.75);
 }
 
 .create-a-pin {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 90%;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    background-color: #EFEFEF;
-    border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #efefef;
+  border-radius: 16px;
 }
 
 .pin-button {
-    position: absolute;
-    left: calc(50% - 12.5px);
-    top: calc(50% - 28px);
+  position: absolute;
+  left: calc(50% - 12.5px);
+  top: calc(50% - 28px);
 }
 
 .create-a-pin-container {
-    z-index: -10;
-    position: relative;
-    box-sizing: border-box;
-    border-radius: 5px;
-    padding: 5px;
-    height: 300px;
-    width: 100%;
+  z-index: -10;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px;
+  height: 300px;
+  width: 100%;
 }
 
 .masonry-div {
-    position: relative;
-    box-sizing: border-box;
-    border-radius: 5px;
-    padding: 5px;
+  min-width: 150px;
+  position: relative;
+  box-sizing: border-box;
+  // border-radius: 5px;
+  padding: 6px 8px;
 }
-.masonry-div:hover {
-    background-color: blue;
-    transition-delay: .1s;
+
+.masonry-img {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  border: none;
+  border-radius: 16px;
 }
-.temp-title {
-    background: rgba(128, 128, 128, 0.5);
-    color: white;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 8px;
-    margin: 8px;
-    box-sizing: border-box;
-    border-radius: 8px;
+
+.shadow-boxer {
+  border-radius: 16px;
+  background: transparent;
+  transition: all 300ms ease-out;
+}
+.shadow-boxer:hover {
+  transition: all 300ms ease-in-out;
+  transform: scale(1.02, 1.02);
+  transform: translate(0, -2%);
+  box-shadow: 2px 10px 10px rgba(0,0,0,0.5);
+  // transition-duration: 300ms;
+  // transition-timing-function: ease-in-out;
 }
 
 .create-a-pin-container:hover {
-    .create-a-pin {
-        background-color: lightgray;
-        transition-delay: .1s;
-    }
-    background-color: #EFEFEF;
-    transition-delay: .1s;
+  .create-a-pin {
+    background-color: lightgray;
+    transition-delay: 0.1s;
+  }
+  background-color: #efefef;
+  transition-delay: 0.1s;
 }
 
 .create-header {
-    color: #8e8e8e;
-    font-size: 18px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,"\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3",Hiragino Kaku Gothic Pro,"\30E1\30A4\30EA\30AA",Meiryo,"\FF2D\FF33 \FF30\30B4\30B7\30C3\30AF",Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    font-weight: 700;
-    padding: 5px;
+  color: #8e8e8e;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px;
 }
 
 .fa-plus-circle {
-    color: red;
-    font-size: 40px;
+  color: red;
+  font-size: 40px;
 }
 
-.tempScroller {
-  margin-top: 15px;
-  max-height: 100px;
-  width: 500px;
-  overflow: auto;
+// Overview
+.pin-hud {
+  position: absolute;
+  left: var(--pin-overview-offset);
+  top: var(--pin-overview-offset);
+  width: calc(100% - var(--pin-overview-offset) * 2);
+  height: calc(100% - var(--pin-overview-offset) * 2);
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  opacity: 0;
+}
+.pin-hud:hover {
+  opacity: 1;
+  transition-duration: .25s;
+}
+
+.save-to-bins {
+  display: flex;
+  flex-direction: row;
+
+  button {
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+.add-bin-drop-btn {
+  background: rgba(255,255,255,0.9);
+  padding: 14px 8px;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  text-align: right;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.add-bin-drop-btn:hover {
+  background: white;
+}
+
+.add-bin-drop-save {
+  color: white;
+  background: var(--pin-red);
+  padding: 14px 14px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+.add-bin-drop-save:hover {
+  background: var(--pin-red-selected);
+}
+
+.bin-drop-form {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+
+
+
+.pin-hud-links {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+
+  * {
+    font-size: 14px;
+    box-sizing: border-box;
+    background: rgba(255,255,255, 0.9);
+    padding: 9.5px;
+    border-radius: 19px;
+  }
+
+  a {
+    min-width: 33px;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    i {
+      padding: 0 4px 0 0;
+    }  
+  }
+
+  h3 {
+    height: 33px;
+    width: 33px;
+    text-align: center;
+    i {
+      padding: 0;
+    }
+  }
+}
+
+.pin-overview h3 {
+  font-size: 14px;
+  text-align: left;
+  color: #333333;
+  padding: 2px 0 0 8px;
+}
+.index-pin-title {
+  font-weight: 600;
+}
+.index-pin-author {
+  letter-spacing: -0.4px;
+  font-weight: 400;
 }

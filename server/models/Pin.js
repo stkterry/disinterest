@@ -22,6 +22,11 @@ const PinSchema = new Schema({
   image_url: {
     type: String
   },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref:"users",
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
@@ -33,5 +38,11 @@ PinSchema.statics.getUrl = function (urlId) {
     .populate("url")
     .then(pin => pin.url);
 };
+
+PinSchema.statics.getAuthor = function (authorId) {
+  return this.findById(authorId)
+    .populate("author")
+    .then(pin => pin.author);
+}
 
 module.exports = Pin = mongoose.model('pins', PinSchema);
