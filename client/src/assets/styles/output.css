@@ -427,6 +427,12 @@ code {
   color: red;
   font-size: 40px; }
 
+.auth-logo {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-top: 30px; }
+
 #splash-outer-div {
   position: absolute;
   top: 50%;
@@ -509,6 +515,10 @@ code {
 
 #splash-signup-login-button:hover {
   background: #ebeaea; }
+
+.splash-errors {
+  color: red;
+  font-size: 14px; }
 
 .pin-form-outer-div {
   position: relative;
@@ -632,6 +642,11 @@ code {
 
 .url-input-pin:focus {
   outline: none; }
+
+.pin-errors {
+  color: red;
+  margin-left: 40px;
+  max-width: 250px; }
 
 .AWS-test-outer-div {
   position: absolute;

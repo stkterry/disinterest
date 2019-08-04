@@ -51,7 +51,7 @@ if (token) {
     .mutate({ mutation: VERIFY_USER, variables: { token } })
     .then(({ data }) => {
       cache.writeData({
-        data: { isLoggedIn: data.verifyUser.loggedIn, currentUser: Object.assign(data.verifyUser.currentUser, { __typename: "UserType" }) }
+        data: { isLoggedIn: data.verifyUser.loggedIn, currentUser: Object.assign(data.verifyUser.currentUser, { __typename: "UserType" }), modal: null }
       });
     });
 }

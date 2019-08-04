@@ -1,6 +1,11 @@
 
 
-
+.auth-logo {
+  display: inline-block;
+  height: 40px;
+  width: 40px; 
+  margin-top: 30px; 
+}
 
 #splash-outer-div {
   position: absolute;
@@ -108,4 +113,10 @@
 #splash-signup-login-button:hover {
   // background: #dadada
   background: #ebeaea;
+}
+
+.splash-errors {
+  color: red; 
+
+  font-size: 14px;
 }
