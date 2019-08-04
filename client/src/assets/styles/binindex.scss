@@ -6,7 +6,16 @@
     flex-wrap: wrap;
 }
 
-.actual-bin {
+.actual-bin-container {
     box-sizing: border-box;
     border: 1px solid black;
+    width: 30%;
+    height: 250px;
+    padding: 20px;
+}
+
+.bin-contents {
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 80%;
 }
