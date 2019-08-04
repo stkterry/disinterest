@@ -24,6 +24,8 @@
     border: 1px solid black;
     height: 80%;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .bin-name {
@@ -41,6 +43,28 @@
     color: #333;
 }
 
-.layout-1 {
-    
+.bin-box {
+    width: 33%;
+    height: 100%
+}
+
+.half-box {
+    height: 50%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.tiny-box {
+    height: 33.3%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.big-box {
+    height: 66.6%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
 }
