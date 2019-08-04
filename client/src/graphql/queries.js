@@ -45,7 +45,8 @@ export default {
       tags,
       pins {
         _id,
-        title
+        title,
+        image_url
       }
     }
   }`,

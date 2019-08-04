@@ -39,7 +39,7 @@ class NavBar extends React.Component {
     return (
       <ApolloConsumer>
         {client => {
-          {/* console.log(client); */ }
+          {/* console.log(client); */}
           {/* console.log(client.cache.data.data.ROOT_QUERY); */ }
 
           return (

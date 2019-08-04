@@ -796,4 +796,70 @@ code {
   background: var(--pin-red-selected);
   cursor: pointer; }
 
+.bin-index-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 80px 100px 0 100px; }
+
+.actual-bin-container {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 30%;
+  height: 250px;
+  padding: 10px; }
+
+.actual-bin-container:hover {
+  background-color: #efefef;
+  transition-delay: 0.1s; }
+  .actual-bin-container:hover .bin-contents {
+    background-color: lightgray;
+    transition-delay: 0.1s; }
+
+.bin-contents {
+  box-sizing: border-box;
+  border: 1px solid black;
+  height: 80%;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #efefef; }
+
+.bin-name {
+  padding-top: 10px;
+  color: #333;
+  font-size: 21px;
+  font-weight: 700;
+  font-family: Helvetica; }
+
+.number-of-pins {
+  font-weight: 400;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333; }
+
+.bin-box {
+  width: 33.3%;
+  height: 100%; }
+
+.half-box {
+  height: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding: 1px; }
+
+.tiny-box {
+  height: 33.3%;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding: 1px; }
+
+.big-box {
+  height: 66.6%;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding: 1px; }
+
 /*# sourceMappingURL=output.css.map */

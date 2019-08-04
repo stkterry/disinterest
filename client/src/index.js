@@ -24,7 +24,7 @@ const cache = new InMemoryCache({
 cache.writeData({
   data: {
     isLoggedIn: Boolean(token),
-    currentUser: Object.assign(currentUser, { __typename: "UserType" })
+    currentUser: Object.assign({}, currentUser, { __typename: "UserType" })
   }
 });
 
