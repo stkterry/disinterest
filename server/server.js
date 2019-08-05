@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const models = require("./models/index");
 const schema = require("./schema/schema");
-let db = require("../config/keys").MONGO_URI;
+let db = require("../config/keys").mongoURI;
 const app = express();
 
 const path = require("path");
