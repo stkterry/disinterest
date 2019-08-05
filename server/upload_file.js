@@ -8,9 +8,10 @@ let multerS3 = require('multer-s3');
 let aws_creds;
 if (process.env.NODE_ENV === 'production') {
   aws_creds = require("../config/keys_prod");
-} else if (process.env.NODE_ENV === 'development') {
+} else {
   aws_creds = require("../config/aws_credentials.json");
 }
+console.log(process.env.NODE_ENV, aws_creds);
 AWS.config.update({ 
   "accessKeyId": aws_creds.aws_accessKeyId, 
   "secretAccessKey": aws_creds.aws_secretAccessKey, 
