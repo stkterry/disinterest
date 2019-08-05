@@ -144,10 +144,14 @@ export default {
       title,
       description,
       tags,
+      author {
+        first_name,
+        last_name,
+        email
+      },
       image_url
     }
   }`,
-
 
   FETCH_BINS: gql`
   query fetchBins {

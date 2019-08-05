@@ -8,6 +8,7 @@ import { urlCleaner } from "../../util/func_util";
 import Queries from "../../graphql/queries";
 // import Mutations from "../../graphql/mutations";
 const { FETCH_PIN, FETCH_USER } = Queries;
+const {ADD_PIN_TO_USER } = Mutations;
 
 
 class PinShowPage extends React.Component {
@@ -25,7 +26,6 @@ class PinShowPage extends React.Component {
       message: null
     };
 
-    console.log(this.currentUser.pins);
   }
 
   // renderPinCreator(created_by) {
@@ -56,8 +56,36 @@ class PinShowPage extends React.Component {
 
   // }
 
-  render() {
+  saveToUser() {
+    return (
+      <Mutation
+        mutation={ADD_PIN_TO_USER}
+        onComplete={data => {
+          this.props.history.push("/")
+        }}
+      >
+      {addPinToUser => (
+        <button
+          id="pinshow-save"
+          onClick={event => {
+            event.preventDefault();
+            addPinToUser({ 
+              variables: { 
+                userId: this.currentUser._id, 
+                pinId: this.props.match.params.pinId 
+              }
+            })
+          }}
+        >
+          <i className="fas fa-thumbtack pinshow-thumbtack" />
+          Save
+        </button>
+      )}
+      </Mutation>
+    )
+  }
 
+  render() {
 
     return (
       <Query
@@ -69,7 +97,7 @@ class PinShowPage extends React.Component {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error on pin show page</p>
           {/* const {  } = data; */}
-          console.log(data);
+          {/* console.log(data); */}
 
           return (
             <div id="pin-show-outer-div">
@@ -88,18 +116,20 @@ class PinShowPage extends React.Component {
                 <div id="pin-show-container-div-right">
                   <div id="send-save-container">
                     <button id="pinshow-send"><i className="fas fa-upload pinshow-upload"></i>Send</button>
-                    <button id="pinshow-save"><i className="fas fa-thumbtack pinshow-thumbtack"></i>Save</button>
+                    { this.saveToUser() }
+                    {/* <button id="pinshow-save"><i className="fas fa-thumbtack pinshow-thumbtack"></i>Save</button> */}
                   </div>
                   <div className="pinshow-title">{data.pin.title}</div>
                   {/* {this.renderPinCreator(data.pin.created_by)} */}
                   <div id="pin-show-user-container">
                     <i className="fas fa-user-circle pinshow"></i>
                     <div className="user-made-pin-container">
-                      <div id="pinshow-full-name">first_name last_name</div>
+                      <div id="pinshow-full-name">{data.pin.author.first_name} {data.pin.author.last_name}</div>
                       <div>made this pin</div>
                     </div>
+                    <div className="pinshow-snores-count"><i className="fas fa-bed"></i>{data.pin.url.snores}</div>
                   </div>
-                  <button className="pinshow-url">{urlCleaner(data.pin.url.link)}</button>
+                  <button className="pinshow-url"><a href={urlCleaner(data.pin.url.link)}>{urlCleaner(data.pin.url.link)}</a></button>
                   <p className="pin-description-pinshow">{data.pin.description}</p>
                   <div id="comments-div-pinshow">
                     <div className="pinshow-comments">Comments</div>

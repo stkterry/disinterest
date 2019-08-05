@@ -156,6 +156,17 @@ export default {
         image_url
       }
     }
+  }`,
+
+  ADD_PIN_TO_USER: gql`
+  mutation AddPinToUser($userId: ID!, $pinId: ID!) {
+    addPinToUser(userId: $userId, pinId: $pinId) {
+      _id,
+      title,
+      description,
+      tags
+    }
   }`
+
 
 }

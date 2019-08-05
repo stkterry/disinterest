@@ -126,6 +126,7 @@
 .save-to-bins {
   display: flex;
   flex-direction: row;
+  width: calc(100% - 36px);
 
   button {
     border: none;
@@ -138,7 +139,7 @@
   background: rgba(255,255,255,0.9);
   padding: 14px 8px;
   box-sizing: border-box;
-  width: 100%;
+  width: 90%;
   display: block;
   text-align: right;
   border-top-left-radius: 16px;
@@ -158,10 +159,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .add-bin-drop-none {
-    color: gray;
-  }
+}
+.add-bin-drop-none {
+  width: 100%;
+  color: gray;
 }
 
 .add-bin-drop-save {
@@ -183,7 +184,6 @@
   width: 50px;
   height: 50px;
 }
-
 
 
 .pin-hud-links {

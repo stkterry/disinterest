@@ -136,7 +136,7 @@ class PinIndex extends Component {
           return (
             <div className="masonry-div" key={_id} >
               <div className="shadow-boxer">
-                <img className="masonry-img" src={image_url} alt={pin.title}/>
+                <img onClick={() => this.props.history.push(`/pins/${_id}`)} className="masonry-img" src={image_url} alt={pin.title}/>
 
                 <div className="pin-hud">
                   <div className="save-to-bins">
@@ -147,7 +147,7 @@ class PinIndex extends Component {
                       <div className="add-bin-drop-select">
                           {(this.state.selectedBin.target === pin._id) ? (
                             <h3>{this.state.selectedBin.bin.title}</h3>
-                          ) : <h3 className="add-bin-drop-none">Select Bin</h3>}
+                          ) : <h3 className="add-bin-drop-none">Select Bin       </h3>}
                         <i className="fa fa-angle-down" />
                       </div>
                     </button>
@@ -179,7 +179,7 @@ class PinIndex extends Component {
     )
 
     pinDat[0].props.children.unshift(
-      <div className="create-a-pin-container" key={"pinFormThing"}>
+      <div onClick={() => this.props.history.push("/pin-builder")} className="create-a-pin-container" key={"pinFormThing"}>
         <i className="pin-button fas fa-plus-circle"></i>
         <div className="create-a-pin"></div>
         <div className="create-header">Create Pin</div>
