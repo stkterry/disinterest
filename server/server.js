@@ -6,11 +6,12 @@ const cors = require("cors");
 
 const models = require("./models/index");
 const schema = require("./schema/schema");
-const db = require("../config/keys").MONGO_URI;
+let db = require("../config/keys").MONGO_URI;
 const app = express();
 
 const path = require("path");
 if (process.env.NODE_ENV === 'production') {
+  db = require("../config/keys_prod").mongoURI;
   app.use(express.static('client/build'));
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
