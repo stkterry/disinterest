@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   aws_creds = require("../config/aws_credentials.json");
 }
-console.log(process.env.NODE_ENV, aws_creds);
+// console.log(process.env.NODE_ENV, aws_creds);
 AWS.config.update({ 
   "accessKeyId": aws_creds.aws_accessKeyId, 
   "secretAccessKey": aws_creds.aws_secretAccessKey, 
