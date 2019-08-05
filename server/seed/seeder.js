@@ -161,11 +161,11 @@ mongoose
   .then( async db => {
     await dropDB(db)
       .catch (err => console.log("Database could not be dropped"));
-    await seedUsers(10)
+    await seedUsers(20)
       .catch(err => console.log("Users could not be seeded"));
     await seedPins(5)
       .catch(err => console.log("Pins could not be seeded", err));
-    await crossSeedPins(2, 4)
+    await crossSeedPins(2, 5)
       .catch(err => console.log("Couldn't cross-seed pins"));
     await seedBins(2, 4)
       .catch(err => console.log("Couldn't create user bins"));

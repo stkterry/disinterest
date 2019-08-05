@@ -1,44 +1,46 @@
-// .bin-index-container {
-//   margin-top: 80px;
-//   // padding-top: 80px;
-//   padding-left: 100px;
-//   padding-right: 100px;
-//   display: flex;
-//   flex-wrap: wrap;
-// }
 .bin-index-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 80px 100px 0 100px;
-  //   max-height: calc(80vh + 94px);
-  //   overflow: hidden;
+  margin: 100px 100px 0 100px;
 }
 
 .actual-bin-container {
   box-sizing: border-box;
-  border: 1px solid black;
-  width: 30%;
-  height: 250px;
-  padding: 10px;
+  margin: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.pin-collection {
+  overflow: hidden;
+  background: #efefef;
+  border-radius: 10px;
+  width: 307.8px;
+  height: 206px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bin-pin-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 1.3px;
+}
+.bin-about {
+  width: 100%;
+  align-self: left;
 }
 
 .actual-bin-container:hover {
-  .bin-contents {
+  .pin-collection {
     background-color: lightgray;
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
   }
   background-color: #efefef;
-  transition-delay: 0.1s;
-}
-
-.bin-contents {
-  box-sizing: border-box;
-  border: 1px solid black;
-  height: 80%;
-  border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #efefef;
+  transition-delay: 0.2s;
 }
 
 .bin-name {
@@ -56,31 +58,4 @@
   color: #333;
 }
 
-.bin-box {
-  width: 33.3%;
-  height: 100%;
-}
 
-.half-box {
-  height: 50%;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid black;
-  padding: 1px;
-}
-
-.tiny-box {
-  height: 33.3%;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid black;
-  padding: 1px;
-}
-
-.big-box {
-  height: 66.6%;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid black;
-  padding: 1px;
-}

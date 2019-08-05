@@ -63,8 +63,8 @@ export default {
   }`,
 
   UPDATE_PIN: gql`
-  mutation UpdatePin($_id: String, $url: Object, $title: String, $description: String, $tags: Array) {
-    updatePin(_id: $_id, url: $url, title: $title, description: $description, tags: $tags) {
+  mutation UpdatePin($_id: ID!, $url: UrlInput, $title: String, $description: String, $tags: [String], $image_url: String) {
+    updatePin(_id: $_id, url: $url, title: $title, description: $description, tags: $tags, image_url: $image_url) {
       _id,
       url {
         _id,
@@ -74,7 +74,8 @@ export default {
       },
       title,
       description,
-      tags
+      tags,
+      image_url
     }
   }`,
 
@@ -109,7 +110,11 @@ export default {
       title,
       description,
       tags,
-      pins
+      pins {
+        _id,
+        title,
+        image_url
+      }
     }
   }`,
 
@@ -137,5 +142,20 @@ export default {
       }
     }
   }`,
+
+  ADD_PIN_TO_BIN: gql`
+  mutation AddPinToBin($binId: String, $pinId: String) {
+    addPinToBin(binId: $binId, pinId: $pinId) {
+      _id,
+      title,
+      description,
+      tags,
+      pins {
+        _id,
+        title,
+        image_url
+      }
+    }
+  }`
 
 }

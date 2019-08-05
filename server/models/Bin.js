@@ -34,4 +34,12 @@ BinSchema.statics.findPins = function(binId) {
     .then(bin => bin.pins);
 };
 
+BinSchema.statics.addPin = function (binId, pinId) {
+  return this.findByIdAndUpdate(
+    bindId,
+    { $addToSet: { pins: pinId } },
+    { new: true }
+  )
+};
+
 module.exports = Bin = mongoose.model('bins', BinSchema);

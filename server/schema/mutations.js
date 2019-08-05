@@ -88,7 +88,8 @@ const mutations = new GraphQLObjectType({
         url: { type: UrlInput },
         title: { type: GraphQLString },
         description: { type: GraphQLString },
-        tags: { type: GraphQLList(GraphQLString) }
+        tags: { type: GraphQLList(GraphQLString) },
+        image_url: { type: GraphQLString }
       },
       resolve(_, { _id, url, title, description, tags }) {
         return Url.findById(url._id)
@@ -197,6 +198,18 @@ const mutations = new GraphQLObjectType({
         )
       }
     },
+
+    addPinToBin: {
+      type: BinType,
+      args: {
+        binId: { type: GraphQLID },
+        pinId: { type: GraphQLID },
+      },
+      resolve(_, {binId, pinId}) {
+        return Bin.addPin(binId, pinId)
+          .then(bin => bin);
+      }
+    }
 
   }
 });

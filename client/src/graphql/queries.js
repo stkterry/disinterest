@@ -138,13 +138,16 @@ export default {
       url {
         link,
         snores,
-        created_by
+        created_by,
+        _id
       },
       title,
       description,
-      tags 
+      tags,
+      image_url
     }
   }`,
+
 
   FETCH_BINS: gql`
   query fetchBins {
