@@ -6,7 +6,7 @@
   "scripts": {
     "sass": "sass --watch client/src/assets/styles/input.scss:client/src/assets/styles/output.css",
     "client-install": "npm install --prefix client",
-    "client": "npm start --prefix client",
+    "client": "npm run start --prefix client",
     "server": "nodemon index.js",
     "server:debug": "nodemon --inspect index.js",
     "dev": "concurrently \"npm run server:debug\" \"npm run client\"",
