@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import CreateBoardOrPin from "./createBoardOrPinDropdown";
 import Queries from "../../graphql/queries";
+import BinIndex from "../bins/bin_index";
 const { FETCH_USER, FETCH_USERS } = Queries;
 
 class UserProfile extends React.Component {
@@ -61,7 +62,7 @@ class UserProfile extends React.Component {
         {/* <i id="default-profile-image" className="fas fa-user-circle"></i> */}
         <img id="harold" src="https://i.imgur.com/Uv8w7eE.jpg?1" />
         <div className="bin-index-standin-box">
-
+          <BinIndex />
         </div>
       </div>
     )

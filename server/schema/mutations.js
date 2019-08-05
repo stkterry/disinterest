@@ -88,7 +88,8 @@ const mutations = new GraphQLObjectType({
         url: { type: UrlInput },
         title: { type: GraphQLString },
         description: { type: GraphQLString },
-        tags: { type: GraphQLList(GraphQLString) }
+        tags: { type: GraphQLList(GraphQLString) },
+        image_url: { type: GraphQLString }
       },
       resolve(_, { _id, url, title, description, tags }) {
         return Url.findById(url._id)
@@ -197,6 +198,42 @@ const mutations = new GraphQLObjectType({
         )
       }
     },
+
+    addPinToBin: {
+      type: BinType,
+      args: {
+        binId: { type: GraphQLID },
+        pinId: { type: GraphQLID },
+      },
+      resolve(_, {binId, pinId}) {
+        return Bin.addPin(binId, pinId)
+          .then(bin => bin);
+      }
+    },
+
+    addPinToUser: {
+      type: PinType,
+      args: {
+        userId: { type: GraphQLID },
+        pinId: { type: GraphQLID },
+      },
+      resolve(_, { userId, pinId }) {
+        Pin.findById(pinId)
+          .then(async pin => {
+            const newPin = await Pin.create({
+              title: pin.title,
+              description: pin.description,
+              tags: pin.tags,
+              url: pin.url._id,
+              image_url: pin.image_url,
+              author: userId
+            });
+            await User.addPin(userId, newPin._id);
+            await Url.moreBoring(pin.url._id);
+            return newPin;
+          })
+      }
+    }
 
   }
 });

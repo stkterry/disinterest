@@ -3,6 +3,7 @@ import { Mutation } from "react-apollo";
 
 import Mutations from "../graphql/mutations";
 import logo from "../assets/public/images/disinterest-logo-128.png"
+import splash from "../assets/public/images/sleepys.png";
 
 const { REGISTER_USER } = Mutations;
 
@@ -54,7 +55,7 @@ class Register extends Component {
       >
         {register => (
           <div className="modal-background-splash">
-            <img src={"https://image.freepik.com/free-photo/vintage-brown-brick-structure-wallpaper-background-soft-tone-pinterest-instragram-like-process_10307-405.jpg"} alt="background" />
+            <img src={splash} alt="background" />
             <div id="splash-outer-div">
               <img src={logo} className="auth-logo" />
               <div id="splash-greeting">Welcome to Disinterest</div>

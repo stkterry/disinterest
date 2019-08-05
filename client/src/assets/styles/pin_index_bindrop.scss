@@ -1,0 +1,44 @@
+.bin-drop {
+  z-index: 2;
+  position: absolute;
+  background: white;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  
+  box-sizing: border-box;
+  padding: 0 16px;
+  left: -8px;
+  top: 72px;
+  width: calc(100% + 16px);
+  // min-height: 200px;
+  border-radius: 16px;
+  background: rgba(128, 128, 128, 0.5);
+}
+
+.bin-drop-btn {
+  margin: 4px 0;
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: white;
+}
+.bin-drop-btn:hover {
+  background: #efefef;
+}
+
+.bin-drop-btn-create {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin: -4px 8px -4px 0;
+    padding: 0;
+    font-size: 24px;
+  }
+}

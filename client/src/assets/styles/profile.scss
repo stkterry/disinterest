@@ -54,9 +54,10 @@
 .bin-index-standin-box {
   display: flex;
   // border-style: dotted;
-  border: 2px dotted black;
+  border: 3px solid gray;
   margin: 0 65px;
-  height: 500px;
+  border-radius: 32px;
+  // height: 500px;
 }
 
 .options-bar-above-profile i {

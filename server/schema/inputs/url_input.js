@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const { GraphQLInputObjectType, GraphQLString, GraphQLID, GraphQLInt } = graphql;
+const { GraphQLInputObjectType, GraphQLString, GraphQLID, GraphQLInt, } = graphql;
 
 const UrlInput = new GraphQLInputObjectType({
   name: "UrlInput",

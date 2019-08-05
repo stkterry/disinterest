@@ -138,11 +138,18 @@ export default {
       url {
         link,
         snores,
-        created_by
+        created_by,
+        _id
       },
       title,
       description,
-      tags 
+      tags,
+      author {
+        first_name,
+        last_name,
+        email
+      },
+      image_url
     }
   }`,
 

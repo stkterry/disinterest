@@ -14,6 +14,8 @@ import PinIndexQuery from "./pins/pin_index_query";
 
 import AWSTest from "./awstest/awstest";
 import PinCreateForm from "./pins/pin_create_form";
+import PinShowPage from "./pins/pin_show_page";
+import PinEditForm from "./pins/pin_edit_form";
 
 const App = () => (
   <div>
@@ -29,6 +31,8 @@ const App = () => (
       <Route exact path="/pin-builder" component={PinCreateForm} />
       {/* <Route exact path="/pinindex" component={PinIndex} /> */}
       <Route exact path="/binindex" component={BinIndex} />
+      <Route exact path="/pins/:pinId" component={PinShowPage} />
+      <Route exact path="/pinedit/:pinId" component={PinEditForm} />
     </Switch>
   </div>
 )

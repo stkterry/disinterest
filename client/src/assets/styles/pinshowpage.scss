@@ -1,0 +1,227 @@
+#pin-show-outer-div {
+  position: relative; 
+  padding-top: 120px;
+  background-color: #efefef;
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+  box-sizing: border-box;
+}
+
+.fas.fa-arrow-left.pinshow {
+  position: absolute; 
+  left: 40px; 
+  top: 103px;
+  color: #333;
+  font-size: 21px;
+  height: 21px;
+  width: 21px;
+  line-height: 21px;
+  text-align: center; 
+  vertical-align: middle; 
+  padding: 8px; 
+  border-radius: 50%;
+}
+
+
+.fas.fa-arrow-left.pinshow:hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+}
+
+.exit-pinshow {
+  position: absolute; 
+  right: 25px; 
+  top: 90px;
+  color: #8e8e8e;
+  font-size: 25px;
+  height: 21px;
+  width: 21px;
+  line-height: 21px; 
+  text-align: center; 
+  vertical-align: middle; 
+  padding: 8px; 
+  border-radius: 50%;
+}
+
+.exit-pinshow:hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+}
+
+
+#pin-show-container-div {
+  display: flex; 
+  flex-direction: row;
+  width: 940px; 
+  height: 720px; 
+  background: white; 
+  margin: 0 auto; 
+  border-radius: 10px; 
+}
+
+#pin-show-container-div-left {
+  margin-left: 35px;
+  margin-top: 20px; 
+}
+
+#pin-show-container-div-right {
+  margin-left: 25px;
+  margin-right: 25px; 
+}
+
+.fas.fa-ellipsis-h.pinshow-ellipsis {
+  margin-bottom: 27px; 
+  margin-left: 10px; 
+  font-size: 22px; 
+  height: 20px; 
+  width: 20px; 
+  line-height: 20px; 
+  text-align: center; 
+  vertical-align: middle; 
+  padding: 8px; 
+  border-radius: 50%; 
+}
+
+.fas.fa-ellipsis-h.pinshow-ellipsis:hover {
+  background-color: rgb(226, 226, 226);
+  cursor: pointer;
+}
+
+
+
+
+.pin-show-image {
+  min-height: 500px; 
+  min-width: 500px;
+  max-width: 500px; 
+  max-height: 500px; 
+  object-fit: cover;
+  // overflow: hidden; 
+}
+
+#send-save-container {
+  display: flex; 
+  flex-direction: row; 
+  margin-left: 155px;
+  margin-top: 18px; 
+  margin-bottom: 20px;
+}
+
+#send-save-container > button {
+  width: 90px; 
+  height: 45px; 
+  text-align: center; 
+  font-size: 16px; 
+  font-weight: 700; 
+  border-radius: 12px;
+  cursor: pointer; 
+}
+
+#pinshow-save {
+  background-color: red; 
+  color: white; 
+}
+
+#pinshow-save:hover {
+  background: rgb(230, 0, 35);
+}
+
+#pinshow-send {
+  margin-right: 14px; 
+  background: #efefef;
+}
+
+#pinshow-send:hover {
+  background: rgb(226, 226, 226);
+}
+
+.fas.fa-upload.pinshow-upload {
+  font-size: 20px; 
+  color: #333; 
+  margin-right: 6px; 
+}
+
+.fas.fa-thumbtack.pinshow-thumbtack {
+  color: white; 
+  font-size: 20px; 
+  margin-right: 6px;
+}
+
+.pinshow-title {
+  font-size: 20px; 
+  font-weight: 700; 
+  margin-bottom: 30px; 
+}
+
+
+
+#pin-show-user-container {
+  display: flex; 
+  flex-direction: row;
+}
+
+#pinshow-full-name {
+  font-size: 17px; 
+  font-weight: 700; 
+}
+
+.fas.fa-user-circle.pinshow {
+  font-size: 40px; 
+  margin-right: 10px; 
+}
+
+.pin-description-pinshow {
+  margin-top: 15px; 
+  font-size: 18px; 
+}
+
+.pinshow-url {
+  margin-top: 25px; 
+  width: 345px; 
+  height: 40px; 
+  text-align: center; 
+  background-color: #efefef;
+  border-radius: 5px; 
+  font-size: 15px;
+  font-weight: 700;
+  font-family: helvetica;
+}
+
+.pinshow-url:hover {
+  cursor: pointer; 
+  background: rgb(226, 226, 226);
+}
+
+#comments-div-pinshow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  margin-top: 15px; 
+  padding-top: 40px; 
+  padding-bottom: 25px; 
+  border-top: solid #efefef 2px; 
+  border-bottom: solid #efefef 2px; 
+}
+
+.pinshow-comments {
+  font-size: 22px; 
+  cursor: pointer; 
+}
+
+.fas.fa-angle-down{
+  font-size: 25px; 
+
+}
+
+// #pinshow-downarrow {
+//   font-size: 25px; 
+// }
+
+.fas.fa-bed {
+  margin-right: 4px; 
+}
+
+.pinshow-snores-count {
+  margin-left: 130px;
+}

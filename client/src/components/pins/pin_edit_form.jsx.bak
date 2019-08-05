@@ -1,0 +1,241 @@
+import React from "react";
+import { Mutation } from "react-apollo";
+import { Query } from "react-apollo";
+import { Link, withRouter } from 'react-router-dom';
+import Mutations from "../../graphql/mutations";
+import axios from "axios";
+import addImageToAws from "../../util/aws_util";
+import Queries from "../../graphql/queries";
+
+import PinEditMutation from "./pin_edit_mutatation";
+
+const { FETCH_PIN } = Queries;
+
+const { UPDATE_PIN } = Mutations;
+
+
+class PinEditForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.currentUser = JSON.parse(localStorage.getItem("current-user"));
+
+    this.state = {
+      _id: "",
+      image_url: "",
+      url: "",
+      title: "",
+      description: "",
+      tags: ["curling"],
+      aws_image_url: null,
+      created_by: this.currentUser._id,
+      message: null
+    };
+  }
+
+  componentDidMount() {
+   
+    this.setState({})
+  }
+
+
+  update(field) {
+    return event => this.setState({ [field]: event.target.value });
+  }
+
+  
+
+  render() {
+    const { url, title, description, aws_image_url, tags, created_by } = this.state;
+    const { first_name, last_name } = this.currentUser;
+    // const currentUser = JSON.parse(localStorage.getItem("current-user"));
+    // let image_url; 
+
+
+    return (
+      <Query
+        query={FETCH_PIN}
+        variables={{ pinId: this.props.match.params.pinId }}
+      >
+        {({ loading, error, data }) => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error on pin show page</p>
+
+          console.log(data)
+          const { pin } = data;
+          
+          return (
+            <Mutation
+              mutation={UPDATE_PIN}
+              onCompleted={data => {
+                console.log("Check MongoDB for changes to pin. Also check AWS if you added a new image");
+                this.props.history.push("/")
+              }}
+              >
+              {updatePin => (
+                <div className="pin-form-outer-div">
+                  <div className="form-div">
+                    <form className="actual-form"
+                      onSubmit={event => {
+                        event.preventDefault();
+                        const image = document.getElementById("aws-photo").files[0];
+
+                        // if (image && title && description && url) {
+                        //   let data = new FormData();
+                        //   data.append('image', image);
+                        //   addImageToAws(data).then((response) => {
+                        //     const image_url = response.data.imageUrl;
+                        //     updatePin({ variables: { url, title, description, tags, image_url, created_by } })
+                        //   }).catch((error) => {
+                        //   });
+                        // } else {
+                        //   updatePin({ variables: { url, title, description, tags, created_by } })
+                        // }
+
+                      }}
+                    >
+                      <div className="image-input-outer-div">
+                        <input id="aws-photo"
+                          type="file"
+                          onChange={this.update("file")}
+                          className="aws-test"
+                          placeholder="Add photo"
+                        />
+                      </div>
+                      <input className="save-from-site" value="Save from site" />
+                      <div className="made-flex-row">
+                        <select value="select" className="tag-options">
+                          <option>Will likely change this later</option>
+                          <option>Should be able to select</option>
+                          <option>Bins within</option>
+                          <option>A dropdown here somehow</option>
+                        </select>
+                        <button id="pin-save-button">Save</button>
+                      </div>
+                      <input
+                        className="title-input-pin"
+                        value={this.state.title}
+                        onChange={this.update("title")}
+                        placeholder="Add your title"
+                      />
+                      <div id="current-user-pin-create-flex-container">
+                        <i className="fas fa-user-circle" style={{ fontSize: '40px' }}></i>
+                        <div id="current-user-pin-create-div">
+                          <div className="current-user-pin-create">{first_name} {last_name}</div>
+                          <div># followers</div>
+                        </div>
+                        <p className="pin-errors"> {this.state.message}</p>
+                      </div>
+                      <input
+                        className="description-input-pin"
+                        value={this.state.description}
+                        onChange={this.update("description")}
+                        placeholder="Tell everyone what your pin is about"
+                      />
+                      <input
+                        className="url-input-pin"
+                        value={this.state.url}
+                        onChange={this.update("url")}
+                        placeholder="Add a destination link"
+                      />
+
+                    </form>
+                  </div>
+                </div>
+
+              )}
+            </Mutation>
+          )
+          
+        }}
+        
+      </Query>
+    )
+  }
+}
+
+export default withRouter(PinEditForm);
+
+
+// return (
+//   <Mutation
+//     mutation={UPDATE_PIN}
+    // onCompleted={data => {
+    //   console.log("Check AWS for the image and MongoDB for the new pin");
+    //   this.props.history.push("/")
+    // }}
+//     onError={err => this.setState({ message: "Pin must have a title, description, and a proper url" })}
+//   >
+//     {updatePin => (
+      // <div className="pin-form-outer-div">
+      //   <div className="form-div">
+      //     <form className="actual-form"
+      //       onSubmit={event => {
+      //         event.preventDefault();
+      //         const image = document.getElementById("aws-photo").files[0];
+
+      //         if (image && title && description && url) {
+      //           let data = new FormData();
+      //           data.append('image', image);
+      //           addImageToAws(data).then((response) => {
+      //             const image_url = response.data.imageUrl;
+      //             updatePin({ variables: { url, title, description, tags, image_url, created_by } })
+      //           }).catch((error) => {
+      //           });
+      //         } else {
+      //           updatePin({ variables: { url, title, description, tags, created_by } })
+      //         }
+
+      //       }}
+      //     >
+      //       <div className="image-input-outer-div">
+      //         <input id="aws-photo"
+      //           type="file"
+      //           onChange={this.update("file")}
+      //           className="aws-test"
+      //           placeholder="Add photo"
+      //         />
+      //       </div>
+      //       <input className="save-from-site" value="Save from site" />
+      //       <div className="made-flex-row">
+      //         <select value="select" className="tag-options">
+      //           <option>Will likely change this later</option>
+      //           <option>Should be able to select</option>
+      //           <option>Bins within</option>
+      //           <option>A dropdown here somehow</option>
+      //         </select>
+      //         <button id="pin-save-button">Save</button>
+      //       </div>
+      //       <input
+      //         className="title-input-pin"
+      //         value={title}
+      //         onChange={this.update("title")}
+      //         placeholder="Add your title"
+      //       />
+      //       <div id="current-user-pin-create-flex-container">
+      //         <i className="fas fa-user-circle" style={{ fontSize: '40px' }}></i>
+      //         <div id="current-user-pin-create-div">
+      //           <div className="current-user-pin-create">{first_name} {last_name}</div>
+      //           <div># followers</div>
+      //         </div>
+      //         <p className="pin-errors"> {this.state.message}</p>
+      //       </div>
+      //       <input
+      //         className="description-input-pin"
+      //         value={description}
+      //         onChange={this.update("description")}
+      //         placeholder="Tell everyone what your pin is about"
+      //       />
+      //       <input
+      //         className="url-input-pin"
+      //         value={url}
+      //         onChange={this.update("url")}
+      //         placeholder="Add a destination link"
+      //       />
+
+      //     </form>
+      //   </div>
+      // </div>
+//     )}
+
+//   </Mutation>
+// )}}

@@ -11,6 +11,35 @@ class BinIndex extends Component {
     this.currentUser = JSON.parse(localStorage.getItem("current-user"));
   }
 
+
+  binLayout(userBins) {
+    return (
+      userBins.map(bin => {
+        let pinCount = (bin.pins.length > 6) ? 6 : bin.pins.length;
+        
+        return (
+          <div key={bin._id} className="actual-bin-container">
+            <div className="pin-collection">
+              { 
+                bin.pins.slice(0, pinCount).map(pin => {
+                  const { _id, image_url } = pin;
+                  return (
+                    <img key={_id} className="bin-pin-img" src={image_url} />
+                  )
+                })
+              }
+            </div>
+            <div className="bin-about">
+              <div className="bin-name">{bin.title}</div>
+              <div className="number-of-pins">number of pins: {bin.pins.length}</div>
+            </div>
+          </div>
+        )
+      }
+      )
+    )
+  }
+  
   render() {
 
     return (
@@ -23,129 +52,16 @@ class BinIndex extends Component {
           if (error) return <p>Somethin' done borked</p>
           const { userBins } = data;
           console.log(userBins);
+
           return (
             <div className="bin-index-container">
-              <ul>
-                {userBins.map(bin => <li key={bin._id}><img src={bin.pins[0].image_url} /></li>)}
-              </ul>
+              {this.binLayout(userBins)}
             </div>
           )
         }}
       </Query>
     )
-
-    // return (
-        //     <div className="bin-index-container">
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic1</div>
-        //                     <div className="half-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic3</div>
-        //                     <div className="half-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="tiny-box">pic5</div>
-        //                     <div className="big-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic1</div>
-        //                     <div className="half-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic3</div>
-        //                     <div className="half-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="big-box">pic5</div>
-        //                     <div className="tiny-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic1</div>
-        //                     <div className="half-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="tiny-box">pic3</div>
-        //                     <div className="big-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic5</div>
-        //                     <div className="half-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic1</div>
-        //                     <div className="half-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="big-box">pic3</div>
-        //                     <div className="tiny-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic5</div>
-        //                     <div className="half-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="tiny-box">pic1</div>
-        //                     <div className="big-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic3</div>
-        //                     <div className="half-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic5</div>
-        //                     <div className="half-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //         <div className="actual-bin-container">
-        //             <div className="bin-contents">
-        //                 <div className="bin-box">
-        //                     <div className="big-box">pic1</div>
-        //                     <div className="tiny-box">pic2</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic3</div>
-        //                     <div className="half-box">pic4</div>
-        //                 </div>
-        //                 <div className="bin-box">
-        //                     <div className="half-box">pic5</div>
-        //                     <div className="half-box">pic6</div>
-        //                 </div>
-        //             </div>
-        //             <div className="bin-name">bin name</div>
-        //             <div className="number-of-pins"># of pins</div>
-        //         </div>
-        //     </div>
-        // );
+      
   }
 }
 
