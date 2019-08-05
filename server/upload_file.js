@@ -4,18 +4,18 @@ let uuid = require('uuid');
 let multer = require('multer');
 let multerS3 = require('multer-s3');
 
-
-let aws_creds;
-if (process.env.NODE_ENV === 'production') {
-  aws_creds = require("../config/keys_prod");
-} else {
-  aws_creds = require("../config/aws_credentials.json");
-}
+const { aws_accessKeyId, aws_secretAccessKey, aws_region } = require("../config/keys")
+// let aws_creds;
+// if (process.env.NODE_ENV === 'production') {
+//   aws_creds = require("../config/keys_prod");
+// } else {
+//   aws_creds = require("../config/aws_credentials.json");
+// }
 // console.log(process.env.NODE_ENV, aws_creds);
 AWS.config.update({ 
-  "accessKeyId": aws_creds.aws_accessKeyId, 
-  "secretAccessKey": aws_creds.aws_secretAccessKey, 
-  "region": aws_creds.aws_region 
+  "accessKeyId": aws_accessKeyId, 
+  "secretAccessKey": aws_secretAccessKey, 
+  "region": aws_region 
 });
 
 
