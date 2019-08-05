@@ -30,7 +30,7 @@ cache.writeData({
 
 const httpLink = createHttpLink({
   // uri: "http://localhost:6660/graphql"
-  uri: "disinterest-aa.herokuapp.com"
+  uri: ""
 });
 
 const errorLink = onError(({ graphQLErrors }) => {
