@@ -4,10 +4,19 @@ let uuid = require('uuid');
 let multer = require('multer');
 let multerS3 = require('multer-s3');
 
-const aws_credentials = require("../config/aws_credentials.json");
-AWS.config.update({ "accessKeyId": aws_credentials.accessKeyId, "secretAccessKey": aws_credentials.secretAccessKey, "region": aws_credentials.region});
 
-// AWS.config.loadFromPath('/Users/michaelwarner/Desktop/GraphQL Docker Apollo Project Repo /disinterest/config/aws_credentials.json');
+let aws_creds;
+if (process.env.NODE_ENV === 'production') {
+  aws_creds = require("../config/keys_prod");
+} else if (process.env.NODE_ENV === 'development') {
+  aws_creds = require("../config/aws_credentials.json");
+}
+AWS.config.update({ 
+  "accessKeyId": aws_creds.aws_accessKeyId, 
+  "secretAccessKey": aws_creds.aws_secretAccessKey, 
+  "region": aws_creds.aws_region 
+});
+
 
 
 const s3 = new AWS.S3();
