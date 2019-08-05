@@ -230,9 +230,9 @@ a {
 
 .bin-index-standin-box {
   display: flex;
-  border: 2px dotted black;
+  border: 3px solid gray;
   margin: 0 65px;
-  height: 500px; }
+  border-radius: 32px; }
 
 .options-bar-above-profile i {
   padding: 12px;
@@ -860,6 +860,7 @@ code {
     transition-delay: 0.2s; }
 
 .bin-name {
+  width: 300px;
   padding-top: 10px;
   color: #333;
   font-size: 21px;
@@ -954,7 +955,8 @@ code {
   min-height: 500px;
   min-width: 500px;
   max-width: 500px;
-  max-height: 500px; }
+  max-height: 500px;
+  object-fit: cover; }
 
 #send-save-container {
   display: flex;

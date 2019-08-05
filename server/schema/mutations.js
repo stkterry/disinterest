@@ -228,31 +228,12 @@ const mutations = new GraphQLObjectType({
               image_url: pin.image_url,
               author: userId
             });
-            // console.log(newPin);
             await User.addPin(userId, newPin._id);
             await Url.moreBoring(pin.url._id);
             return newPin;
           })
-        //   .then(pin => Url.moreBoring(pin.url._id));
-        // return User.addPin(userId, pinId)
-        //   .then(pin => pin);
       }
     }
-
-    // Pin.create({
-    //   title: pinObj.title,
-    //   description: pinObj.description,
-    //   tags: pinObj.tags,
-    //   url: pinObj.url._id,
-    //   image_url: pinObj.image_url,
-    //   author: user._id
-    // })
-    //       url: { type: GraphQLString },
-    // title: { type: GraphQLString },
-    // description: { type: GraphQLString },
-    // tags: { type: GraphQLList(GraphQLString) },
-    // image_url: { type: GraphQLString },
-    // created_by: { type: GraphQLID }
 
   }
 });
