@@ -11,7 +11,8 @@
     "server:debug": "nodemon --inspect index.js",
     "dev": "concurrently \"npm run server:debug\" \"npm run client\"",
     "devs": "concurrently \"npm run dev\" \"npm run sass\"",
-    "seed": "node ./server/seed/seeder.js"
+    "seed": "node ./server/seed/seeder.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
