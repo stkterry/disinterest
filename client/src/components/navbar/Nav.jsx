@@ -45,8 +45,8 @@ class NavBar extends React.Component {
           return (
             <Query query={IS_LOGGED_IN}>
               {({ data }) => {
-                let currentUserId = "5d4846a05ec382249a833658";
-                let currentUserFirstName = "User";
+                let currentUserId = "5d4846a05ec382249a833659";
+                let currentUserFirstName = "Luka";
                 const currentUser = JSON.parse(localStorage.getItem("current-user"));
                 if (currentUser) {
                   currentUserId = currentUser._id;
