@@ -45,13 +45,15 @@ class NavBar extends React.Component {
           return (
             <Query query={IS_LOGGED_IN}>
               {({ data }) => {
-                let currentUserId = "5d4846a05ec382249a833659";
-                let currentUserFirstName = "Luka";
                 const currentUser = JSON.parse(localStorage.getItem("current-user"));
-                if (currentUser) {
-                  currentUserId = currentUser._id;
-                  currentUserFirstName = currentUser.first_name;
-                }
+
+                const profileLink = currentUser ? (
+                  <Link to={`/users/${currentUser._id}`} className='navbar-link navbar-link-user' >
+                    <i className="fas fa-user-circle" />
+                    {currentUser.first_name}
+                  </Link>
+                ) : <></>
+
                 if (data.isLoggedIn) {
                   return (
                     <div className="navbar">
@@ -72,10 +74,7 @@ class NavBar extends React.Component {
                       <span className='navbar-near-right'>
                         <Link to="/" className='navbar-link'>Home</Link>
                         <Link to="/" className='navbar-link'>Following</Link>
-                        <Link to={`/users/${currentUserId}`} className='navbar-link navbar-link-user' >
-                          <i className="fas fa-user-circle" />
-                          {currentUserFirstName}
-                        </Link>
+                        {profileLink}
                       </span>
 
                       <span className='navbar-right'>
@@ -85,7 +84,6 @@ class NavBar extends React.Component {
                           <i className="fas fa-bell"></i>
                         </Link>
                         <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow} />
-
                       </span>
 
                     </div>
