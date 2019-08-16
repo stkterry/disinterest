@@ -3,7 +3,6 @@
 
 A Pinterest clone of the world's most uninteresting topics
 
-Users can add/remove boids and obstacles, set sliders for the simulation variables, show/hide underlying structures and rules that guide the boids, and step through a boid's behavior.
 <div display="flex" flex-direction="row">
   <img src="./readme_images/login.png" alt="login-showcase" width="32.5%">
   <img src="./readme_images/pin.png" alt="pin-showcase" width="32.5%">
@@ -11,6 +10,8 @@ Users can add/remove boids and obstacles, set sliders for the simulation variabl
 </div>
 
 # Functionality
+Users can add/remove boids and obstacles, set sliders for the simulation variables, show/hide underlying structures and rules that guide the boids, and step through a boid's behavior.
+
 ## User Authentication
 * Users can create accounts, login, and logout
 * User demo account and functionality
