@@ -71,7 +71,7 @@ const mutations = new GraphQLObjectType({
       async resolve(_, { url, title, description, tags, image_url, created_by }) {
         return new Url({ link: url, created_by: created_by })
           .save()
-          .then(URL => {
+          .then(URL => {;
             return new Pin({ image_url, url: URL._id, title, description, tags, author: created_by }).save()
               .then(pin => {
                 User.addPin(created_by, pin._id).exec();

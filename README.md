@@ -1,12 +1,16 @@
 # Disinterest
+[Live Link](https://disinterest-aa.herokuapp.com/#/ "Disinterest Live Link")
+
 A Pinterest clone of the world's most uninteresting topics
 
-# Project Team
-* Michael Warner
-* Steven Terry
-* Charles Mancuso
+Users can add/remove boids and obstacles, set sliders for the simulation variables, show/hide underlying structures and rules that guide the boids, and step through a boid's behavior.
+<div display="flex" flex-direction="row">
+  <img src="./readme_images/login.png" alt="login-showcase" width="32.5%">
+  <img src="./readme_images/pin.png" alt="pin-showcase" width="32.5%">
+  <img src="./readme_images/pindex.png" alt="pindex-showcase" width="32.5%">
+</div>
 
-# Functionality and MVP
+# Functionality
 ## User Authentication
 * Users can create accounts, login, and logout
 * User demo account and functionality
@@ -40,69 +44,7 @@ A Pinterest clone of the world's most uninteresting topics
 * Docker Compose
 * Heroku
 
-## Work Breakdown
-### Friday, July 26th
-* [ ] Wiki - all
-* [x] Skeleton - all
-* [x] Authentication - all
-  * [x] Server models and schema for users
-  * [x] Validations for users
-  * [x] Auth services
-
-### Saturday, July 27th
-* Backend Setup (bins, pins) - Steven
-  - Server models and schema for bins and pins
-  - Validations for bins, pins
-* Profile, Profile CSS - Mike
-  - Client graphql for users (mutations and queries for adding bins and pins)
-  - Client components for users (profile page, profile css)
-* Seeding Ideas and seeding structure - Charles
-  - Creating the basic structure for a seeding model to fill out site
-
-### Sunday, July 28th
-* Global CSS - Steven
-  - Adding global CSS for buttons, links, reusable elements, etc.
-  - Finishing validations for bins, pins
-* Navigation - Mike
-  - Client graphql for nav (if any)
-  - Client components for navigation (nav header, nav css)
-* Seeding Ideas and seeding structure - Charles
-  - Creating the basic structure for a seeding model to fill out site
-
-### Monday, July 29th
-* Initial seeds for bins/pins - Michael
-  - querying and mutating pin information independent of image seeding
-* Pins index page - Steven
-  - Client graphql for all pins
-  - Client components for pins index (stand-in pins, pins index page, pins index css)
-* Bins index page - Charles
-  - Client graphql for all bins (within profile page)
-  - Client components for bins index (stand-in bins, bins index page, bins index css)
-
-### Tuesday, July 30th
-* Pin show page - Steven
-  - Client graphql for pin details
-  - Client components for pin show (pin show page, pin show css)
-* Comments - Charles
-  - Server models and schema for pin comments
-  - Validations for pin comments
-* Styling - Michael
-  - Second global CSS pass
-  - Touch ups to Nav, Profile CSS
-
-### Wednesday, July 31st
-* AWS image hosting - Michael
-  - Setup of image hosting via AWS
-  - Integration of images into seeds and database
-* Seeding - Charles, Steven
-  - Creating seeding functions to automate filling out the database
-
-
-### Thursday, August 1st
-* Reserve Day - All
-  - Free day to account for the unexpected
-
-### Friday, August 2nd
-* Finish any remaining features/styling - all
-* Bonush features - all
-* ReadME - all
+# Project Team
+* Michael Warner
+* Steven Terry
+* Charles Mancuso

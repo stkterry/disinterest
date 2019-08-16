@@ -50,17 +50,17 @@ class PinForm extends React.Component {
               onSubmit={event => {
                 event.preventDefault();
                 const image = document.getElementById("aws-photo").files[0];
-
                 if (image && title && description && url) {
                   let data = new FormData();
                   data.append('image', image);
+
+                  // const image_url = addImageToAws(data).then(response => response.data.imageUrl);
+                  // newPin({ variables: { url, title, description, tags, image_url, created_by } });
                   addImageToAws(data).then((response) => {
                     const image_url = response.data.imageUrl;
+                    console.log(title, description, url, created_by, image_url)
                     newPin({ variables: { url, title, description, tags, image_url, created_by } })
-                  }).catch((error) => {
-                  });
-                } else {
-                  newPin({ variables: { url, title, description, tags, created_by } })
+                  }).catch((error) => console.log(error));
                 }
                 
               }}
@@ -73,14 +73,14 @@ class PinForm extends React.Component {
                   placeholder="Add photo"
                 />
               </div>
-                <input className="save-from-site" value="Save from site" />
+                <input className="save-from-site" defaultValue="Save from site" />
                 <div className="made-flex-row">
-                  <select value="select" className="tag-options">
+                  {/* <select defaultValue="select" className="tag-options">
                     <option>Will likely change this later</option>
                     <option>Should be able to select</option>
                     <option>Bins within</option>
                     <option>A dropdown here somehow</option>
-                  </select>
+                  </select> */}
                   <button id="pin-save-button">Save</button>
                 </div>
                 <input 

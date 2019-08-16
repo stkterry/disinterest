@@ -70,7 +70,8 @@
   width: 65px;
   background-color: rgb(230, 0, 35);
   border: none;
-  border-radius: 0px 8px 8px 0px;
+  // border-radius: 0px 8px 8px 0px;
+  border-radius: 8px;
   cursor: pointer;
   flex: 0 0 auto;
   height: 40px;
@@ -79,6 +80,7 @@
   color: white;
   font-weight: 700;
   font-size: 15px;
+  margin-left: auto;
 }
 
 .title-input-pin {

@@ -709,7 +709,7 @@ code {
   width: 65px;
   background-color: #e60023;
   border: none;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 8px;
   cursor: pointer;
   flex: 0 0 auto;
   height: 40px;
@@ -717,7 +717,8 @@ code {
   padding: 0px 14px;
   color: white;
   font-weight: 700;
-  font-size: 15px; }
+  font-size: 15px;
+  margin-left: auto; }
 
 .title-input-pin {
   margin-top: 60px;

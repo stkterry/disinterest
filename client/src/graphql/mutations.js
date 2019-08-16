@@ -58,7 +58,9 @@ export default {
       description,
       tags,
       image_url,
-      author
+      author {
+        _id
+      }
     }
   }`,
 
