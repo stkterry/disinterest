@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Query } from "react-apollo";
 import NavBar from "./navbar/Nav";
@@ -24,7 +24,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={Login} routeType="auth" />
       <AuthRoute exact path="/register" component={Register} routeType="auth" />
-      <Route exact path="/" component={PinIndexQuery} />
+      <AuthRoute exact path="/" component={PinIndexQuery} routeType="protected"/>
       <Route exact path="/users" component={UserIndex} />
       <Route exact path="/users/:userId" component={UserProfile} />
       <Route exact path="/AWSTest" component={AWSTest} />

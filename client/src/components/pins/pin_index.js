@@ -90,10 +90,12 @@ class PinIndex extends Component {
   // }
 
   renderBinDrop(pin) {
+    let userIdVar; 
+    if (this.currentUser) userIdVar = this.currentUser._id;
     return (
       <Query
         query={FETCH_USER_BINS}
-        variables={{ userId: this.currentUser._id }}
+        variables={{ userId: userIdVar }}
       >
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
