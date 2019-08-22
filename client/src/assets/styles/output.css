@@ -75,6 +75,10 @@ a {
   color: #8e8e8e;
   font-size: 25px; }
 
+.fab {
+  color: #8e8e8e;
+  font-size: 25px; }
+
 #navbar-logo-container {
   display: flex;
   height: 53px;
@@ -105,6 +109,15 @@ a {
   border-radius: 24px;
   font-size: 16px;
   width: 100%; }
+
+.search-dropdown {
+  position: absolute;
+  background: blue;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 50px;
+  width: 600px; }
 
 .navbar-near-right {
   display: flex;
@@ -187,6 +200,13 @@ a {
   background: #f2f2f2;
   cursor: pointer; }
 
+#github > div > a {
+  font-weight: 700;
+  color: black; }
+
+#github > div:first-child {
+  text-align: center; }
+
 #user-profile-content {
   margin-top: 50px; }
 
@@ -210,7 +230,8 @@ a {
   font-family: Helvetica;
   margin-top: 0px;
   font-size: 14px;
-  margin-bottom: 75px; }
+  margin-bottom: 75px;
+  visibility: hidden; }
 
 .bins-pins-options-bar {
   display: flex; }
@@ -325,7 +346,8 @@ a {
   margin-right: 20px;
   cursor: pointer;
   /* margin-top: 15px; */
-  padding: 0; }
+  padding: 0;
+  line-height: 20px; }
 
 .feature-header-cancel {
   font-size: 20px;

@@ -129,7 +129,7 @@ class PinShowPage extends React.Component {
                     </div>
                     <div className="pinshow-snores-count"><i className="fas fa-bed"></i>{data.pin.url.snores}</div>
                   </div>
-                  <button className="pinshow-url"><a href={urlCleaner(data.pin.url.link)}>{urlCleaner(data.pin.url.link)}</a></button>
+                  <button className="pinshow-url"><a href={data.pin.url.link}>{urlCleaner(data.pin.url.link)}</a></button>
                   <p className="pin-description-pinshow">{data.pin.description}</p>
                   <div id="comments-div-pinshow">
                     <div className="pinshow-comments">Comments</div>

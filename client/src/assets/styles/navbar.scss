@@ -29,6 +29,12 @@ a {
   color: #8e8e8e;
   font-size: 25px;
 }
+
+.fab {
+    color: #8e8e8e;
+    font-size: 25px;
+}
+
 #navbar-logo-container {
   display: flex;
   height: 53px;
@@ -61,6 +67,16 @@ a {
   border-radius: 24px;
   font-size: 16px;
   width: 100%
+}
+
+.search-dropdown {
+  position: absolute;
+  background: blue;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 50px;
+  width: 600px;
 }
 
 .navbar-near-right {
@@ -149,5 +165,19 @@ a {
 .account-dropdown > div:hover {
   background: #f2f2f2;
   cursor: pointer;
+}
+
+// #github > div {
+//   width: 250px; 
+// }
+
+#github > div > a {
+  font-weight: 700;
+  color: black; 
+}
+
+
+#github > div:first-child {
+  text-align: center; 
 }
 
