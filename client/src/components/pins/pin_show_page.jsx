@@ -101,8 +101,8 @@ class PinShowPage extends React.Component {
 
           return (
             <div id="pin-show-outer-div">
-              <i className="fas fa-arrow-left pinshow"></i>
-              <i className="fas fa-times exit-pinshow"></i>
+              <i onClick={() => this.props.history.push("/")} className="fas fa-arrow-left pinshow"></i>
+              <i onClick={() => this.props.history.push("/")} className="fas fa-times exit-pinshow"></i>
               <div id="pin-show-container-div">
                 
                 <div id="pin-show-container-div-left">

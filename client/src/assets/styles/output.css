@@ -647,6 +647,23 @@ code {
   color: red;
   font-size: 14px; }
 
+.demo-button {
+  width: 268px;
+  height: 35px;
+  background: blue;
+  color: white;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer; }
+
+.demo-button:hover {
+  cursor: pointer;
+  background: #002ab4; }
+
 .pin-form-outer-div {
   position: relative;
   padding-top: 120px;
@@ -946,7 +963,8 @@ code {
   text-align: center;
   vertical-align: middle;
   padding: 8px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  visibility: hidden; }
 
 .fas.fa-ellipsis-h.pinshow-ellipsis:hover {
   background-color: #e2e2e2;
@@ -984,7 +1002,8 @@ code {
 
 #pinshow-send {
   margin-right: 14px;
-  background: #efefef; }
+  background: #efefef;
+  visibility: hidden; }
 
 #pinshow-send:hover {
   background: #e2e2e2; }
@@ -1042,15 +1061,16 @@ code {
   margin-top: 15px;
   padding-top: 40px;
   padding-bottom: 25px;
-  border-top: solid #efefef 2px;
-  border-bottom: solid #efefef 2px; }
+  border-top: solid #efefef 2px; }
 
 .pinshow-comments {
   font-size: 22px;
-  cursor: pointer; }
+  cursor: pointer;
+  visibility: hidden; }
 
 .fas.fa-angle-down {
-  font-size: 25px; }
+  font-size: 25px;
+  visibility: hidden; }
 
 .fas.fa-bed {
   margin-right: 4px; }

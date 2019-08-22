@@ -73,7 +73,6 @@ class NavBar extends React.Component {
 
                       <span className='navbar-near-right'>
                         <Link to="/" className='navbar-link'>Home</Link>
-                        <Link to="/" className='navbar-link'>Following</Link>
                         {profileLink}
                       </span>
 

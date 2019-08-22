@@ -125,3 +125,22 @@
 
   font-size: 14px;
 }
+
+.demo-button {
+  width: 268px;
+  height: 35px; 
+  background: blue;
+  color: white; 
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-align: center; 
+  line-height: 35px; 
+  cursor: pointer; 
+}
+
+.demo-button:hover {
+  cursor: pointer; 
+  background: rgb(0, 42, 180);
+}
