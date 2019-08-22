@@ -27,7 +27,7 @@ a {
 
 .fas {
   color: #8e8e8e;
-  font-size: 25px;
+  font-size: 22px;
 }
 #navbar-logo-container {
   display: flex;
@@ -48,10 +48,11 @@ a {
 
 .navbar-center {
   display: flex;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #f2f2f2;
-  width: calc(100% - 400px);
+  width: calc(100% - 600px);
   margin: 10px;
+  height: 40px;
 }
 
 .search-bar {
@@ -61,6 +62,12 @@ a {
   border-radius: 24px;
   font-size: 16px;
   width: 100%
+}
+
+::placeholder {
+  color: dark;
+  font-weight: 900;
+  opacity: 1;
 }
 
 .navbar-near-right {
@@ -125,11 +132,11 @@ a {
 
 .navbar i {
   width: 32px;
-  height: 28px;
-  line-height: 32px;
+  height: 24px;
+  line-height: 24px;
   text-align: center;
   vertical-align: middle;
-  padding: 8px;
+  padding: 8px 8px 8px 14px;
   border-radius: 50%;
 }
 .navbar-right i:hover {
