@@ -11,6 +11,11 @@ import logo from "../../assets/public/images/disinterest-logo-128.png";
 
 const { IS_LOGGED_IN } = Queries;
 
+const searchbar_samples = ["Search for traffic", "Search for math", "Search for cleaning the bathroom",
+                           "Search for doing the dishes", "Search for taking out the trash", "Search for dmv", 
+                           "Search for monopoly", "Search for knitting", "Search for gardening", 
+                           "Search for pottery", "Search for books", "Search for minecraft", "Search for slow wifi"];
+
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -69,7 +74,7 @@ class NavBar extends React.Component {
 
                       <span className='navbar-center'>
                         <i className="fas fa-search"></i>
-                        <input type='text' placeholder='Search' className='search-bar' />
+                        <input type='text' placeholder={searchbar_samples[Math.floor(Math.random() * searchbar_samples.length)]} className='search-bar' />
                       </span>
 
                       <span className='navbar-near-right'>
