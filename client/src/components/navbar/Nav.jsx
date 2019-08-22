@@ -49,7 +49,8 @@ class NavBar extends React.Component {
 
                 const profileLink = currentUser ? (
                   <Link to={`/users/${currentUser._id}`} className='navbar-link navbar-link-user' >
-                    <i className="fas fa-user-circle" />
+                    {/* <i className="fas fa-user-circle" /> */}
+                    <div className="user-initial">{currentUser.first_name[0]}</div>
                     {currentUser.first_name}
                   </Link>
                 ) : <></>

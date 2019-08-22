@@ -7,7 +7,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #efefef;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -42,8 +42,8 @@ a {
   cursor: pointer;
 }
 #navbar-logo {
-  height: 35px;
-  width: 35px;
+  height: 26px;
+  width: 26px;
 }
 
 .navbar-center {
@@ -74,7 +74,10 @@ a {
   padding: 12px 16px;
   border-radius: 25px;
   font-weight: bold;
-  color: rgb(142, 142, 142);
+  color: #8e8e8e;
+}
+.navbar-link:first-of-type {
+  color: #333;
 }
 .navbar-link:hover {
   border-radius: 30px;
@@ -85,6 +88,10 @@ a {
   padding: 0 16px 0 0;
   display: flex;
   align-items: center;
+}
+
+.user-initial {
+  
 }
 
 .navbar-username {
@@ -102,7 +109,7 @@ a {
   align-items: center;
 }
 .divider {
-  height: 100%;
+  height: 62%;
   width: 0;
   border: 1px solid #efefef;
   margin-right: 8px;
@@ -110,7 +117,7 @@ a {
 
 .navbar i {
   width: 32px;
-  height: 32px;
+  height: 28px;
   line-height: 32px;
   text-align: center;
   vertical-align: middle;
