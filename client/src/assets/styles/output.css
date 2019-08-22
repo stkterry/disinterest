@@ -128,9 +128,20 @@ a {
   cursor: pointer; }
 
 .navbar-link-user {
-  padding: 0 16px 0 0;
+  padding: 12px 16px;
   display: flex;
   align-items: center; }
+
+.user-initial {
+  margin: 0 15px 0 0;
+  font-size: 12px;
+  color: white;
+  border-radius: 50%;
+  background-color: #8e8e8e;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  line-height: 25px; }
 
 .navbar-username {
   padding-top: 12px;
