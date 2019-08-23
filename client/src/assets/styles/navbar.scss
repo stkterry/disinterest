@@ -29,6 +29,12 @@ a {
   color: #8e8e8e;
   font-size: 25px;
 }
+
+.fab {
+    color: #8e8e8e;
+    font-size: 25px;
+}
+
 #navbar-logo-container {
   display: flex;
   height: 53px;
@@ -60,7 +66,25 @@ a {
   border-style: none;
   border-radius: 24px;
   font-size: 16px;
-  width: 100%
+  width: 100%;
+  outline: none; 
+}
+
+$navpadding: 445px;
+ 
+#searchdropdown {
+  position: absolute;
+  background: white;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  top: 57px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px; 
+  // left: -300px; 
+  width: calc(100% - #{$navpadding});
+  border: 1px solid lightgray;
+  box-shadow: -4px 4px 8px 0px var(--shadow);
 }
 
 .navbar-near-right {
@@ -149,5 +173,19 @@ a {
 .account-dropdown > div:hover {
   background: #f2f2f2;
   cursor: pointer;
+}
+
+// #github > div {
+//   width: 250px; 
+// }
+
+#github > div > a {
+  font-weight: 700;
+  color: black; 
+}
+
+
+#github > div:first-child {
+  text-align: center; 
 }
 

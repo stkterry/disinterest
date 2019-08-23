@@ -55,7 +55,7 @@ class UserProfile extends React.Component {
           <div className="bins-pins-options-bar">
             <div>Bins</div>
             <div>Pins</div>
-            <div>Topics</div>
+            {/* <div>Topics</div> */}
           </div>
         </div>
         

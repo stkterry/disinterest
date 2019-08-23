@@ -81,6 +81,7 @@
   vertical-align: middle; 
   padding: 8px; 
   border-radius: 50%; 
+  visibility: hidden
 }
 
 .fas.fa-ellipsis-h.pinshow-ellipsis:hover {
@@ -130,6 +131,7 @@
 #pinshow-send {
   margin-right: 14px; 
   background: #efefef;
+  visibility: hidden
 }
 
 #pinshow-send:hover {
@@ -201,17 +203,18 @@
   padding-top: 40px; 
   padding-bottom: 25px; 
   border-top: solid #efefef 2px; 
-  border-bottom: solid #efefef 2px; 
+  // border-bottom: solid #efefef 2px; 
 }
 
 .pinshow-comments {
   font-size: 22px; 
   cursor: pointer; 
+  visibility: hidden
 }
 
 .fas.fa-angle-down{
   font-size: 25px; 
-
+  visibility: hidden
 }
 
 // #pinshow-downarrow {
