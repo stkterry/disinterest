@@ -68,16 +68,22 @@ a {
   font-size: 16px;
   width: 100%;
 }
-$navpadding: 442px; 
+
+$navpadding: 445px;
+ 
 #searchdropdown {
   position: absolute;
-  background: red;
+  background: white;
   height: 50px;
   text-align: center;
   line-height: 50px;
-  top: 60px;
+  top: 57px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px; 
   // left: -300px; 
   width: calc(100% - #{$navpadding});
+  border: 1px solid lightgray;
+  box-shadow: -4px 4px 8px 0px var(--shadow);
 }
 
 .navbar-near-right {

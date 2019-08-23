@@ -112,12 +112,16 @@ a {
 
 #searchdropdown {
   position: absolute;
-  background: red;
+  background: white;
   height: 50px;
   text-align: center;
   line-height: 50px;
-  top: 60px;
-  width: calc(100% - 442px); }
+  top: 57px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  width: calc(100% - 445px);
+  border: 1px solid lightgray;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
 
 .navbar-near-right {
   display: flex;
