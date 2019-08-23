@@ -50,7 +50,7 @@ class SearchDropdown extends React.Component {
         <span className='navbar-center'>
           <i className="fas fa-search"></i>
           <input onClick={this.handleClose} type='text' placeholder='Search' className='search-bar' />
-          <section className="search-dropdown">
+          <section id="searchdropdown">
             Feature Coming Soon
           </section>
         </span>
