@@ -5,6 +5,7 @@ import Mutations from "../graphql/mutations";
 import logo from "../assets/public/images/disinterest-logo-128.png"
 import splash from "../assets/public/images/sleepys.png";
 
+
 const { LOGIN_USER } = Mutations;
 
 class Login extends Component {
@@ -16,6 +17,8 @@ class Login extends Component {
       password: "",
       message: null
     };
+
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -36,8 +39,19 @@ class Login extends Component {
     });
   }
 
+  handleDemo(event) {
+
+    this.setState({
+      email: "Luka@gmail.com",
+      password: "123456"
+    })
+
+  }
+
   render() {
     const { email, password } = this.state;
+    const demoEmail = "Luka@gmail.com";
+    const demoPassword = "123456";
     return (
       <Mutation
         mutation={LOGIN_USER}
@@ -76,7 +90,8 @@ class Login extends Component {
                   />
                   <p className="splash-errors">{this.state.message}</p>
                   <button className="splash-button" type="submit">Log In</button>
-                  
+
+                  <button onClick={this.handleDemo} className="demo-button" type="submit">Demo Log In</button>
                 </form>
               </div>
             </div>

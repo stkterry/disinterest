@@ -75,6 +75,10 @@ a {
   color: #8e8e8e;
   font-size: 22px; }
 
+.fab {
+  color: #8e8e8e;
+  font-size: 25px; }
+
 #navbar-logo-container {
   display: flex;
   height: 53px;
@@ -105,7 +109,21 @@ a {
   border-style: none;
   border-radius: 24px;
   font-size: 16px;
-  width: 100%; }
+  width: 100%;
+  outline: none; }
+
+#searchdropdown {
+  position: absolute;
+  background: white;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  top: 57px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  width: calc(100% - 445px);
+  border: 1px solid lightgray;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
 
 ::placeholder {
   color: dark;
@@ -207,6 +225,13 @@ a {
   background: #f2f2f2;
   cursor: pointer; }
 
+#github > div > a {
+  font-weight: 700;
+  color: black; }
+
+#github > div:first-child {
+  text-align: center; }
+
 #user-profile-content {
   margin-top: 50px; }
 
@@ -230,7 +255,8 @@ a {
   font-family: Helvetica;
   margin-top: 0px;
   font-size: 14px;
-  margin-bottom: 75px; }
+  margin-bottom: 75px;
+  visibility: hidden; }
 
 .bins-pins-options-bar {
   display: flex; }
@@ -345,7 +371,8 @@ a {
   margin-right: 20px;
   cursor: pointer;
   /* margin-top: 15px; */
-  padding: 0; }
+  padding: 0;
+  line-height: 20px; }
 
 .feature-header-cancel {
   font-size: 20px;
@@ -640,7 +667,8 @@ code {
   margin-top: 18px;
   font-size: 15px;
   font-weight: bold;
-  font-family: Helvetica; }
+  font-family: Helvetica;
+  border-radius: 4px; }
 
 .splash-button:hover {
   cursor: pointer;
@@ -666,6 +694,24 @@ code {
 .splash-errors {
   color: red;
   font-size: 14px; }
+
+.demo-button {
+  width: 268px;
+  height: 35px;
+  background: blue;
+  color: white;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+  border-radius: 4px; }
+
+.demo-button:hover {
+  cursor: pointer;
+  background: #002ab4; }
 
 .pin-form-outer-div {
   position: relative;
@@ -966,7 +1012,8 @@ code {
   text-align: center;
   vertical-align: middle;
   padding: 8px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  visibility: hidden; }
 
 .fas.fa-ellipsis-h.pinshow-ellipsis:hover {
   background-color: #e2e2e2;
@@ -1004,7 +1051,8 @@ code {
 
 #pinshow-send {
   margin-right: 14px;
-  background: #efefef; }
+  background: #efefef;
+  visibility: hidden; }
 
 #pinshow-send:hover {
   background: #e2e2e2; }
@@ -1062,15 +1110,16 @@ code {
   margin-top: 15px;
   padding-top: 40px;
   padding-bottom: 25px;
-  border-top: solid #efefef 2px;
-  border-bottom: solid #efefef 2px; }
+  border-top: solid #efefef 2px; }
 
 .pinshow-comments {
   font-size: 22px;
-  cursor: pointer; }
+  cursor: pointer;
+  visibility: hidden; }
 
 .fas.fa-angle-down {
-  font-size: 25px; }
+  font-size: 25px;
+  visibility: hidden; }
 
 .fas.fa-bed {
   margin-right: 4px; }

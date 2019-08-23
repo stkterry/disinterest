@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 
 
 import AccountDropdown from "./AccountDropdown";
+import GitHubDropdown from "./GitHubDropdown";
+import SearchDropdown from "./SearchDropdown";
 import RequestFeature from "../RequestFeature";
 import { Query, ApolloConsumer } from "react-apollo";
 import Queries from "../../graphql/queries";
@@ -76,19 +78,17 @@ class NavBar extends React.Component {
                         <i className="fas fa-search"></i>
                         <input type='text' placeholder={searchbar_samples[Math.floor(Math.random() * searchbar_samples.length)]} className='search-bar' />
                       </span>
+                      <SearchDropdown />
 
                       <span className='navbar-near-right'>
                         <Link to="/" className='navbar-link'>Home</Link>
-                        <Link to="/" className='navbar-link'>Following</Link>
                         {profileLink}
                       </span>
 
                       <span className='navbar-right'>
                         <div className="divider"></div>
                         <i onClick={this.handleRequestFeatureShow} className="fas fa-comment-dots"></i>
-                        <Link to="/">
-                          <i className="fas fa-bell"></i>
-                        </Link>
+                        <GitHubDropdown />
                         <AccountDropdown handleRequestFeatureShow={this.handleRequestFeatureShow} />
                       </span>
 

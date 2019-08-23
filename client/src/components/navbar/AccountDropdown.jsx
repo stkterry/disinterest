@@ -49,10 +49,7 @@ class AccountDropdown extends React.Component {
           <div className="account-dropdown">
 
             <div onClick={() => this.props.history.push(`/users/${currentUser._id}`)} style={{borderRadius: '10px 10px 0px 0px'}}>User profile</div>
-            <div>Add a free busines profile</div>
             <div onClick={this.props.handleRequestFeatureShow}>Request a feature</div>
-            <div>See terms and privacy</div>
-            <div>Add account</div>
             <ApolloConsumer>
               {client => (
                 <div onClick={event => {
