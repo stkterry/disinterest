@@ -642,7 +642,8 @@ code {
   margin-top: 18px;
   font-size: 15px;
   font-weight: bold;
-  font-family: Helvetica; }
+  font-family: Helvetica;
+  border-radius: 4px; }
 
 .splash-button:hover {
   cursor: pointer;
@@ -680,7 +681,8 @@ code {
   font-family: Helvetica;
   text-align: center;
   line-height: 35px;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 4px; }
 
 .demo-button:hover {
   cursor: pointer;
