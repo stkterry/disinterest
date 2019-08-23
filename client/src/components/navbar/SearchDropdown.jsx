@@ -2,7 +2,10 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { ApolloConsumer } from "react-apollo";
 
-
+const searchbar_samples = ["Search for traffic", "Search for math", "Search for cleaning the bathroom",
+                           "Search for doing the dishes", "Search for taking out the trash", "Search for dmv",
+                           "Search for monopoly", "Search for knitting", "Search for gardening",
+                           "Search for pottery", "Search for books", "Search for minecraft", "Search for slow wifi"];
 
 class SearchDropdown extends React.Component {
 
@@ -44,12 +47,15 @@ class SearchDropdown extends React.Component {
 
 
   render() {
-
+    // <span className='navbar-center'>
+    //   <i className="fas fa-search"></i>
+    //   <input type='text' placeholder= className='search-bar' />
+    // </span>
     if (this.state.open) {
       return (
         <span className='navbar-center'>
           <i className="fas fa-search"></i>
-          <input onClick={this.handleClose} type='text' placeholder='Search' className='search-bar' />
+          <input onClick={this.handleClose} type='text' placeholder={searchbar_samples[Math.floor(Math.random() * searchbar_samples.length)]} className='search-bar' />
           <section id="searchdropdown">
             Feature Coming Soon
           </section>
@@ -59,7 +65,7 @@ class SearchDropdown extends React.Component {
       return (
         <span className='navbar-center'>
           <i className="fas fa-search"></i>
-          <input onClick={this.handleOpen} type='text' placeholder='Search' className='search-bar' />
+          <input onClick={this.handleOpen} type='text' placeholder={searchbar_samples[Math.floor(Math.random() * searchbar_samples.length)]} className='search-bar' />
         </span>
       );
     }
