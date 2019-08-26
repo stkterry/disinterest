@@ -17,7 +17,7 @@ import PinCreateForm from "./pins/pin_create_form";
 import PinShowPage from "./pins/pin_show_page";
 import PinEditForm from "./pins/pin_edit_form";
 
-import BinCreateForm from "./bins/bin_create_form";
+
 
 const App = () => (
   <div>
@@ -35,7 +35,7 @@ const App = () => (
       <Route exact path="/binindex" component={BinIndex} />
       <Route exact path="/pins/:pinId" component={PinShowPage} />
       <Route exact path="/pinedit/:pinId" component={PinEditForm} />
-      <Route exact path="/bincreate" component={BinCreateForm} />
+
     </Switch>
   </div>
 )

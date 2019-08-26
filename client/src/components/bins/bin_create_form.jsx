@@ -18,8 +18,8 @@ class BinForm extends React.Component {
     this.state = {
       title: "",
       description: "",
-      tags: ["curling"],
-      pins: [],
+      tags: ["stuff", "more stuff"],
+      pins: ["5d4846a35ec382249a833672"],
       // created_by: this.currentUser._id,
       message: null
     };
@@ -72,6 +72,7 @@ class BinForm extends React.Component {
                 <form className="bin-actual-form modal-child"
                   onSubmit={event => {
                     event.preventDefault();
+                    debugger; 
                     newBin({ variables: { title, description, tags, pins } })
                   }}
                 >
@@ -82,7 +83,7 @@ class BinForm extends React.Component {
                       className="bin-create-input"
                       value={title}
                       onChange={this.update("title")}
-                      placeholder="Add your title"
+                      placeholder="Add your bin name"
                     />
                     </div>
                   <div className="flex-direction-row">
@@ -96,7 +97,7 @@ class BinForm extends React.Component {
                  </div>
                 {/* <p className="pin-errors"> {this.state.message}</p> */}
                 <div className="flex-direction-row" id="last-div">
-                  <button className="bin-button">Cancel</button>
+ 
                   <button className="bin-button">Create</button>
                 </div>
                 </form>

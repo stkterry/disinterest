@@ -1230,20 +1230,26 @@ code {
   display: block;
   margin: 15px 15px 15px 0px; }
 
+.bin-create-input[value] {
+  padding-left: 15px; }
+
 .bin-button {
-  width: 65px;
-  background-color: #e60023;
+  width: 75px;
+  background-color: #efefef;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  flex: 0 0 auto;
   height: 40px;
   outline: 0px;
-  padding: 0px 14px;
-  color: white;
+  color: #333;
   font-weight: 700;
   font-size: 15px;
-  margin-left: auto; }
+  position: absolute;
+  right: 18px;
+  bottom: 18px; }
+
+.bin-button:hover {
+  background-color: #e2e2e2; }
 
 #first-div {
   border-radius: 5px 5px 0px 0px; }
