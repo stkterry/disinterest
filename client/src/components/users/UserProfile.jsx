@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import CreateBoardOrPin from "./createBoardOrPinDropdown";
 import Queries from "../../graphql/queries";
 import BinIndex from "../bins/bin_index";
+
+import BinCreateForm from "../bins/bin_create_form";
+
 const { FETCH_USER, FETCH_USERS } = Queries;
 
 class UserProfile extends React.Component {
@@ -17,6 +20,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div id="user-profile-content">
+        <BinCreateForm />
         <div className="options-and-user-profile">
 
           <div className="options-bar-above-profile">
