@@ -943,7 +943,7 @@ code {
 #pin-show-outer-div {
   position: relative;
   padding-top: 120px;
-  background-color: #efefef;
+  background-image: linear-gradient(#efefef, white);
   width: 100%;
   height: 100vh;
   min-height: 800px;
@@ -992,7 +992,8 @@ code {
   height: 720px;
   background: white;
   margin: 0 auto;
-  border-radius: 10px; }
+  border-radius: 10px;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
 
 #pin-show-container-div-left {
   margin-left: 35px;
