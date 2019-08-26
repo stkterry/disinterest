@@ -811,7 +811,8 @@ code {
 .current-user-pin-create {
   font-size: 16px;
   color: #333;
-  font-weight: 700; }
+  font-weight: 700;
+  line-height: 40px; }
 
 .description-input-pin {
   margin-top: 30px;

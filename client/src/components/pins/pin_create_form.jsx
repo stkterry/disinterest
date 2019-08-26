@@ -93,7 +93,7 @@ class PinForm extends React.Component {
                   <i className="fas fa-user-circle" style={{fontSize: '40px'}}></i>
                   <div id="current-user-pin-create-div">
                     <div className="current-user-pin-create">{first_name} {last_name}</div>
-                    <div># followers</div>
+                    {/* <div># followers</div> */}
                   </div>
                   <p className="pin-errors"> {this.state.message}</p>
                 </div>
