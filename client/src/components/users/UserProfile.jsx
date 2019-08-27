@@ -1,11 +1,14 @@
 import React from "react";
-import { ApolloConsumer, Query } from "react-apollo";
-import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
+
 
 import CreateBoardOrPin from "./createBoardOrPinDropdown";
 import Queries from "../../graphql/queries";
 import BinIndex from "../bins/bin_index";
-const { FETCH_USER, FETCH_USERS } = Queries;
+
+import BinCreateForm from "../bins/bin_create_form";
+
+const { FETCH_USER } = Queries;
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -17,6 +20,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div id="user-profile-content">
+        <BinCreateForm />
         <div className="options-and-user-profile">
 
           <div className="options-bar-above-profile">
@@ -33,7 +37,7 @@ class UserProfile extends React.Component {
                 if (loading) return <p>Loading...</p>;
                 if (error) return <p>Error</p>;
 
-                {/* console.log(data.user); */}
+
                 if (data.user) {
                   return (
                     <div className="user-profile">
@@ -60,7 +64,7 @@ class UserProfile extends React.Component {
         </div>
         
         {/* <i id="default-profile-image" className="fas fa-user-circle"></i> */}
-        <img id="harold" src="https://i.imgur.com/Uv8w7eE.jpg?1" />
+        <img id="harold" src="https://i.imgur.com/Uv8w7eE.jpg?1" alt="harold"/>
         <div className="bin-index-standin-box">
           <BinIndex />
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Queries from "../../graphql/queries";
 const { FETCH_USERS } = Queries;
 

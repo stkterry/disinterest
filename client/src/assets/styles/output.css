@@ -225,12 +225,43 @@ a {
   background: #f2f2f2;
   cursor: pointer; }
 
-#github > div > a {
+.github-dropdown {
+  position: absolute;
+  background: white;
+  top: 72px;
+  right: 4px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
+
+.github-dropdown > a > div {
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: center;
+  border-bottom: 1px solid lightgray;
+  font-weight: bold;
+  background: white;
+  padding-left: 20px; }
+
+#dropdown-ele {
+  border: none; }
+
+.github-dropdown > a > div:hover {
+  background: #f2f2f2;
+  cursor: pointer; }
+
+#github > a {
   font-weight: 700;
   color: black; }
 
 #github > div:first-child {
-  text-align: center; }
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: lightgray;
+  color: black;
+  font-weight: 700; }
 
 #user-profile-content {
   margin-top: 50px; }
@@ -297,7 +328,8 @@ a {
 
 .bin-or-pin-dropdown {
   position: absolute;
-  border-radius: 4px; }
+  border-radius: 4px;
+  transform: translate(-40%); }
 
 .bin-or-pin-dropdown > div {
   width: 210px;
@@ -811,7 +843,8 @@ code {
 .current-user-pin-create {
   font-size: 16px;
   color: #333;
-  font-weight: 700; }
+  font-weight: 700;
+  line-height: 40px; }
 
 .description-input-pin {
   margin-top: 30px;
@@ -943,7 +976,7 @@ code {
 #pin-show-outer-div {
   position: relative;
   padding-top: 120px;
-  background-color: #efefef;
+  background-image: linear-gradient(#efefef, white);
   width: 100%;
   height: 100vh;
   min-height: 800px;
@@ -992,7 +1025,8 @@ code {
   height: 720px;
   background: white;
   margin: 0 auto;
-  border-radius: 10px; }
+  border-radius: 10px;
+  box-shadow: -4px 4px 8px 0px var(--shadow); }
 
 #pin-show-container-div-left {
   margin-left: 35px;
@@ -1163,5 +1197,96 @@ code {
     margin: -4px 8px -4px 0;
     padding: 0;
     font-size: 24px; }
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100; }
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101; }
+
+.displaynone {
+  display: none; }
+
+.flex-direction-row {
+  display: flex;
+  flex-direction: row; }
+
+.bin-actual-form > div {
+  background-color: white;
+  height: 70px;
+  width: 540px;
+  border: 0.5px solid #efefef;
+  color: #333; }
+
+#create-bin-greeting {
+  color: #333;
+  margin-left: 200px;
+  margin-top: 25px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 700; }
+
+#close-bin-create {
+  font-size: 25px;
+  position: absolute;
+  right: 0px;
+  padding: 20px;
+  height: 15px;
+  width: 15px;
+  line-height: 15px; }
+
+#close-bin-create:hover {
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  cursor: pointer; }
+
+.bin-create-input-names {
+  line-height: 70px;
+  margin-left: 20px;
+  width: 145px; }
+
+.bin-create-input {
+  width: 380px;
+  border-radius: 4px;
+  border: 0.5px solid #333;
+  display: block;
+  margin: 15px 15px 15px 0px; }
+
+.bin-create-input[value] {
+  padding-left: 15px; }
+
+.bin-button {
+  width: 75px;
+  background-color: #efefef;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 40px;
+  outline: 0px;
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  position: absolute;
+  right: 18px;
+  bottom: 18px; }
+
+.bin-button:hover {
+  background-color: #e2e2e2; }
+
+#first-div {
+  border-radius: 5px 5px 0px 0px; }
+
+#last-div {
+  border-radius: 0px 0px 5px 5px; }
 
 /*# sourceMappingURL=output.css.map */

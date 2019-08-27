@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { ApolloConsumer } from "react-apollo";
+import { withRouter } from 'react-router-dom';
+
 
 
 
@@ -49,12 +49,12 @@ class GitHubDropdown extends React.Component {
       return (
         <div>
           <i className="fab fa-github" onClick={this.handleClose} style={{ color: 'black' }} />
-          <div className="account-dropdown" id="github">
+          <div className="github-dropdown" id="github">
 
-            <div>Application Created By</div>
-            <div><a href="https://github.com/stkterry">Steven Terry</a></div>
-            <div><a href="https://github.com/WarnerMichaelJ">Michael Warner</a></div>
-            <div><a href="https://github.com/Charles-Mancuso">Charles Mancuso</a></div>
+            <div id="created-by-div">Application Created By</div>
+            <a href="https://github.com/stkterry"><div>Steven Terry</div></a>
+            <a href="https://github.com/WarnerMichaelJ"><div>Michael Warner</div></a>
+            <a href="https://github.com/Charles-Mancuso"><div id="dropdown-ele">Charles Mancuso</div></a>
           </div>
         </div>
       );
