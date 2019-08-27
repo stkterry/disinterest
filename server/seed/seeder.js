@@ -7,7 +7,7 @@ const { randomPin, randFromInterval, randNIntsInMax, TAGS, TOPICS, FREETAGS } = 
 
 const { STATIC_USERS } = require("./static_seeds");
 require("../models/index");
-const db = require("../../config/keys").MONGO_URI;
+const db = require("../../config/keys_dev").mongoURI;
 
 const dropDB = async (db) => {
   await db.connection.dropDatabase();
