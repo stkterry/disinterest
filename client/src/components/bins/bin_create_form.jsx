@@ -27,16 +27,21 @@ class BinForm extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleClose() {
-    this.modalBackground.classList.add("displaynone");
+  handleClose(event) {
+    debugger;
+    if (event.target === this.modalBackground || event.target === this.closeButton) {
+      this.modalBackground.classList.add("displaynone");
+    } 
   }
+
+
 
 
   componentDidMount() {
     this.modalBackground = document.getElementById("bin-outer-div");
     this.closeButton = document.getElementById("close-bin-create");
     // this.modalBackground.classList.remove("displaynone");
-    // this.modalBackground.addEventListener('click', this.handleClose);
+    this.modalBackground.addEventListener('click', this.handleClose);
     this.closeButton.addEventListener('click', this.handleClose);
   }
 

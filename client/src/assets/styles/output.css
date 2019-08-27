@@ -328,7 +328,8 @@ a {
 
 .bin-or-pin-dropdown {
   position: absolute;
-  border-radius: 4px; }
+  border-radius: 4px;
+  transform: translate(-40%); }
 
 .bin-or-pin-dropdown > div {
   width: 210px;
