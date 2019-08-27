@@ -89,8 +89,8 @@ export default {
   }`,
 
   COPY_PIN: gql`
-  mutation CopyPin($url: String, $title: String, $description: String, $tags: Array, $userId: String) {
-    copyPin(url: $url, title: $tile, description: $description, tags: $tags, userId: $userId) {
+  mutation CopyPin($url: ID, $title: String, $description: String, $tags: [String], $image_url: String, $userId: ID) {
+    copyPin(url: $url, title: $tile, description: $description, tags: $tags, iamge_url: $image_url, userId: $userId) {
       _id,
       url {
         _id,
@@ -106,8 +106,8 @@ export default {
   }`,
 
   CREATE_BIN: gql`
-  mutation CreateBin($title: String, $description: String, $tags: Array, $pins: Array) {
-    newBin(title: $title, description: $description, tags: $tags, pins: $pins) {
+  mutation CreateBin($title: String, $description: String, $tags: [String], $image_url: String, $pins: [ID]) {
+    newBin(title: $title, description: $description, tags: $tags, image_url: $image_url, pins: $pins) {
       _id,
       title,
       description,
@@ -128,7 +128,7 @@ export default {
   }`,
   UPDATE_BIN: gql`
   mutation UpdateBin($_id: String, $title: String, $description: String, $tags: Array, $pins: Array, $image_url: String) {
-    updatePin(_id: $_id, title: $title, description: $description, tags: $tags, pins: $pins, image_url: $image_url) {
+    updateBin(_id: $_id, title: $title, description: $description, tags: $tags, pins: $pins, image_url: $image_url) {
       _id,
       title,
       description,
@@ -146,7 +146,7 @@ export default {
   }`,
 
   ADD_PIN_TO_BIN: gql`
-  mutation AddPinToBin($binId: String, $pinId: String) {
+  mutation AddPinToBin($binId: ID, $pinId: ID) {
     addPinToBin(binId: $binId, pinId: $pinId) {
       _id,
       title,

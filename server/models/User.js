@@ -48,6 +48,14 @@ UserSchema.statics.addPin = function(userId, pinId) {
   )
 }
 
+UserSchema.statics.addPins = function (userId, pinIds) {
+  return this.findByIdAndUpdate(
+    userId,
+    { $addToSet: { pins: { $each: pinIds } } },
+    { new: true }
+  )
+}
+
 UserSchema.statics.removePin = function (userId, pinId) {
   return this.findByIdAndUpdate(
     userId,
