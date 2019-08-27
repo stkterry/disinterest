@@ -76,7 +76,7 @@ class BinForm extends React.Component {
                     newBin({ variables: { title, description, tags, pins, userId } })
                   }}
                 >
-                  <div className="flex-direction-row" id="first-div"><div id="create-bin-greeting">Create bin</div><i id="close-bin-create" className="fas fa-times"></i></div>
+                  <div className="flex-direction-row" id="first-div"><div id="create-bin-greeting">Create Bin</div><i id="close-bin-create" className="fas fa-times"></i></div>
                   <div className="flex-direction-row">
                     <div className="bin-create-input-names">Name</div>
                     <input

@@ -1224,7 +1224,7 @@ code {
   background-color: white;
   height: 70px;
   width: 540px;
-  border: 0.5px solid lightgray;
+  border: 0.5px solid #efefef;
   color: #333; }
 
 #create-bin-greeting {
