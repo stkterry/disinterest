@@ -19,7 +19,7 @@ class BinForm extends React.Component {
       title: "",
       description: "",
       tags: ["stuff", "more stuff"],
-      pins: ["5d4846a35ec382249a833672"],
+      pins: [],
       // created_by: this.currentUser._id,
       message: null
     };
