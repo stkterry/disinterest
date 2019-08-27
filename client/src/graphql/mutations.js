@@ -106,8 +106,8 @@ export default {
   }`,
 
   CREATE_BIN: gql`
-  mutation CreateBin($title: String, $description: String, $tags: [String], $image_url: String, $pins: [ID]) {
-    newBin(title: $title, description: $description, tags: $tags, image_url: $image_url, pins: $pins) {
+  mutation CreateBin($title: String, $description: String, $tags: [String], $image_url: String, $userId: ID, $pins: [ID]) {
+    newBin(title: $title, description: $description, tags: $tags, image_url: $image_url, userId: $userId, pins: $pins) {
       _id,
       title,
       description,
