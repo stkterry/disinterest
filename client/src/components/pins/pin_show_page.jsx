@@ -1,13 +1,13 @@
 import React from "react";
 import { Mutation, Query } from "react-apollo";
 
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Mutations from "../../graphql/mutations";
 import { urlCleaner } from "../../util/func_util";
 
 import Queries from "../../graphql/queries";
-// import Mutations from "../../graphql/mutations";
-const { FETCH_PIN, FETCH_USER } = Queries;
+
+const { FETCH_PIN } = Queries;
 const {ADD_PIN_TO_USER } = Mutations;
 
 
@@ -96,8 +96,7 @@ class PinShowPage extends React.Component {
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error on pin show page</p>
-          {/* const {  } = data; */}
-          {/* console.log(data); */}
+
 
           return (
             <div id="pin-show-outer-div">
@@ -110,7 +109,7 @@ class PinShowPage extends React.Component {
                     <i className="fas fa-ellipsis-h pinshow-ellipsis"></i>
                   </div>
                   <div>
-                    <img className="pin-show-image"src={data.pin.image_url} />
+                    <img className="pin-show-image"src={data.pin.image_url} alt="pin-show"/>
                   </div>
                 </div> 
                 <div id="pin-show-container-div-right">

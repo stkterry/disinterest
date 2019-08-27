@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Query } from "react-apollo";
+
 import NavBar from "./navbar/Nav";
 
 import Login from "./Login";
@@ -8,7 +8,7 @@ import Register from "./Register";
 import UserIndex from "./users/user_index";
 import AuthRoute from "../util/route_util";
 import UserProfile from "./users/UserProfile";
-import PinIndex from "./pins/pin_index";
+
 import BinIndex from "./bins/bin_index";
 import PinIndexQuery from "./pins/pin_index_query";
 

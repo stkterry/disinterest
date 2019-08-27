@@ -1,9 +1,9 @@
 import React from "react";
 import { Mutation } from "react-apollo";
 
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Mutations from "../../graphql/mutations";
-import axios from "axios";
+
 import addImageToAws from "../../util/aws_util";
 
 const { CREATE_PIN } = Mutations;
@@ -30,7 +30,7 @@ class PinForm extends React.Component {
   }
 
   render() {
-    const { url, title, description, aws_image_url, tags, created_by } = this.state;
+    const { url, title, description, tags, created_by } = this.state;
     const { first_name, last_name } = this.currentUser;
     // const currentUser = JSON.parse(localStorage.getItem("current-user"));
     // let image_url; 

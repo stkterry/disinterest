@@ -1,9 +1,9 @@
 import React from "react";
 import { Mutation } from "react-apollo";
 
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Mutations from "../../graphql/mutations";
-import addImageToAws from "../../util/aws_util";
+
 
 const { CREATE_BIN } = Mutations;
 
@@ -92,7 +92,7 @@ class BinForm extends React.Component {
                       className="bin-create-input"
                       value={description}
                       onChange={this.update("description")}
-                      placeholder="Description"
+                      placeholder="Add a bin description"
                     />
                  </div>
                 {/* <p className="pin-errors"> {this.state.message}</p> */}

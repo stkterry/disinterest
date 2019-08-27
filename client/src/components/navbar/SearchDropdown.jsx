@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { ApolloConsumer } from "react-apollo";
+import { withRouter } from 'react-router-dom';
+
 
 const searchbar_samples = ["Search for traffic", "Search for math", "Search for cleaning the bathroom",
                            "Search for doing the dishes", "Search for taking out the trash", "Search for dmv",

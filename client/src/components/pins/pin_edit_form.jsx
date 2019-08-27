@@ -1,6 +1,6 @@
 import React from "react";
 import { Query } from "react-apollo";
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Queries from "../../graphql/queries";
 
 import PinEditMutation from "./pin_edit_mutatation";

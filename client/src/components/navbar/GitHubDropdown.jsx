@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { ApolloConsumer } from "react-apollo";
+import { withRouter } from 'react-router-dom';
+
 
 
 
