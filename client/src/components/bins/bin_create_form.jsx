@@ -20,7 +20,7 @@ class BinForm extends React.Component {
       description: "",
       tags: ["stuff", "more stuff"],
       pins: [],
-      // created_by: this.currentUser._id,
+      userId: this.currentUser._id,
       message: null
     };
 
@@ -51,15 +51,15 @@ class BinForm extends React.Component {
   }
 
   render() {
-    const { title, description, tags, pins } = this.state;
-    const { first_name, last_name } = this.currentUser;
+    const { title, description, tags, pins, userId } = this.state;
+    // const { first_name, last_name } = this.currentUser;
     // const currentUser = JSON.parse(localStorage.getItem("current-user"));
     // let image_url; 
     return (
       <Mutation
         mutation={CREATE_BIN}
         onCompleted={data => {
-          // console.log("Check AWS for the image and MongoDB for the new pin");
+          
           console.log("Check if a new bin has been created")
           this.props.history.push("/")
         }}
@@ -72,8 +72,8 @@ class BinForm extends React.Component {
                 <form className="bin-actual-form modal-child"
                   onSubmit={event => {
                     event.preventDefault();
-                    debugger; 
-                    newBin({ variables: { title, description, tags, pins } })
+                    
+                    newBin({ variables: { title, description, tags, pins, userId } })
                   }}
                 >
                   <div className="flex-direction-row" id="first-div"><div id="create-bin-greeting">Create bin</div><i id="close-bin-create" className="fas fa-times"></i></div>
