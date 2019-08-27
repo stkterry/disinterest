@@ -1,7 +1,7 @@
 import React from "react";
 import { Mutation } from "react-apollo";
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+
 import addImageToAws from "../../util/aws_util";
 
 import Mutations from "../../graphql/mutations";
@@ -35,7 +35,7 @@ class PinEditMutation extends React.Component {
   }
 
   render() {
-    const { _id, url, title, description, tags, author, image_url } = this.state;
+    const { _id, url, title, description, tags } = this.state;
     const { first_name, last_name } = this.currentUser;
     // const currentUser = JSON.parse(localStorage.getItem("current-user"));
     // let image_url; 

@@ -6,7 +6,8 @@ import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
 const { FETCH_USER_BINS } = Queries;
-const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN } = Mutations;
+// const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN } = Mutations;
+const { COPY_PIN } = Mutations;
 
 
 const splitArray = (arr, n) => {
@@ -137,7 +138,7 @@ class PinIndex extends Component {
     const pinDat = Object.values(splits).map((column, idx) => 
       <div className="column" key={`splits-column-${idx}`}>
         {column.map(pin => {
-          const { _id, title, url, author, image_url } = pin;
+          const { _id, title, author, image_url } = pin;
           return (
             <div className="masonry-div" key={_id} >
               <div className="shadow-boxer">

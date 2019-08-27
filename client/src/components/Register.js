@@ -57,7 +57,7 @@ class Register extends Component {
           <div className="modal-background-splash">
             <img src={splash} alt="background" />
             <div id="splash-outer-div">
-              <img src={logo} className="auth-logo" />
+              <img src={logo} className="auth-logo" alt="logo"/>
               <div id="splash-greeting">Welcome to Disinterest</div>
               <div id="splash-form">
                 <form

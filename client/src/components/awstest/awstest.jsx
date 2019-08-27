@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Mutation } from "react-apollo";
+
 import axios from "axios";
-import Mutations from "../../graphql/mutations";
+
 
 class AWSTest extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class AWSTest extends Component {
   }
 
   handleSubmit(e) {
-    // debugger;
+
     const image = document.getElementById("aws-photo").files[0];
     e.preventDefault();
     let data = new FormData();

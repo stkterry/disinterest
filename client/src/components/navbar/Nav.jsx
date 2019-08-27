@@ -41,8 +41,7 @@ class NavBar extends React.Component {
     return (
       <ApolloConsumer>
         {client => {
-          {/* console.log(client); */}
-          {/* console.log(client.cache.data.data.ROOT_QUERY); */ }
+
 
           return (
             <Query query={IS_LOGGED_IN}>
@@ -64,7 +63,7 @@ class NavBar extends React.Component {
                       <span className='navbar-left'>
                         <Link to='/'>
                         <div id="navbar-logo-container">
-                          <img src={logo} id="navbar-logo"/>
+                          <img src={logo} id="navbar-logo" alt="logo"/>
                         </div>
                         </Link>
                       </span>

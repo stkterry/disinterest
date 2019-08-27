@@ -1,16 +1,16 @@
 import gql from "graphql-tag";
 
-const pinReturn = `
-  _id,
-  url {
-    _id,
-    link,
-    snores,
-    created_by
-  },
-  title,
-  description,
-  tags`;
+// const pinReturn = `
+//   _id,
+//   url {
+//     _id,
+//     link,
+//     snores,
+//     created_by
+//   },
+//   title,
+//   description,
+//   tags`;
 
 export default {
   LOGIN_USER: gql`

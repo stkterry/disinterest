@@ -9,6 +9,15 @@ A Pinterest clone of the world's most uninteresting topics
   <img src="./readme_images/pindex.png" alt="pindex-showcase" width="32.5%">
 </div>
 
+# Technology 
+## Featured Technologies
+* JavaScript
+* MongoDB (backend database)
+* SCSS/CSS
+* HTML
+* AWS S3
+* Docker
+
 # Functionality
 Users can add/remove boids and obstacles, set sliders for the simulation variables, show/hide underlying structures and rules that guide the boids, and step through a boid's behavior.
 
@@ -29,14 +38,7 @@ Users can add/remove boids and obstacles, set sliders for the simulation variabl
 * Individual elements that link to sites of disinterest
 * Contains comments, links to related pins, total pins from other users
 
-# Technology 
-## Featured Technologies
-* Javascript
-* MongoDB (backend database)
-* SCSS/CSS
-* HTML
-* AWS S3
-* Docker
+
 
 ## Libraries and Featured Frameworks
 * Express (Javascript web framework)

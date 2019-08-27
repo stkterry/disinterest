@@ -24,7 +24,7 @@ class BinIndex extends Component {
                 bin.pins.slice(0, pinCount).map(pin => {
                   const { _id, image_url } = pin;
                   return (
-                    <img key={_id} className="bin-pin-img" src={image_url} />
+                    <img key={_id} className="bin-pin-img" src={image_url} alt="bin-pin-img"/>
                   )
                 })
               }
@@ -51,7 +51,7 @@ class BinIndex extends Component {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Somethin' done borked</p>
           const { userBins } = data;
-          console.log(userBins);
+
 
           return (
             <div className="bin-index-container">
