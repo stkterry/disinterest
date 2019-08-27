@@ -6,7 +6,7 @@ import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
 const { FETCH_USER_BINS } = Queries;
-const { UPDATE_BIN } = Mutations;
+const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN } = Mutations;
 
 
 const splitArray = (arr, n) => {
@@ -63,32 +63,6 @@ class PinIndex extends Component {
     document.getElementById(pinId).style.display = "flex";
   }
 
-  // renderBinDrop(pin) {
-  //   return (
-  //     <Mutation mutation={UPDATE_BIN}>
-  //     { updateBin => {
-
-  //       let bins = <Query
-  //         query={FETCH_USER_BINS}
-  //         variables={{ userId: this.currentUser._id }}
-  //       >
-  //         {({ loading, error, data }) => {
-  //           if (loading) return <p>Loading...</p>;
-  //           if (error) return <p>Somethin' done borked</p>
-  //           return data.userBins;
-  //         }}
-  //       </Query>
-  //         return (
-  //           <ul>
-  //             {bins.map(bin => <li key={bin._id}>{bin.title}</li>)}
-  //           </ul>
-  //         );
-  //     }}
-  //     </Mutation>
-  //   )
-
-  // }
-
   renderBinDrop(pin) {
     let userIdVar; 
     if (this.currentUser) userIdVar = this.currentUser._id;
@@ -128,6 +102,28 @@ class PinIndex extends Component {
 
   }
 
+  renderSaveToBin() {
+    return (
+      <Mutation mutation={COPY_PIN} >
+          {copyPin => (
+            <button 
+              onClick={event => {
+                event.preventDefault();
+                if (this.state.selectedBin) {
+                  const binId = this.state.selectedBin._id;
+                  const pinId = this.state.selectedPin._id;
+                  copyPin({variables: { binId, pinId }});
+                }
+              }}
+              className="add-bin-drop-save"
+            >
+              Save
+            </button>
+          )}
+      </Mutation>
+    )
+  }
+
   render() {
     const splits = splitArray(this.props.pins, 5);
 
@@ -153,6 +149,7 @@ class PinIndex extends Component {
                         <i className="fa fa-angle-down" />
                       </div>
                     </button>
+                    {/* {this.renderSaveToBin()} */}
                     <button className="add-bin-drop-save">Save</button>
                   </div>
 

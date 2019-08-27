@@ -131,8 +131,9 @@ const mutations = new GraphQLObjectType({
         url: { type: GraphQLID },
         title: { type: GraphQLString },
         description: { type: GraphQLString },
+        image_url: { type: GraphQLString },
         tags: { type: GraphQLList(GraphQLString) },
-        userId: { type: GraphQLID }
+        author: { type: GraphQLID }
       },
       resolve(_, { url, title, description, tags, userId }) {
         return new Pin({ url, title, description, tags, author: userId })
@@ -152,6 +153,7 @@ const mutations = new GraphQLObjectType({
         description: { type: GraphQLString },
         tags: { type: GraphQLList(GraphQLString) },
         pins: { type: GraphQLList(GraphQLID) },
+        image_url: { type: GraphQLString },
         userId: { type: GraphQLID }
       },
       resolve(_, { title, description, tags, pins, userId }) {
@@ -159,6 +161,7 @@ const mutations = new GraphQLObjectType({
           .save()
           .then(bin => {
             User.addBin(userId, bin._id).exec();
+            User.addPins(userId, pins).exec();
             return bin;
           });
       }
