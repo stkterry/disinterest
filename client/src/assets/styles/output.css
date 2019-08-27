@@ -510,13 +510,15 @@ code {
 
 .save-to-bins {
   display: flex;
-  flex-direction: row;
-  width: calc(100% - 36px); }
+  flex-direction: row; }
   .save-to-bins button {
+    max-width: 70%;
     border: none;
     outline: none;
     font-weight: bold;
     font-size: 14px; }
+    .save-to-bins button div > h3 {
+      text-align: left; }
 
 .add-bin-drop-btn {
   background: rgba(255, 255, 255, 0.9);

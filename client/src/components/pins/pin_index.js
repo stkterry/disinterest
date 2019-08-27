@@ -102,7 +102,14 @@ class PinIndex extends Component {
 
   }
 
-  renderSaveToBin() {
+  renderSaveToBin(pinId) {
+    const {target, bin} = this.state.selectedBin;
+    if (target && bin) {
+     console.log(target, bin) 
+    //   if (selectedBin.pins.include(selectedPin._id)) console.log('here')
+    }
+
+
     return (
       <Mutation mutation={COPY_PIN} >
           {copyPin => (
@@ -112,7 +119,7 @@ class PinIndex extends Component {
                 if (this.state.selectedBin) {
                   const binId = this.state.selectedBin._id;
                   const pinId = this.state.selectedPin._id;
-                  copyPin({variables: { binId, pinId }});
+                  // copyPin({variables: { binId, pinId }});
                 }
               }}
               className="add-bin-drop-save"
@@ -145,12 +152,12 @@ class PinIndex extends Component {
                       <div className="add-bin-drop-select">
                           {(this.state.selectedBin.target === pin._id) ? (
                             <h3>{this.state.selectedBin.bin.title}</h3>
-                          ) : <h3 className="add-bin-drop-none">Select Bin       </h3>}
+                          ) : <h3 className="add-bin-drop-none">Select Bin</h3>}
                         <i className="fa fa-angle-down" />
                       </div>
                     </button>
-                    {/* {this.renderSaveToBin()} */}
-                    <button className="add-bin-drop-save">Save</button>
+                    {this.renderSaveToBin(_id)}
+                    {/* <button className="add-bin-drop-save">Save</button> */}
                   </div>
 
                   <div className="pin-hud-links">

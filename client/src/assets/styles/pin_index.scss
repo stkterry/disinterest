@@ -126,13 +126,15 @@
 .save-to-bins {
   display: flex;
   flex-direction: row;
-  width: calc(100% - 36px);
-
   button {
+    max-width: 70%;
     border: none;
     outline: none;
     font-weight: bold;
     font-size: 14px;
+    div > h3 {
+      text-align: left;
+    }
   }
 }
 .add-bin-drop-btn {
