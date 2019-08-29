@@ -27,15 +27,28 @@ class PinIndex extends Component {
       selectedPin: "",
       selectedBin: {target: "", bin: ""}
     }
-
+    // this.pinHud = document.getElementById("pin-hud-id");
     this.currentUser = JSON.parse(localStorage.getItem("current-user"));
     this.closeAny = this.closeAny.bind(this);
     this.closeAllEvent = this.closeAllEvent.bind(this);
+    this.handlePinClick = this.handlePinClick.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener("keyup", this.closeAllEvent);
+    this.pinHud = document.getElementById("pin-hud-id");
   }
+
+  handlePinClick(event, _id) {
+    debugger;
+    let classList = Array.from(event.target.classList);
+    classList.includes("pin-hud");
+
+    if (classList.includes("pin-hud")) {
+      this.props.history.push(`/pins/${_id}`);
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener("keyup", this.closeAllEvent);
   }
@@ -144,7 +157,7 @@ class PinIndex extends Component {
               <div className="shadow-boxer">
                 <img onClick={() => this.props.history.push(`/pins/${_id}`)} className="masonry-img" src={image_url} alt={pin.title}/>
 
-                <div className="pin-hud">
+                <div onClick={(event) => this.handlePinClick(event, _id)} className="pin-hud">
                   <div className="save-to-bins">
                     <button
                       className="add-bin-drop-btn"

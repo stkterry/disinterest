@@ -28,7 +28,7 @@ class BinForm extends React.Component {
   }
 
   handleClose(event) {
-    debugger;
+ 
     if (event.target === this.modalBackground || event.target === this.closeButton) {
       this.modalBackground.classList.add("displaynone");
     } 
