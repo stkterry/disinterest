@@ -5,9 +5,9 @@ import { urlCleaner } from "../../util/func_util";
 import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
-const { FETCH_USER_BINS } = Queries;
-// const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN } = Mutations;
-const { COPY_PIN } = Mutations;
+const { FETCH_USER_BINS, FETCH_USER_PINS } = Queries;
+const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN, COPY_PIN_AND_ADD_TO_BIN } = Mutations;
+// const { COPY_PIN } = Mutations;
 
 
 const splitArray = (arr, n) => {
@@ -19,16 +19,21 @@ const splitArray = (arr, n) => {
   return split;
 }
 
+const _nullState = () => ({
+  selectedPin: "",
+  selectedBin: {target: "", bin: ""}
+})
+
 class PinIndex extends Component {
   constructor(props) {
     super(props);
+    this.currentUser = JSON.parse(localStorage.getItem("current-user"));
 
     this.state = {
       selectedPin: "",
       selectedBin: {target: "", bin: ""}
     }
 
-    this.currentUser = JSON.parse(localStorage.getItem("current-user"));
     this.closeAny = this.closeAny.bind(this);
     this.closeAllEvent = this.closeAllEvent.bind(this);
   }
@@ -79,7 +84,7 @@ class PinIndex extends Component {
           const binBtns = userBins.map(bin => 
             <button
               onClick={() => {
-                this.setState({selectedBin: {target: pin._id, bin: bin}});
+                this.setState({selectedBin: {target: pin, bin: bin}});
                 this.closeAny();
               }}
               key={bin._id} 
@@ -103,32 +108,72 @@ class PinIndex extends Component {
 
   }
 
-  renderSaveToBin(pinId) {
+  renderSaveToBin() {
     const {target, bin} = this.state.selectedBin;
-    if (target && bin) {
-     console.log(target, bin) 
-    //   if (selectedBin.pins.include(selectedPin._id)) console.log('here')
-    }
+    if (bin) {
+      return (
+        <Query
+          query={FETCH_USER_PINS}
+          variables={{ userId: this.currentUser._id }}
+        >
+          {({ loading, error, data }) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>Somethin' done borked</p>
+            const userPins = data.userPins;
+            const userPinIds = userPins.map(pin => pin._id);
 
-
-    return (
-      <Mutation mutation={COPY_PIN} >
-          {copyPin => (
-            <button 
-              onClick={event => {
-                event.preventDefault();
-                if (this.state.selectedBin) {
-                  const binId = this.state.selectedBin._id;
-                  const pinId = this.state.selectedPin._id;
-                  // copyPin({variables: { binId, pinId }});
-                }
-              }}
-              className="add-bin-drop-save"
-            >
-              Save
-            </button>
-          )}
-      </Mutation>
+            if (userPinIds.includes(target._id)) {
+              return (
+                <Mutation mutation={ADD_PIN_TO_BIN} >
+                  {addPinToBin => (
+                    <button
+                      onClick={event => {
+                        event.preventDefault();
+                        addPinToBin({
+                          variables: {
+                            binId: bin._id,
+                            pinId: target._id
+                          }});
+                        this.setState({ selectedBin: { target: "", bin: "" } });
+                      }}
+                      className="add-bin-drop-save"
+                    >
+                      Save
+                    </button>
+                  )}
+                </Mutation>
+              )
+            } else return (
+              <Mutation mutation={COPY_PIN_AND_ADD_TO_BIN} >
+                {copyPinAndAddToBin => (
+                  <button
+                    onClick={event => {
+                      event.preventDefault();
+                      copyPinAndAddToBin({
+                        variables: Object.assign(
+                          {},
+                          target,
+                          { 
+                            userId: this.currentUser._id, 
+                            url: target.url._id,
+                            binId: bin._id
+                          }
+                        )
+                      });
+                      this.setState({ selectedBin: { target: "", bin: "" } });
+                    }}
+                    className="add-bin-drop-save"
+                  >
+                    Save
+                  </button>
+                )}
+              </Mutation>
+            )
+          }}
+        </Query>
+      )
+    } else return (
+      <button className="add-bin-drop-save">Save</button>
     )
   }
 
@@ -151,7 +196,7 @@ class PinIndex extends Component {
                       onClick={event => this.showBinDrop(event, _id)}
                     > 
                       <div className="add-bin-drop-select">
-                          {(this.state.selectedBin.target === pin._id) ? (
+                          {(this.state.selectedBin.target._id === pin._id) ? (
                             <h3>{this.state.selectedBin.bin.title}</h3>
                           ) : <h3 className="add-bin-drop-none">Select Bin</h3>}
                         <i className="fa fa-angle-down" />

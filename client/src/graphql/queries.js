@@ -23,9 +23,10 @@ export default {
 
   FETCH_USER_PINS: gql`
   query fetchUserPins($userId: ID!) {
-    userPins(_id: $userId) {
+    userPins(userId: $userId) {
       _id,
       url {
+        _id,
         link,
         snores,
         created_by
@@ -115,6 +116,7 @@ export default {
     somePins(limit: 19, offset: $offset) {
         _id,
         url {
+          _id,
           link,
           snores,
           created_by

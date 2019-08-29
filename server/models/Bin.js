@@ -35,6 +35,7 @@ BinSchema.statics.findPins = function(binId) {
 };
 
 BinSchema.statics.addPin = function (binId, pinId) {
+  // console.log(binId, pinId)
   return this.findByIdAndUpdate(
     binId,
     { $addToSet: { pins: pinId } },

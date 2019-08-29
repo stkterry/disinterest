@@ -90,7 +90,7 @@ export default {
 
   COPY_PIN: gql`
   mutation CopyPin($url: ID, $title: String, $description: String, $tags: [String], $image_url: String, $userId: ID) {
-    copyPin(url: $url, title: $tile, description: $description, tags: $tags, iamge_url: $image_url, userId: $userId) {
+    copyPin(url: $url, title: $title, description: $description, tags: $tags, image_url: $image_url, userId: $userId) {
       _id,
       url {
         _id,
@@ -101,7 +101,28 @@ export default {
       title,
       description,
       tags,
-      author
+      author {
+        _id
+      }
+    }
+  }`,
+
+  COPY_PIN_AND_ADD_TO_BIN: gql`
+  mutation CopyPinAndAddToBin($url: ID, $title: String, $description: String, $tags: [String], $image_url: String, $userId: ID, $binId: ID) {
+    copyPinAndAddToBin(url: $url, title: $title, description: $description, tags: $tags, image_url: $image_url, userId: $userId, binId: $binId) {
+      _id,
+      url {
+        _id,
+        link,
+        snores,
+        created_by
+      },
+      title,
+      description,
+      tags,
+      author {
+        _id
+      }
     }
   }`,
 

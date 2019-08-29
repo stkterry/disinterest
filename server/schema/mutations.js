@@ -133,14 +133,39 @@ const mutations = new GraphQLObjectType({
         description: { type: GraphQLString },
         image_url: { type: GraphQLString },
         tags: { type: GraphQLList(GraphQLString) },
-        author: { type: GraphQLID }
+        userId: { type: GraphQLID }
       },
-      resolve(_, { url, title, description, tags, userId }) {
-        return new Pin({ url, title, description, tags, author: userId })
+      resolve(_, { url, title, description, image_url, tags, userId }) {
+        console.log("i am here");
+        return new Pin({ url, title, description, image_url, tags, author: userId })
           .save()
           .then(pin => {
             Url.moreBoring(pin.url).exec();
             User.addPin(userId, pin._id).exec();
+            return pin;
+          })
+      }
+    },
+
+    copyPinAndAddToBin: {
+      type: PinType,
+      args: {
+        url: { type: GraphQLID },
+        title: { type: GraphQLString },
+        description: { type: GraphQLString },
+        image_url: { type: GraphQLString },
+        tags: { type: GraphQLList(GraphQLString) },
+        userId: { type: GraphQLID },
+        binId: { type: GraphQLID }
+      },
+      resolve(_, { url, title, description, image_url, tags, userId, binId }) {
+        console.log("i am here");
+        return new Pin({ url, title, description, image_url, tags, author: userId })
+          .save()
+          .then(pin => {
+            Url.moreBoring(pin.url).exec();
+            User.addPin(userId, pin._id).exec();
+            Bin.addPin(binId, pin._id).exec();
             return pin;
           })
       }
@@ -193,7 +218,6 @@ const mutations = new GraphQLObjectType({
         image_url: { type: GraphQLString }
       },
       resolve(_, { _id, title, description, tags, pins, image_url }) {
-
         return Bin.findByIdAndUpdate(
           _id,
           { title, description, tags, pins, image_url },
@@ -240,7 +264,5 @@ const mutations = new GraphQLObjectType({
 
   }
 });
-
-
 
 module.exports = mutations;
