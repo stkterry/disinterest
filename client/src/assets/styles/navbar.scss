@@ -104,7 +104,7 @@ $navpadding: 602px;
 .navbar-link {
   font-size: 16px;
   padding: 12px 16px;
-  border-radius: 25px;
+  // border-radius: 16px;
   font-weight: bold;
   color: #8e8e8e;
 }
@@ -123,7 +123,7 @@ $navpadding: 602px;
 }
 
 .user-initial {
-  margin: 0 15px 0 0;
+  margin: 0 12px 0 0;
   font-size: 12px;
   color: rgb(255, 255, 255);
   border-radius: 50%;
@@ -131,7 +131,7 @@ $navpadding: 602px;
   height: 25px;
   width: 25px;
   text-align: center;
-  line-height: 25px;
+  line-height: 26px;
 }
 
 .navbar-username {
@@ -156,12 +156,13 @@ $navpadding: 602px;
 }
 
 .navbar i {
-  width: 32px;
+  margin: 0 8px;
+  width: 24px;
   height: 24px;
   line-height: 24px;
   text-align: center;
   vertical-align: middle;
-  padding: 8px 8px 8px 14px;
+  padding: 8px 8px 8px 8px;
   border-radius: 50%;
 }
 .navbar-right i:hover {

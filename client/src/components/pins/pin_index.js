@@ -6,8 +6,7 @@ import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
 import { withRouter } from "react-router-dom";
 const { FETCH_USER_BINS, FETCH_USER_PINS } = Queries;
-const { UPDATE_BIN, ADD_PIN_TO_BIN, COPY_PIN, COPY_PIN_AND_ADD_TO_BIN } = Mutations;
-// const { COPY_PIN } = Mutations;
+const { ADD_PIN_TO_BIN, COPY_PIN_AND_ADD_TO_BIN } = Mutations;
 
 
 const splitArray = (arr, n) => {
@@ -18,11 +17,6 @@ const splitArray = (arr, n) => {
   }
   return split;
 }
-
-const _nullState = () => ({
-  selectedPin: "",
-  selectedBin: {target: "", bin: ""}
-})
 
 class PinIndex extends Component {
   constructor(props) {
