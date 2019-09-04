@@ -19,7 +19,7 @@ A Pinterest clone of the world's most uninteresting topics
 * Docker
 
 # Functionality
-Users can add/remove boids and obstacles, set sliders for the simulation variables, show/hide underlying structures and rules that guide the boids, and step through a boid's behavior.
+
 
 ## User Authentication
 * Users can create accounts, login, and logout
