@@ -20,7 +20,6 @@ A Pinterest clone of the world's most uninteresting topics
 
 # Functionality
 
-
 ## User Authentication
 * Users can create accounts, login, and logout
 * User demo account and functionality
