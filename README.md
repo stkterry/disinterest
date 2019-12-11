@@ -130,7 +130,7 @@ of both a new pin with a url that doesn't already exist in the database.
       }
     },
 ```
-You'll notice the same url argument now refers to just a string; in this context
+You'll notice the same url argument now refers to just a string, in this context
 the url link itself.
 
 That's three separate contexts for how the url data is handled for a pin/url object:
