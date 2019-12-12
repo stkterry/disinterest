@@ -1,5 +1,5 @@
 # Disinterest
-[Live Link](https://disinterest-aa.herokuapp.com/#/ "Disinterest Live Link")
+[Live Link](https://disinterest-a.herokuapp.com/#/ "Disinterest Live Link")
 
 A Pinterest clone of the world's most uninteresting topics
 
