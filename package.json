@@ -55,6 +55,6 @@
     "multer-s3": "^2.9.0",
     "nodemon": "^1.19.4",
     "uuid": "^3.3.3",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   }
 }
